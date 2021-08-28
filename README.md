@@ -1,6 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can check our project.(https://codecard.co.in).
 
-## Available Scripts
+## Official Repository for CodeCard client.
 
 In the project directory, you can run:
 
