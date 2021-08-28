@@ -1,0 +1,195 @@
+/* Contests Top Box */
+
+.contest-box-header{
+    /* background-color: violet; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+.contest-box-header-img{
+    /* background-color: #d89504; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contest-box-header-img img{
+    width: 215px;
+}
+
+.contest-box-header-content{
+    /* background-color: red; */
+    width: 55%;
+}
+
+.contest-box-header-content header{
+    color: #fd9d0e;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 'Spirax', cursive;
+}
+
+.contest-box-header-content p{
+    font-size: 1.1rem;
+}
+
+.contest-box-header-content h4{
+    letter-spacing: 1.5px;
+    font-size: 2rem;
+}
+
+.contest-box-header-content h6{
+    text-align: right;
+    font-size: 1.3rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.contest-box-header-content hr{
+    margin: 0 0 10px 0;
+}
+
+.contest-box-skeleton{
+    width: 600px;
+}
+
+/* Contest Table */
+
+.contest-table{
+    /* background-color: hotpink; */
+    height: 567px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    overflow: scroll;
+}
+
+.contest-table th,td{
+    text-align: center;
+}
+
+.contest-name a{
+    color: black;
+    transition: color 0.2s ease-out;
+}
+
+.contest-name a:hover{
+    color: rgb(87, 85, 2);
+}
+
+.website-logo i{
+    color: green;
+}
+
+.offline i{
+    color: red !important;
+}
+
+.website-logo a{
+    padding: 0;
+    /* padding-right: 40px; */
+}
+
+.website-logo img{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+
+/* Contest Bottom Box */
+.contest-bottom-box{
+    /* background-color: rgb(191, 223, 126); */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contest-bottom-box-content a{
+    color: #fd9d0e;
+    font-family: 'Pacifico', cursive;;
+}
+
+.contest-bottom-box-content p{
+    font-size: 1.4rem;
+}
+
+.contest-bottom-box-content h6{
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    text-align: right;
+}
+
+.contest-bottom-box-img img{
+    width: 230px;
+}
+
+.contest-bottom-skeleton{
+    width: 600px;
+}
+
+@media (max-width: 500px){
+    /* Contest Top Box */
+    .contest-box-header{
+        flex-direction: column-reverse;
+    }
+
+    .contest-box-header-content{
+        width: unset;
+    }
+
+    .contest-box-header-content header{
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .contest-box-header-content p{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .contest-box-header-content h6{
+        font-size: 1.2rem;
+    }
+
+    .contest-box-header-img img{
+        width: 180px;
+    }
+
+    .contest-box-skeleton{
+        width: 290px;
+    }
+
+    /* Contest Table */
+
+
+    /* Contest Bottom Box */
+    .contest-bottom-box{
+        flex-direction: column-reverse;
+    }
+
+    .contest-bottom-box-content p{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .contest-bottom-box-content{
+        font-size: 1.15rem;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    .contest-bottom-box-img{
+        margin-bottom: 10px;
+    }
+
+    .contest-bottom-box-img img{
+        width: 195px;
+    }
+
+    .contest-bottom-skeleton{
+        width: 290px;
+    }
+}

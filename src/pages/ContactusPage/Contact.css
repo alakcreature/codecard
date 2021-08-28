@@ -1,0 +1,111 @@
+.contact-main-content-inner{
+    /* background-color: royalblue; */
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+/* Practice Box */
+.contact-box-header{
+    /* background-color: violet; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.contact-box-header-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-box-header-img img{
+    width: 300px;
+}
+
+.contact-box-header-content{
+    /* background-color: violet; */
+}
+
+.contact-box-header-content header{
+    color: #fd9d0e;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 'Spirax', cursive;
+}
+
+.contact-box-header-content p{
+    font-size: 1.1rem;
+}
+
+.contact-box-header-content h4{
+    letter-spacing: 1.5px;
+    font-size: 2rem;
+}
+
+.contact-box-header-quote{
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+}
+
+.contact-box-header-content hr{
+    margin: 0 0 10px 0;
+}
+
+/* Contact Form */
+.contact-form{
+    /* background-color: #f2f2f2; */
+    padding: 20px 40px;
+}
+
+.contact-form-inner{
+    /* background-color: salmon; */
+    padding: 10px 20px;
+}
+
+@media (max-width:500px){
+    .contact-main-content-inner{
+        padding-top: 0px;
+    }
+
+
+
+    /* Practice Box */
+
+    .contact-box-header{
+        flex-direction: column-reverse;
+    }
+
+    .contact-box-header-content header{
+        text-align: center;
+    }
+
+    .contact-box-bottom-img img{
+        width: 250px;
+    }
+
+    .contact-box-header-content{
+        width: unset;
+    }
+
+    .contact-box-header-content p{
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .contact-box-header-content h4{
+        font-size: 1.5rem;
+    }
+
+    /* Contact Form */
+    .contact-form{
+        /* background-color: #f2f2f2; */
+        padding: 20px 0px;
+    }
+    
+    .contact-form-inner{
+        /* background-color: salmon; */
+        padding: 10px 0px;
+    }
+}

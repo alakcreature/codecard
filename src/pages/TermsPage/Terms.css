@@ -1,0 +1,10 @@
+.terms-main-content{
+    /* background-color: gold; */
+    margin-top: 80px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.termsheader-section a{
+    color: #F39C13;
+    font-weight: bold;
+}

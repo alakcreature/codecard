@@ -1,0 +1,354 @@
+/* Main Content */
+.leaderboard-main-content{
+    font-family: 'Kumbh Sans', sans-serif;
+    /* background-color: gold; */
+    /* height: 400px; */
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.leaderboard-main-content-inner{
+    padding-bottom: 20px;
+}
+
+.leaderboard-main-content header h4{
+    font-weight: 800;
+}
+
+/* Leaderboard Top Box */
+
+.leaderboard-box-header{
+    /* background-color: violet; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.leaderboard-box-header-img{
+    /* background-color: yellowgreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-box-header-img img{
+    width: 360px;
+}
+
+.leaderboard-box-header-content{
+    /* background-color: violet; */
+    /* width: 38%; */
+}
+
+.leaderboard-box-header-content header{
+    color: #fd9d0e;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: 'Spirax', cursive;
+}
+
+.leaderboard-box-header-content p{
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0;
+}
+
+.leaderboard-box-header-content h6{
+    font-size: 1.2rem;
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+}
+
+.leaderboard-box-header-content hr{
+    margin: 0 0 10px 0;
+}
+
+.leaderboard-box-header-skeleton{
+    width: 600px;
+}
+
+/* Search Box */
+.search-info{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 10px;
+}
+
+.search-info-text h5{
+    font-size: 1.1rem;
+    padding-top: 6px;
+}
+
+.search-box-dropdown{
+    margin: 0;
+    padding: 0;
+    /* width: 55%; */
+    /* background-color: brown; */
+    float: rights;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown{
+    /* background-color: yellow; */
+    width: 50%;
+}
+
+.dropdown select{
+    font-weight: bold;
+}
+
+.search-box{
+    /* background-color: chartreuse; */
+    width: 100%;
+}
+
+.leaderboard-searchbox-btn{
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background: rgb(248, 211, 1);
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding: 0 10px;
+    margin-left: 15px;
+    transition: background 0.2s ease-in-out;
+}
+
+.leaderboard-searchbox-btn:hover{
+    background: rgb(226, 204, 7);
+}
+
+/* Leaderboard Table */
+.leaderboard-table{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(231, 231, 231);
+    padding: 10px 15px;
+    height: 567px;
+    overflow: scroll;
+}
+
+.leaderboard-table table td{
+    max-width: 400px;
+}
+
+.country-td-tag img{
+    width: 30px;
+    height: 20px;
+}
+
+.td-name{
+    color: black !important;
+}
+
+.offline i{
+    color: "red";
+}
+
+.neutral i{
+    color: blue !important;
+}
+
+.td-perdaychange i{
+    color: green;
+}
+
+.pagination{
+    /* background-color: darkcyan; */
+    padding: 0;    
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Character Parts */
+.quote-container{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.character-content p{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.character-content h6{
+    text-align: right;
+}
+
+.character-img img{
+    /* background-color: darkorchid; */
+    width: 150px;
+    height: 180px;
+}
+
+.character-content-skeleton{
+    width: 600px;
+}
+
+
+/* bottom part */
+.practice-page-link{
+    background-color: rgb(195, 213, 216);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 240px 0 200px;
+    height: 150px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.practice-page-link p{
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.practice-page-link p span{
+    border-radius: 4px;
+}
+
+.practice-page-link a{
+    font-family: 'Pacifico', cursive;
+    color: #ff8800;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.practice-page-link img{
+    position: absolute;
+    right: 0;
+    /* padding-left: 10px; */
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width:500px) {
+
+    /* Leaderboard Header Box */
+    .leaderboard-box-header{
+        margin-bottom: 15px;
+        flex-direction: column;
+    }
+
+    .leaderboard-box-header-img{
+        margin-bottom: 10px;
+    }
+
+    .leaderboard-box-header-img img{
+        width: 260px;
+    }
+
+    .leaderboard-box-header-content header{
+        text-align: center;
+    }
+
+    .leaderboard-box-header-content{
+        width: 90%;
+    }
+
+    .leaderboard-box-header-content p{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .leaderboard-box-header-skeleton{
+        width: 290px;
+    }
+
+    /* Search Box */
+    .search-info{
+        grid-template-columns: 1fr;
+    }
+
+    .search-info-text h5{
+        font-size: 0.84rem;
+        font-weight: bold;
+        /* line-height: unset; */
+    }
+
+    .search-box{
+        flex-direction: column;
+    }
+
+    .search-box-dropdown{
+        flex-direction: column;
+        width: unset;
+        margin-bottom: 10px;
+    }
+
+    .dropdown{
+        width: 75%;
+        margin-bottom: 10px;
+    }
+
+    /* Leaderboard Table */
+    .leaderboard-table{
+        margin-top: unset;
+    }
+
+    /* Character Part */
+    .quote-container{
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .character-img{
+        margin-bottom: 10px;
+    }
+
+    .character-img img{
+        width: 110px;
+        height: 138px;
+    }
+
+    .character-content p{
+        font-size: 1.1rem;
+        text-align: right;
+        margin: 0;
+    }
+
+    .character-content h6{
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+
+    .character-content-skeleton{
+        width: 290px;
+    }
+
+    /* Practice Bottom Box */
+    .practice-page-link{
+        height: 150px;
+        margin: unset;
+    }
+
+    .practice-page-link p{
+        margin-top: 70px;
+        margin-bottom: unset;
+    }
+
+    .practice-page-link>.character-content{
+        display: none;
+    }
+
+    .practice-page-link img{
+        right: unset;
+        top: 0;
+        width: 80px;
+        height: 80px;
+    }
+}

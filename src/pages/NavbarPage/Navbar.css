@@ -1,0 +1,162 @@
+.updatetab{
+    background: #F39C13;
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+
+
+.navbar{
+    background-color: #f2f2f2;
+    padding: 10px 60px 0px 60px;
+}
+
+.navbar-brand{
+    /* letter-spacing: 1.2px; */
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: 'Fredoka One', cursive;
+    padding: 0 6px 0 0;
+    margin-left: 15px;
+}
+
+.navbar-brand a{
+    color: #F39C13;
+}
+
+.homepage-search-form{
+    width: 350px;
+}
+
+.feedbackbtn{
+    color: black; 
+    /* font-weight: bold; */
+}
+
+.navbar-light .navbar-nav .nav-link {
+    
+}
+
+
+/* Feedback Section */
+.main-feedback{
+    /* background-color: lightseagreen; */
+    font-family: 'Balsamiq Sans', cursive;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.main-feedback-inner{
+}
+
+/* Question 1 */
+
+.q1{
+    /* background-color: sienna; */
+    margin-bottom: 15px;
+}
+
+.q1 h3{
+    font-size: 1.1rem;
+    /* margin-bottom: 20px; */
+}
+
+.q1 div{
+    /* background-color: springgreen; */
+    font-size: 0.9rem;
+}
+
+/* Question 2 */
+.q2{
+    /* background-color: springgreen; */
+    margin-bottom: 15px;
+}
+
+.q2 h3{
+    font-size: 1.1rem;
+    /* margin-bottom: 20px; */
+}
+
+.q2 select{
+    /* background-color: tomato; */
+    padding: 0 20px;
+}
+
+/* Question 3 */
+.q3{
+    /* background-color: springgreen; */
+    margin-bottom: 15px;
+}
+
+.q3 h3{
+    font-size: 1.1rem;
+    /* margin-bottom: 20px; */
+}
+
+.q3 select{
+    /* background-color: tomato; */
+    padding: 0 20px;
+}
+
+/* Question 4 */
+
+.q4,.q6{
+    /* background-color: yellow; */
+    margin-bottom: 15px;
+}
+
+.q4 h3,.q6 h3{
+    font-size: 1.1rem;
+    /* margin-bottom: 20px; */
+}
+
+/* Question 5 */
+
+.q5{
+    /* background-color: sienna; */
+    /* border-bottom: 1px solid black; */
+    margin-bottom: 15px;
+}
+
+.q5 h3{
+    font-size: 1.05rem;
+    /* margin-bottom: 20px; */
+
+}
+
+.q5 div{
+    /* background-color: springgreen; */
+    font-size: 0.9rem;
+}
+
+.main-feedback-inner button{
+    /* background-color: rgb(105, 170, 125); */
+    background: #F39C13;
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background 0.2s ease-in-out;
+}
+
+.main-feedback-inner button:hover{
+    background: #d89323;
+}
+
+
+@media (max-width: 500px){
+    body{
+        padding-bottom: 190px;
+    }
+
+    .navbar{
+        padding: 10px 15px 10px 0px;
+    }
+
+    .navbar-brand{
+        margin-left: 11px;
+    }
+
+    /* Feedback section */
+    .q1 h3,.q2 h3,.q3 h3,.q4 h3,.q5 h3,.q6 h3{
+        font-size: 1rem !important;
+    }
+}

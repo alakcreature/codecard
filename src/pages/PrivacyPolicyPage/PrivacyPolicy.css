@@ -1,0 +1,21 @@
+.privacy-main-content{
+    /* background-color: gold; */
+    margin-top: 80px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.privacy-header-section a, .dart-section a, .logfiles-section a{
+    color: #F39C13;
+    font-weight: bold;
+}
+
+@media (max-width: 500px){
+    .privacy-header-section h1{
+        font-size: 1.46rem;
+        font-weight: bold;
+    }
+
+    .informationuse-section h1{
+        font-size: 1.39rem;
+    }
+}

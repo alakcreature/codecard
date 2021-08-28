@@ -1,0 +1,695 @@
+/* Modal Section */
+.mymodal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.29);
+}
+
+.mymodal-content{
+    /* background-color: #f4f4f4; */
+    margin: 20% auto;
+    margin-top: 170px;
+    width: 660px;
+}
+
+.mymodal-form-content{
+    font-family: 'Kumbh Sans', sans-serif;
+    background-color: white;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 25px;
+    margin: 0 25px;
+}
+
+.mymodal-form-content header{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.mymodal-form-content hr{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.modal-btn{
+    background-color: #1875c2;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 0 15px;
+    padding-top: 6px;
+    padding-bottom: 4px;
+}
+
+.closebtn{
+    color: white;
+    float: right;
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.2s ease-in-out;
+}
+
+.closebtn:hover, .closebtn:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cropmodal{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.29);
+}
+
+.cropmodal-main{
+    /* background-color: red; */
+    margin: 100px auto;
+    width: 800px;
+    
+    /* height: 100vh; */
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 170px; */
+}
+
+.cropmodal-main-inner{
+    background-color: #f4f4f4;
+    width: 600px;
+}
+
+.cropmodal-content{
+    font-family: 'Kumbh Sans', sans-serif;
+    /* background-color: rgb(53, 235, 204); */
+}
+
+
+.closebtncropmodal{
+    color: black;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Main Content */
+.main-content{
+    /* background-color: gold; */
+}
+
+.profile-main-content-inner{
+    /* background-color: green; */
+    border-radius: 12px;
+    margin-top: 80px !important;
+    padding-bottom: 20px;
+    /* box-shadow: 3px 3px 5px 6px #ccc; */
+}
+
+
+/* Profile Info Section */
+.profile-info{
+    background-color: white;
+    position: relative;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.edit-btn{
+    /* background: orchid; */
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.edit-btn i{
+
+}
+
+
+input[type="file"]{
+    display: none;
+}
+
+.profile-img{
+    position: relative;
+    width: fit-content;
+    /* background-color: brown; */
+    transform: translate(10px,-51px);
+}
+
+.profile-img img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.image-icon-avatar{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: grey;
+    transform: translateY(-24px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-overlay{
+    display: none;
+    cursor: pointer;
+}
+.profilepic-overlay-inner{
+    position: absolute;
+    top: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img:hover .profile-overlay{
+    display: block;
+}
+
+.user-info{
+    /* background-color: teal; */
+    font-family: 'Kumbh Sans', sans-serif;
+    width: fit-content;
+    margin-left: 20px;
+    transform: translate(2px,-34px);
+}
+
+.username-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username-div h4{
+    font-size: 1.3rem;
+}
+
+.username-div i, .edit-btn i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.username-div i:hover, .edit-btn i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.usernamechange-div i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.usernamechange-div i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.username-div-skeleton{
+    width: 300px;
+}
+
+.collegename-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collegename-div h3{
+    font-size: 0.99rem;
+}
+
+.collegename-div i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.collegename-div i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.collegechange-div i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.collegechange-div i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.collegename-div-skeleton{
+    width: 300px;
+}
+
+.name-divider{
+    /* margin:5px 15px 0px 15px; */
+    margin: 0;
+    /* background-colosr: red; */
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+
+/* About Section */
+.about{
+    background-color: white;
+    margin-bottom: 10px;
+    margin: 0 0px 30px 0px;
+    padding: 10px 15px 10px 20px;
+    border-radius: 8px;
+    /* box-shadow: 3px 3px 5px 4px rgb(212, 207, 207); */
+}
+
+.about-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-div h3{
+    font-size: 1.3rem;
+}
+
+.about-div i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.about-div i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.about header{
+    margin: 10px 0px 10px 0px;
+}
+
+
+.about-p {
+    /* background: #F39C13; */
+    font-size: 0.99rem;
+    margin-bottom: 0;
+    display: block;
+    display: -webkit-box;
+    /* max-width: 100%; */
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.a-tag-expand p{
+    text-overflow: unset;
+    overflow: unset;
+    -webkit-box-orient: unset;
+}
+
+.hide{
+    display: none;
+}
+
+.about span a{
+    color: black;
+    transition: 0.2s ease-in-out color;
+}
+
+.about span a:hover{
+    color: rgb(36, 177, 219);
+}
+
+/* Problem Solved section */
+
+.problemsolvedmain{
+    background-color: white;
+    margin-bottom: 10px;
+    margin: 0 0px 30px 0px;
+    padding: 10px 15px 10px 20px;
+    border-radius: 8px;
+}
+
+.problemsolvedinner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.problemsolvedinner h3{
+    font-size: 1.3rem;
+}
+
+/* .problemsolvedmain i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+} */
+
+.problemsolvedinner i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.problemsolvedmain header{
+    margin: 10px 0 20px 0;
+}
+
+
+.solvedproblemslist{
+    /* background: red; */
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.solvedproblemslist p{
+    padding: 10px 300px;
+    font-size: 1.1rem;
+}
+
+.noproblems{
+    text-decoration: none !important;
+    color: #F39C13 !important;
+    font-size: 1.2rem;
+    font-family: 'Pacifico', sans-serif;
+}
+
+.solvedproblemslist li{
+    margin-bottom: 5px;
+}
+
+.solvedproblemslist a{
+    /* color: rgb(23, 184, 149); */
+    color: black;
+    font-size: 0.95rem;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+
+.solvedproblemslist a:hover{
+    color: rgb(112, 133, 123);
+}
+
+/* Profile Ratings */
+.ratings{
+    background-color: white;
+    margin: 0 0px 25px 0px;
+    padding: 10px 15px 10px 20px;
+    border-radius: 8px;
+}
+
+.ratings header{
+    margin: 10px 0 20px 0;
+}
+
+.rating-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating-heading h3{
+    font-size: 1.3rem;
+}
+
+.ratings i{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.ratings i:hover{
+    background-color: rgb(165, 155, 144);
+}
+
+.user-ratings{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-ratings ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+
+.user-ratings ul li button{
+    background: white;
+    padding: 0 20px;
+}
+
+.user-ratings-btn{
+    border: none;
+    outline: none;
+}
+
+.user-ratings img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Overall Progress */
+.overall-progress{
+    position: relative;
+    margin: 0 20px 25px 20px;
+    padding: 10px 15px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: violet; */
+}
+
+.overall-contest-rating{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    /* width: 300px; */
+    /* background-color: teal; */
+}
+
+.overall-contest-rating h4, .per-day h4{
+    font-size: 1.3rem;
+    font-family: 'Pacifico',sans-serif;
+}
+
+.overall-contest-rating h4{
+    cursor: pointer;
+}
+
+.per-day{
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+}
+
+.per-day h5{
+    /* margin-left: 10px; */
+    text-align: center;
+}
+
+.per-day h5 i{
+    color: rgb(16, 219, 16);
+    margin-right: 10px;
+    font-size: 1.29rem;
+}
+
+.i-negative h5 i{
+    color: red;
+}
+
+.per-day-illustration-right {
+    position: absolute;
+    right: 0;
+    /* background-color: yellow; */
+}
+
+.per-day-illustration-left {
+    position: absolute;
+    left: 0;
+}
+
+.per-day-illustration-right img{
+    width: 250px;
+    height: 250px;
+}
+
+.per-day-illustration-left img{
+    width: 250px;
+    height: 250px;
+}
+
+@media (max-width: 500px){
+
+    /* Modal Section */
+    .mymodal{
+        height: 100%;
+        z-index: 1000;
+    }
+
+    .mymodal-content{
+        margin-top: 200px;
+        width: unset;
+        margin-right: 10px;
+    }
+
+    /* Profile Info */
+    .profile-img img{
+        width: 128px;
+        height: 128px;
+    }
+
+    .profile-img{
+        position: relative;
+        width: fit-content;
+        /* background-color: brown; */
+        transform: translate(10px,-51px);
+    }
+    
+    .profile-img img{
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    .profile-overlay{
+        display: none;
+        cursor: pointer;
+    }
+    
+    .profile-img:hover .profile-overlay{
+        display: block;
+    }
+
+    .cropmodal-main{
+        width: 300px;
+    }
+
+    .cropmodal-main-inner{
+        width: 300px;
+    }
+
+    .user-info{
+        margin-right: 20px;
+    }
+
+    .lastnamechange-input{
+        display: none;
+    }
+
+    .name-divider{
+        display: none;
+    }
+
+    .username-div-skeleton{
+        width: 260px;
+    }
+
+    .collegename-div-skeleton{
+        width: 260px;
+    }
+
+
+    /* About */
+
+    .about header{
+        margin: 10px 0px 5px 0px;
+    }
+
+    .about-p{
+        font-size: 0.9rem;
+    }
+
+    /* Problem Solved */
+    .solvedproblemslist a{
+        font-size: 13px;
+    }
+
+    .solvedproblemslist p{
+        padding: 10px 10px;
+        font-size: 0.99rem;
+    }
+
+    .problemsolvedmain header{
+        margin: 10px 0 5px 0;
+    }
+
+    /* User Rating */
+    .user-ratings ul{
+        padding: 0;
+        grid-template-columns: repeat(4,1fr);
+        /* grid-gap: 15px; */
+    }
+
+    .user-ratings ul li button{
+        padding: 0 15px;
+    }
+
+    .user-ratings img{
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Overall Progress */
+    .overall-contest-rating{
+        margin-bottom: 50px;
+    }
+
+    .overall-contest-rating h4, .per-day h4{
+        font-size: 1.1rem;
+    }
+
+    .overall-contest-rating h5, .per-day h5{
+        font-size: 1rem;
+    }
+
+    .per-day-illustration-right img{
+        width: 80px;
+        height: 80px;
+    }
+    
+    .per-day-illustration-left img{
+        width: 80px;
+        height: 80px;
+    }
+}

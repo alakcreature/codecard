@@ -1,0 +1,59 @@
+.emailconfirm-main-content-inner{
+    position: relative;
+    /* background-color: brown; */
+    margin-top: 110px;
+    padding: 150px 0px;
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emailconfirm-main-content-inner h2{
+    font-size: 2.3rem;
+}
+
+.confirm-img-left{
+    position: absolute;
+    left: 0;
+}
+
+
+.confirm-img-right{
+    position: absolute;
+    right: 0;
+}
+
+.confirm-img-left img,.confirm-img-right img{
+    width: 270px;
+}
+
+@media (max-width:500px){
+    .confirm-img-left{ 
+        left: unset;
+    }
+
+    .confirm-img-right{ 
+        right: unset;
+    }
+
+    .confirm-img-left img{
+        transform: translateY(-170px);
+        width: 190px;
+    }
+
+    .confirm-img-right img{
+        transform: translateY(140px);
+        width: 190px;
+    }
+
+    .emailconfirm-main-content-inner h2 {
+        font-size: 1.4rem;
+    }
+
+    .emailconfirm-main-content-inner h4 {
+        font-size: 1.19rem;
+        text-align: center;
+    }
+}

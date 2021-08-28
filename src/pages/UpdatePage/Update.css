@@ -1,0 +1,20 @@
+.updatepage{
+    background: rgb(13, 204, 140);
+    margin-top: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.updatepage marquee{
+    /* transition: margin 0.2s ease-in-out; */
+}
+
+.updatepage marquee{
+    margin: 0;
+}
+
+.hide{
+    display: none;
+}

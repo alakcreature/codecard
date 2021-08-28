@@ -1,0 +1,362 @@
+.info-modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    overflow: auto;
+    height: 100vh;  
+    background-color: transparent;
+}
+
+.info-modal-main{
+    /* background-color: red; */
+    font-family: 'Kumbh Sans' ,sans-serif;
+    color: black;
+    margin: 70px auto;
+    width: 750px;
+    padding: 20px 21px;
+}
+
+.info-modal-inner{
+    background-color: #f2f2f2;
+    border: 1px solid black;
+    width: 680px;
+    padding: 20px 25px 20px 25px;
+}
+
+.info-content{
+    /* background-color: chartreuse; */
+}
+
+.info-content p{
+    margin: 0;
+}
+
+.info-header h2{
+    font-weight: bold;
+    font-family: 'Spirax', cursive;
+    color: #fd9d0e;
+}
+
+.info-closebtn{
+    color: black;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.2s ease-in-out;
+}
+
+.loginpage-main-content{
+    margin-top: 0px;
+}
+
+.signin-main-content-inner{
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-gap: 10px;
+    /* background-color: blue; */
+}
+
+.signup-main-content-inner{
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    grid-gap: 10px;
+}
+
+.signin-form{
+    margin-top: 110px;
+    /* background-color: blue; */
+}
+
+.signup-form{
+    /* background-color: cadetblue; */
+}
+
+.signin-form form{
+    /* background-color: crimson; */
+    padding: 10px 30px 50px 20px;
+}
+
+.signup-pic-input{
+    cursor: pointer;
+    padding:2px 78px 2px 75px !important;
+    background-color: rgb(255, 187, 0) !important;
+}
+
+
+.social-login-container{
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-login{
+    background: rgb(92, 88, 88);
+    padding: 7px 10px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.social-login a{
+    /* background: rgb(36, 35, 35); */
+    color: white;
+    font-size: 1.1rem;
+    padding: 3px 18px;
+}
+
+.or{
+    /* background: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+.signup-pic-input:hover{
+    opacity: 0.8;
+}
+
+.signin-btn{
+    float: right;
+}
+
+.signup-btn{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-items: center; */
+    /* float: right; */
+}
+
+.forgotpassword{
+    color: #F39C13 !important;
+    font-family: 'Balsamiq Sans', cursive;
+    transition: color 0.2s ease-in-out;
+}
+
+.forgotpassword:hover{
+    color: #f3d113 !important;
+}
+
+.signup-form form{
+    /* background-color: crimson; */
+    padding: 5px 30px 10px 20px;
+}
+
+.form-heading{
+    /* background-color: chocolate; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-heading p{
+    /* background-color: orange; */
+    font-family: 'Balsamiq Sans', cursive;
+    color: #F39C13;
+    font-size: 1.2rem;
+    border-bottom: 1px solid black;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.form-heading p:hover{
+    color: #f1ca1c;
+}
+
+.signin-sidecharacter-box{
+    /* background: blue; */
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-sidecharacter-img{
+    /* background-color: brown; */
+    margin-bottom: 30px;
+    /* margin-left: 20px; */
+}
+
+.signin-sidecharacter-img img{
+    transform: translateX(50px);
+    width: 320px;
+}
+
+.signin-sidecharacter-box-content{
+    /* background-color: blue; */
+}
+
+.signin-sidecharacter-box-content p{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.signin-sidecharacter-box-content h6{
+    font-size: 1.1rem;
+    float: right;
+    font-family: 'Dancing Script', cursive;
+}
+
+.checkbox-div{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+    /* width: fit-content; */
+}
+
+.label-div{
+    margin-top: 4px;
+}
+
+.info-icon{
+    margin-left: 6px;
+}
+
+.info-icon i{
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+.info-icon:hover i{
+    background-color: rgb(121, 108, 95);
+    border-radius: 50%;
+}
+
+/* .checkbox-div label i{
+    background-color:rgb(129, 123, 116);
+    padding:6px 11px;
+    cursor: pointer;
+    margin-left:10px;
+    border-radius:50%;
+} */
+
+.sidecharacter-box{
+    /* background: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidecharacter-img{
+    /* background-color: brown; */
+    margin-bottom: 30px;
+    /* margin-left: 20px; */
+}
+
+.sidecharacter-img img{
+    transform: translateX(50px);
+    width: 320px;
+}
+
+.sidecharacter-box-content{
+    /* background-color: blue; */
+}
+
+.sidecharacter-box-content p{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.sidecharacter-box-content h6{
+    font-size: 1.1rem;
+    float: right;
+    font-family: 'Dancing Script', cursive;
+}
+
+@media (max-width:500px){
+
+    .info-modal-main{
+        width: 315px;
+        padding: 20px 4px;
+    }
+
+    .info-closebtn{
+        font-size: 1.6rem;
+        transform: translateX(-12px);
+    }
+
+    .info-modal-inner{
+        width: unset;
+        padding: 10px 15px 10px 15px;
+    }
+
+    .info-header h2 {
+        font-weight: bold;
+        font-size: 1.15rem;
+    }
+
+    .signup-main-content-inner{
+        grid-template-columns: 1fr;
+    }
+
+    .signin-main-content-inner{
+        grid-template-columns: 1fr;
+    }
+
+    .signin-form{
+        /* background: red; */
+        margin-top: 10px;
+    }
+
+    .social-login-container{
+        /* background: chartreuse; */
+        margin-top: 25px;
+    }
+
+    .signin-form form{
+        /* background: red; */
+        padding: 10px 30px 35px 20px;
+    }
+
+    .form-heading{
+        flex-direction: column;
+    }
+
+    .form-heading p{
+        font-size: 1.1rem !important;
+    }
+
+    .password-div{
+        flex-direction: column;
+    }
+
+    .image-div{
+        margin-top: 10px;
+    }
+
+
+    /* Signin Character */
+    .signin-sidecharacter-box{
+        margin-top:10px;
+    }
+
+    .sidecharacter-img img{
+        width: 260px;
+    }
+
+    .signin-sidecharacter-img img {
+        width: 235px;
+    }
+}

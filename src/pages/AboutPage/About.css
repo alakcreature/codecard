@@ -1,0 +1,92 @@
+.about-main-inner{
+    margin-top: 30px;
+    text-align: center;
+    /* background-color: rosybrown; */
+    /* background-color: #f2f2f2; */
+    /* box-shadow: 6px 6px 10px 9px #ccc; */
+    
+    padding: 0 15px;
+    padding-bottom: 90px;
+}
+
+.about-main-inner h4{
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+}
+
+#border{
+    background-color: blue;
+    /* height: 10px; */
+    width: 125px;
+    margin-left: 461px;
+    border-bottom: 1px solid black;
+    margin-bottom: 35px;
+}
+
+.about-content-section{
+    /* background-color: red; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin-bottom: 30px;
+}
+
+.socialmedia-section ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialmedia-section ul li a{
+    background: transparent;
+    padding: 10px 13px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 0 10px;
+    color: black;
+    transition: background 0.3s ease-in-out;
+}
+
+.socialmedia-section ul li a:hover{
+    background: #F39C13;
+}
+
+.facebook-profile{
+    background: transparent;
+    padding: 2px 15px;
+    background-color: transparent;
+    border: 2px solid black;
+    transition: background 0.2s ease-in-out;
+}
+
+.facebook-profile:hover{
+    background-color: rgb(212, 206, 190);
+    color: black;
+}
+
+.facebook-profile i{
+    padding-right: 10px;
+}
+
+.facebook-profile span{
+    font-size: 1.1rem;
+}
+
+.about-content-section p{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.about-content-section p a{
+    font-family: 'Fredoka One', cursive;
+    color: #F39C13;
+    font-size: 1.4rem;
+    /* cursor: pointer; */
+}
+
+@media (max-width: 500px){
+    #border{
+        margin-left: 70px;
+    }
+}

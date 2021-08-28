@@ -1,0 +1,1058 @@
+/* Main Content */
+
+.homepage-container{
+    /* background: red; */
+    width: 100%;
+}
+
+.homepage-main-content{
+    /* background-color: gold; */
+    margin: 0 8%;
+    /* margin-top: 60px; */
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.home-main-content-inner{
+    /* background-color: green; */
+    margin-top: 25px;
+    padding: 0 12px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1px;
+}
+
+.home-main-content{
+    /* background-color: red; */
+    background-color: #f2f2f2;
+    box-shadow: 0px 6px 6px 9px #ccc;
+    margin-top: 10px;
+}
+
+/* Modal Section */
+.scoreinfo-modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    overflow: auto;
+    height: 100vh;  
+    background-color: transparent;
+}
+
+.scoreinfo-modal-main{
+    /* background-color: red; */
+    font-family: 'Kumbh Sans' ,sans-serif;
+    color: black;
+    margin: 70px auto;
+    width: 750px;
+    padding: 108px 21px;
+}
+
+.scoreinfo-modal-inner{
+    background-color: white;
+    border: 1px solid black;
+    width: 680px;
+    padding: 20px 25px 20px 25px;
+}
+
+.scoreinfo-content{
+    /* background-color: chartreuse; */
+}
+
+.scoreinfo-content p{
+    margin: 0;
+}
+
+.scoreinfo-header h2{
+    margin-top: 6px;
+    font-weight: bold;
+    font-family: 'Spirax', cursive;
+    color: #fd9d0e;
+}
+
+
+.scoreinfo-closebtn{
+    /* background: transparent; */
+    color: black;
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    font-size: 30px;
+    transition: color 0.3s ease-in-out;
+}
+
+.scoreinfo-closebtn:hover{
+    color: #796c5f;
+}
+
+/* Before Header Section */
+
+.before_header{
+    position: relative;
+    /* background-color: #bd6d8e; */
+    /* background: url(../static/header.jpg) no-repeat center center/cover; */
+    background: url("https://testbucketnode124.s3.amazonaws.com/frontend_static_images/header.jpg") no-repeat center center/cover;
+    height: 280px;
+    padding: 20px;
+    /* margin-bottom: 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.before_header p{
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 0;
+    text-align: right;
+    /* transform: translate(0,80px); */
+}
+
+.before_header>.content{
+    /* background-color: red; */
+    z-index: 1;
+    transform: translate(-240px,114px);
+    font-family: 'Fredoka One', cursive;
+    color: #F39C13;
+}
+
+.before_header>.content h3{
+    margin: 0;
+    font-size: 1.40rem;
+    font-weight: bold;
+}
+
+.before-header-content{
+    position: absolute;
+    left: 0;
+    /* background-color: red; */
+    transform: translate(511px,83px);
+}
+
+.before-header-content h3{
+    text-align: right;
+}
+
+/* Rating Section */
+
+.rating-main{
+    background-color: rgb(223, 206, 198);
+    box-shadow: 0px 0px 30px 0px black;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    padding: 20px 0 35px 20px;
+    min-height: 210px;
+}
+
+.rating-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.rating-content-bubble{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.rating-content-bubble2{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(170px,150px);
+}
+
+.rating-content-inner{
+    /* background-color: purple; */
+    transform: translate(18px,33px);
+    width: 150px;
+    z-index: 1;
+}
+
+.rating-content-inner p{
+    font-size: 1rem;
+    /* background: chocolate; */
+}
+
+.rating-content-inner a{
+    /* background: chocolate; */
+    font-size: 1.2rem;
+    color: #803663;
+    font-family: 'Pacifico', sans-serif;
+}
+
+.rating-content-inner i{
+    background: transparent;
+    cursor: pointer;
+    color: black;
+    margin-left: 2px;
+    border-radius: 50%;
+    padding: 6px 12px;
+    transition: background 0.3s ease-in-out;
+}
+
+.rating-content-inner i:hover{
+    background: #796c5f;
+}
+
+.rating-img{
+    margin-right: 20px;
+}
+
+.rating-img img{
+    width: 210px;
+}
+
+/* Meme1 Section */
+
+.meme-main{
+    /* background-color: olive; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px 0 10px 20px;
+    min-height: 120px;
+}
+
+.meme-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.meme-content p{
+    font-size: 1.32rem;
+    margin: 0;
+}
+
+.meme-content h6{
+    font-family: 'Dancing Script', cursive;
+    margin-left: 150px;
+    font-size: 1rem;
+}
+
+.meme-img{
+    margin-right: 15px;
+}
+
+.meme-img img{
+    /* background-color: rgb(199, 130, 26); */
+    width: 270px;
+}
+
+/* Practice Section */
+
+.practice-main{
+    background-color: rgb(223, 206, 198);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    padding: 20px 0 15px 20px;
+    box-shadow: 0px 0px 30px 0px black;
+    min-height: 215px;
+
+}
+
+.practice-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.practice-content-bubble{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.practice-content-bubble2{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(170px,150px);
+}
+
+.practice-content-inner{
+    /* background-color: purple; */
+    transform: translate(19px,47px);
+    width: 150px;
+    z-index: 1;
+}
+
+.practice-content-inner p{
+    font-size: 1rem;
+}
+
+.practice-content-inner a{
+    font-family: 'Pacifico', cursive;
+    color: #803663;
+}
+
+.practice-img{
+    margin-right: 22px;
+
+}
+
+.practice-img img{
+    width: 250px;
+}
+
+/* Munna meme Section */
+
+.munnameme-main{
+    /* background-color: olive; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 15px;
+    padding: 10px 0 10px 20px;
+    min-height: 130px;
+}
+
+.munnameme-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.munnameme-content p{
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.munnameme-content h6{
+    font-family: 'Dancing Script', cursive;
+    margin-left: 150px;
+    font-size: 1rem;
+}
+
+.munnameme-img{
+    margin-right: 5px;
+}
+
+.munnameme-img img{
+    /* background-color: rgb(199, 130, 26); */
+    width: 280px;
+}
+
+/* Prolem Search Section */
+
+.problemsearch-main{
+    background-color: rgb(223, 206, 198);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    /* margin-bottom: 20px; */
+    padding: 20px 0 10px 20px;
+    box-shadow: 0px 0px 30px 0px black;
+    min-height: 215px;
+}
+
+.problemsearch-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.problemsearch-content-bubble{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.problemsearch-content-bubble2{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(170px,150px);
+}
+
+.problemsearch-content-inner{
+    /* background-color: purple; */
+    transform: translate(19px,45px);
+    width: 160px;
+    z-index: 1;
+}
+
+.problemsearch-content-inner p{
+    font-size: 1rem;
+}
+
+.problemsearch-img img{
+    width: 170px;
+}
+
+/* Krishna Section */
+
+.motivate{
+    /* margin-bottom: 20px; */
+    background-color: rgb(195, 213, 216);
+    display: flex;
+    height: 230px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.motivate-img img{
+    /* transform: translateX(-35px); */
+    /* background-color: indigo; */
+    margin-left: 20px;
+    width: 130px;
+}
+
+.motivate-content{
+    /* background-color: red; */
+    margin-right: 20px;
+    text-align: right;
+    font-family: 'Dancing Script', cursive;
+}
+
+.motivate-content h3{
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    /* font-weight: bold; */
+}
+
+.motivate-content h6{
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Leaderboard Section */
+
+.leaderboard-main{
+    background-color: rgb(223, 206, 198);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    padding: 20px 0 0 20px;
+    box-shadow: 0px 0px 30px 0px black;
+    min-height: 215px;
+}
+
+.leaderboard-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboard-content-bubble{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.leaderboard-content-bubble2{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(170px,150px);
+}
+
+.leaderboard-content-inner{
+    /* background-color: purple; */
+    transform: translate(25px,60px);
+    width: 160px;
+    z-index: 1;
+}
+
+.leaderboard-content-inner p{
+    font-size: 1rem;
+}
+
+.leaderboard-img{
+    margin-right: 10px;
+    transform: translateY(-30px);
+}
+
+.leaderboard-img img{
+    width: 320px;
+}
+
+/* Meme 2 Section */
+
+.meme2-main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 0 0 20px;
+    min-height: 165px;
+}
+
+.meme2-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.meme2-content p{
+    font-size: 1rem;
+    margin: 0;
+}
+
+.meme2-content h6{
+    font-family: 'Dancing Script', cursive;
+    margin-top: 10px;
+    margin-left: 200px;
+    font-size: 0.9rem;
+}
+
+.meme2-img img{
+    /* background-color: rgb(199, 130, 26); */
+    width: 310px;
+}
+
+/* Friends Section */
+
+.collegemate-main{
+    background-color: rgb(223, 206, 198);
+    height: 200px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+    padding: 20px 0 0 20px;
+    box-shadow: 10px 0px 20px 0px black;
+}
+
+.collegemate-content{
+    /* background-color: orangered; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.collegemate-content-bubble{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.collegemate-content-bubble2{
+    background-color: rgb(199, 130, 26);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    transform: translate(170px,150px);
+}
+
+.collegemate-content-inner{
+    /* background-color: purple; */
+    transform: translate(20px,60px);
+    width: 160px;
+    z-index: 1;
+}
+
+.collegemate-content-inner p{
+    font-size: 1rem;
+}
+
+.collegemate-img{
+    margin-right: 8px;
+    transform: translateY(19px);
+}
+
+.collegemate-img img{
+    width: 280px;
+}
+
+/* Main Content Bottom */
+.main-content-bottom{
+    /* background-color: seagreen; */
+    padding: 13px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content-bottom a{
+    font-family: 'Pacifico', cursive;
+    color: #803663;
+}
+
+
+
+/* Feedback Section */
+
+.tweet{
+    /* background-color: lightseagreen; */
+    font-family: 'Balsamiq Sans', cursive;
+    /* position: relative; */
+    /* text-align: center; */
+    /* padding-top: 10px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.tweet-inner{
+    /* transform: translateX(40px); */
+    /* background-color: mediumorchid; */
+    width: 100%;
+    margin: 10px auto;
+    padding: 0px 10px 5px 10px;
+    /* position: absolute; */
+    /* top: 50px; */
+}
+
+@media (max-width: 500px){
+
+    body{
+        padding-bottom: 190px;
+    }
+
+    .navbar{
+        padding: 10px 15px 10px 0px;
+    }
+
+    .navbar-brand{
+        margin-left: 11px;
+    }
+
+    /* Main Content */
+
+    .main-content{
+        margin-top: unset;
+    }
+    
+    .homepage-main-content{
+        margin:unset;
+        margin-top: 60px;
+    }
+
+    .home-main-content-inner{
+        margin-top: unset;
+        padding: 0;
+        grid-template-columns: 1fr;
+    }
+
+    .main-content{
+        margin-top: 65px;
+    }
+
+    .scoreinfo-modal-main{
+        width: 315px;
+        padding: 50px 4px;
+    }
+
+    .scoreinfo-closebtn{
+        font-size: 1.6rem;
+    }
+
+    .scoreinfo-modal-inner{
+        width: unset;
+        padding: 10px 15px 10px 15px;
+    }
+
+    .scoreinfo-header h2 {
+        margin-top: 7px;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .scoreinfo-content p{
+        font-size: 0.95rem;
+    }
+
+    /* Before Header section */
+
+    .before_header{
+        height: 250px;
+    }
+
+    .before_header>.content{
+        transform: translate(-100px,-5px);
+        z-index: unset;
+    }
+
+    .before-header-content{
+        transform: translate(167px,-20px);
+    }
+
+    .before_header p{
+        font-size: 0.8rem;
+    }
+
+    .rating-main{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px 5px 25px 5px;
+        min-height: 170px;
+    }
+
+    .rating-content-bubble{
+        width: 120px;
+        height: 120px;
+    }
+
+    .rating-content-bubble2{
+        width: 20px;
+        height: 20px;
+        transform: translate(110px,110px);
+    }
+
+    .rating-content-inner{
+        width: 116px;
+        transform: translate(12px,23px);
+    }
+
+    .rating-content-inner p{
+        font-size: 0.77rem;
+    }
+
+    .rating-content-inner a{
+        font-size: 0.8rem;
+    }
+
+    .rating-img{
+        margin-right: unset;
+    }
+
+    .rating-img img{
+        width: 142px;
+    }
+
+    /* Meme Section */
+
+    .meme-main{
+        grid-template-columns: 1fr 1fr;
+        padding: 10px 0 10px 10px;
+        min-height: 100px;
+    }
+
+    .meme-content{
+        padding-top: 18px;
+        align-items: unset;
+    }
+
+    .meme-content p{
+        text-align: right;
+        font-size: 0.94rem;
+        margin-left: unset;
+    }
+
+    .meme-content h6{
+        margin-left: unset;
+        text-align: right;
+        font-size: 0.78rem;
+        text-align: right;
+    }
+
+    .meme-img{
+        margin-right: 5px;
+    }
+
+    .meme-img img{
+        width: 140px;
+    }
+
+    /* Practice Section */
+
+    .practice-main{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px 5px 50px 5px;
+        min-height: 160px;
+    }
+
+    .practice-content-bubble{
+        width: 120px;
+        height: 120px;
+    }
+
+    .practice-content-bubble2{
+        width: 20px;
+        height: 20px;
+        transform: translate(110px,110px);
+    }
+
+    .practice-content-inner{
+        width: 120px;
+        transform: translate(10px,32px);
+    }
+
+    .practice-content-inner p{
+        font-size: 0.8rem;
+    }
+
+    .practice-img{
+        margin-right: unset;
+        transform: translateY(10px);
+    }
+
+    .practice-img img{
+        width: 130px;
+    }
+
+    /* Munna Meme Section */
+
+    .munnameme-main{
+        grid-template-columns: 1fr 1fr;
+        padding: 10px 0 10px 10px;
+        min-height: 130px;
+    }
+
+    .munnameme-content{
+        padding-top: 18px;
+        align-items: unset;
+    }
+
+    .munnameme-content p{
+        text-align: right;
+        font-size: 0.86rem;
+        margin-left: unset;
+    }
+
+    .munnameme-content h6{
+        margin-left: unset;
+        text-align: right;
+        font-size: 0.75rem;
+        text-align: right;
+    }
+
+    .munnameme-img img{
+        width: 149px;
+    }
+
+    /* Problem Search Section */
+
+    .problemsearch-main{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px 5px 12px 5px;
+        min-height: 165px;
+    }
+
+    .problemsearch-content-bubble{
+        width: 120px;
+        height: 120px;
+    }
+
+    .problemsearch-content-bubble2{
+        width: 20px;
+        height: 20px;
+        transform: translate(110px,110px);
+    }
+
+    .problemsearch-content-inner{
+        width: 113px;
+        transform: translate(16px,23px);
+    }
+
+    .problemsearch-content-inner p{
+        font-size: 0.8rem;
+    }
+
+    .problemsearch-img{
+        margin-right: unset;
+    }
+
+    .problemsearch-img img{
+        width: 120px;
+    }
+
+    /* Motivate Section */
+
+    .motivate{
+        height: 175px;
+    }
+
+    .motivate-img{
+        transform: translateX(-10px);
+    }
+
+    .motivate-img img{
+        width: 75px;
+    }
+
+    .motivate-content{
+        margin-right: 2px;
+    }
+
+    .motivate-content h3{
+        font-size: 1.1rem;
+    }
+
+    .motivate-content h6{
+        font-size: 0.8rem;
+    }
+
+    /* Leaderboard Section */
+
+    .leaderboard-main{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        padding: 20px 5px 60px 5px;
+        min-height: 165px;
+    }
+
+    .leaderboard-content-bubble{
+        width: 120px;
+        height: 120px;
+    }
+
+    .leaderboard-content-bubble2{
+        width: 20px;
+        height: 20px;
+        transform: translate(110px,110px);
+    }
+
+    .leaderboard-content-inner{
+        width: 120px;
+        transform: translate(11px,40px);
+    }
+
+    .leaderboard-content-inner p{
+        font-size: 0.9rem;
+    }
+
+    .leaderboard-img{
+        transform: translateY(10px);
+        margin-right: unset;
+    }
+
+    .leaderboard-img img{
+        width: 130px;
+    }
+
+    /* Meme2 Section */
+
+    .meme2-main{
+        grid-template-columns: 1fr 1fr;
+        padding: 10px 0 10px 10px;
+        min-height: 100px;
+    }
+
+    .meme2-content{
+        padding-top: 18px;
+        /* align-items: unset; */
+    }
+
+    .meme2-content p{
+        text-align: right;
+        font-size: 0.62rem;
+        margin-left: unset;
+    }
+
+    .meme2-content h6{
+        margin-left: unset;
+        margin: 0;
+        text-align: right;
+        font-size: 0.7rem;
+        text-align: right;
+    }
+
+    .meme2-img{
+        transform: translateY(10px)
+    }
+
+    .meme2-img img{
+        width: 149px;
+    }
+
+    /* Friends Section */
+
+    .collegemate-main{
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        height: unset;
+        padding: 20px 5px 81px 5px;
+    }
+
+    .collegemate-content-bubble{
+        width: 120px;
+        height: 120px;
+    }
+
+    .collegemate-content-bubble2{
+        width: 20px;
+        height: 20px;
+        transform: translate(110px,110px);
+    }
+
+    .collegemate-content-inner{
+        width: 120px;
+        transform: translate(9px,40px);
+    }
+
+    .collegemate-content-inner p{
+        font-size: 0.8rem;
+    }
+
+    .collegemate-img{
+        transform: translateY(30px);
+        margin-right: unset;
+    }
+
+    .collegemate-img img{
+        width: 130px;
+    }
+
+    /* Main Content Bottom */
+
+    .main-content-bottom{
+        padding: 13px 0px;
+    }
+
+    .main-content-bottom h3{
+        font-size: 1rem;
+    }
+
+    .main-content-bottom p{
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    /* Feedback Section */
+    .tweet{
+        display: none;
+    }
+
+}

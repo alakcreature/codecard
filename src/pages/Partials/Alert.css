@@ -1,0 +1,8 @@
+.global-alert{
+    position: fixed;
+    z-index: 10000;
+}
+
+.WARNING{
+    background-color: #F39C13 !important;
+}

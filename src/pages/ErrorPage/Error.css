@@ -1,0 +1,81 @@
+/* Error main Content */
+/* .error-main-content{
+    margin-top: 60px;
+} */
+
+.error-main-inner{
+    background: url("../static/error_pic.jpg") no-repeat 3px center/cover;
+    /* background-color: green; */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 15px;
+    margin-top: 20px;
+    padding-top: 90px;
+}
+
+.error-main{
+    width: 60%;   
+    /* background-color: tomato; */
+    transform: translate(390px,-75px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-main img{
+    width: 300px;
+    height: 300px;
+}
+
+.error-p-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-p-content p{
+    width: 63%;
+    line-height: 1.9;
+    font-weight: 600;
+}
+
+.error-p-content p span{
+    background-color: rgb(173, 129, 168);
+    border-radius: 7px;
+    padding: 0.4px 10px;
+    margin: 0 10px 0 4px;
+}
+
+.error-p-content a{
+    color: black;
+}
+
+@media (max-width:500px){
+    /* Error Main */
+    .error-main{
+        color: white;
+        width: 69%;
+        transform: translateX(60px);
+    }
+
+    .error-main h3{
+        font-weight: bold;
+    }
+
+    .error-main img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .error-pic{
+        transform: translateY(-80px);
+    }
+
+    .error-p-content p{
+        width: 100%;
+        /* line-height: 1; */
+    }
+}
