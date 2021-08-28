@@ -30,6 +30,7 @@ import ProfileLoader from './pages/Partials/ProfileLoader/ProfileLoader';
 import Leaderboard from './pages/LeaderboardPage/Leaderboard';
 import SocialLogin from './pages/SocialLoginPage/SocialLogin';
 import User from './pages/UserPage/User';
+import NewPractice from './pages/NewPracticePage/NewPractice';
 // import TestLogin from './pages/TestLogin/TestLogin';
 
 function App(props) {
@@ -63,6 +64,7 @@ function App(props) {
           <Route exact path="/profile/:username" component={User}/>
           <Route exact path="/" component={Home}/>
           <Route path="/practice" component={Practice}/>
+          <Route path="/test/practice" exact component={NewPractice}/>
           {/* Make Each Problem Page */}
           {/* <Route exact path="/problem/:problemId" component={Practice}/> */}
           <Route exact path="/contests" component={Contest}/>

@@ -178,6 +178,36 @@ td {
     animation-iteration-count: infinite;
 }
 
+
+.paginationbtns{
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginationbtns a{
+  padding: 5px 9px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #f0b719;
+  color: #f0b719;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.paginationbtns a:hover{
+  color: white;
+  background: #f0b719;
+}
+
+.paginationactive a{
+  color: white;
+  background-color: #f0b719;
+}
+
 @keyframes icon {
     from {margin-bottom: 20px;}
     to {margin-bottom: 0px;}
@@ -234,6 +264,11 @@ td {
     flex-direction: column;
   }
 
+  .practice-box-bottom-img{
+    display: flex;
+    justify-content: center;
+  }
+
   .practice-box-bottom-img img {
     width: 250px;
   }
@@ -243,12 +278,12 @@ td {
   }
 
   .practice-box-header-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
   }
 
   .practice-box-header-content h4 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .practice-box-header-skeleton {
@@ -286,6 +321,20 @@ td {
     overflow: scroll;
   }
 
+  /* Pagination */
+  .paginationbtns{
+    width: 100%;
+    height: 40px;
+    justify-content: space-around;
+    /* align-items: center; */
+  }
+  
+  .paginationbtns a{
+    padding: 4px 8px;
+    margin: 5px;
+    font-size: 0.8rem;
+  }
+
   /* Practice Bottom Box */
   .practice-box-bottom {
     grid-template-columns: 1fr;
@@ -303,6 +352,7 @@ td {
 
   .practice-box-bottom-header p {
     text-align: center;
+    font-size: 1rem;
   }
 
   /* .practice-box-bottom-img{

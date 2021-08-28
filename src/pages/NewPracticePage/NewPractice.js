@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './Practice.css';
 import {connect} from 'react-redux';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
+import ReactPaginate from 'react-paginate';
 import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import staticimages from "../staticImagesLink";
 import http from '../../services/httpCall';
@@ -19,7 +19,7 @@ function useQuery() {
 }
 
 // loader(true) error info warning success dark
-function Practice({error, info, warning, dark, success, loader, profileloader,Auth}) {
+function NewPractice({error, info, warning, dark, success, loader, profileloader,Auth}) {
     let history = useHistory();
     let navsearch = useQuery();
     let problemsearch = navsearch.get("problemsearch");
@@ -31,8 +31,13 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
     let [currenttag,setcurrenttag] = useState();
     let [problemenquiry,setproblemenquiry] = useState();
     let [searchbox, setsearchbox] = useState();
-    let [fetching, setfetching] = useState(false);
-    let [hasmore, sethasmore] = useState(true);
+    
+    
+    const problemPerPage = 20;
+    const pageVisited = pagenumber * problemPerPage;
+
+
+    const displayProblems = problemlist.slice(pageVisited,pageVisited+problemlist);
 
 
     // const pages = new Array(totalpages).fill(null).map((v,i)=>i);
@@ -73,7 +78,6 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
     const fetchsortedproblems = async()=>{
         try{
             profileloader(true);
-            setfetching(true);
             let body={
                 level,
                 tags:currenttag,
@@ -102,15 +106,9 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
 
                 let newlist = response.data.problemlist;
 
-                setproblemlist(prevproblemlist=>{
-                    return [...new Set([...prevproblemlist,...response.data.problemlist])];
-                })
-
+                setproblemlist(newlist);
                 settags(response.data.tagelements);
                 settotalpages(Math.ceil(response.data.totalcount/20));
-                if(response.data.totalcount===problemlist.length){
-                    sethasmore(false);
-                }
             }else if(response.data.status===206){
                 setproblemlist(response.data.problemlist);
                 settags(response.data.tagelements);
@@ -131,7 +129,6 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
             }
         }
         finally{
-            setfetching(false);
             profileloader();
         }
     }
@@ -143,21 +140,10 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
         setproblemenquiry(searchbox);
     }
 
-    const observer = useRef();
-    const lastproblemfetched = useCallback(node => {
-        // console.log(fetching)
-        if(fetching)return;
-        if(observer.current) observer.current.disconnect();
-        observer.current = new IntersectionObserver(entries=>{
-            if(entries[0].isIntersecting && hasmore){
-                setpagenumber(prevpagenumber=>prevpagenumber+1);
-            }
-        })
-        if(node){
-            observer.current.observe(node);
-        }
-    },[fetching]);
 
+    const changePage = ({selected})=> {
+        setpagenumber(selected+1);
+    }
 
 
     useEffect(()=>{
@@ -173,6 +159,10 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
     useEffect(()=>{
         console.log(problemlist);
     },[problemlist]);
+
+    useEffect(()=>{
+        console.log(pagenumber);
+    },[pagenumber]);
 
 
     return (
@@ -213,7 +203,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                             Get better, and better prepare yourself for the competitions because...
                             </p>
                             <h4 className="practice-box-header-quote">All you need is a little push</h4>
-                            <h6 className="practice-box-header-quote">- By Joker Bhaiya</h6>
+                            <h6 className="practice-box-header-quote">- Joker</h6>
                             </>
                             }
                         </div>
@@ -269,13 +259,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                             </form>
                         </div>
                     </div>
-
-                    {/* Scroll Up */}
-                    <div className="scrollup">
-                        <i className="fas fa-angle-double-down"></i>
-                        <p>Scroll down the list buddy</p>
-                    </div>
-                        
+   
                     {/* Practice Table */}
                     <div className="pratice-table">
                         {problemlist.length===0
@@ -300,7 +284,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                             <tbody>
                                 {problemlist && problemlist.map((problem,index)=>{
                                     if(problemlist.length===index+1){
-                                        return <tr key={index+1} ref={lastproblemfetched}>
+                                        return <tr key={index+1}>
                                                     <td className="solved">
                                                         <input type="checkbox" 
                                                         checked={problem.issolved}
@@ -402,10 +386,23 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                         }
                     </div>
                     
-                    {/* Scroll Up */}
-                    <div className="scrollup">
-                        <i className="fas fa-angle-double-down"></i>
-                        <p>Scroll down the list buddy</p>
+                    {/* Pagination */}
+                    <div className="pagination">
+                        <ReactPaginate 
+                            previousLabel={'Previous'}
+                            nextLabel={'Next'}
+                            breakLabel={'...'}
+                            pageCount={totalpages}
+                            containerClassName={'paginationbtns'}
+                            previousLinkClassName={'previousbtn'}
+                            nextLinkClassName={'nextbtn'}
+                            disabledClassName={'paginationdisabled'}
+                            activeClassName={'paginationactive'}
+                            breakClassName={'break-me'}
+                            marginPagesDisplayed={1}
+                            pageRangeDisplayed={1}
+                            onPageChange={changePage}
+                        />
                     </div>
 
                     <div className="practice-box-bottom">
@@ -465,4 +462,4 @@ export default connect(mapStateToProps, {
     success,
     warning,
     info
-})(Practice);
+})(NewPractice);
