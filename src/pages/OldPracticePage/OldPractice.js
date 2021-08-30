@@ -19,7 +19,7 @@ function useQuery() {
 }
 
 // loader(true) error info warning success dark
-function NewPractice({error, info, warning, dark, success, loader, profileloader,Auth}) {
+function OldPractice({error, info, warning, dark, success, loader, profileloader,Auth}) {
     let history = useHistory();
     let navsearch = useQuery();
     let problemsearch = navsearch.get("problemsearch");
@@ -462,4 +462,4 @@ export default connect(mapStateToProps, {
     success,
     warning,
     info
-})(NewPractice);
+})(OldPractice);

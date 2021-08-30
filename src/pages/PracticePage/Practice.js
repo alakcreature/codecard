@@ -41,6 +41,14 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
         try{
             let response = await http.get(`${apis.SOLVEDPROBLEM}/${problemid}`);
             // console.log(response);
+            setproblemlist(prevproblemlist=>{
+                return prevproblemlist.map((op)=>{
+                    if(op._id==problemid){
+                        op.issolved=!op.issolved;
+                    }
+                    return op;
+                });
+            })
         }catch(err){
             console.log(err);
             if(!navigator.onLine){
@@ -49,9 +57,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
             }else{
                 dark("so sorry, please try after sometime");
             }
-        }finally{
-            fetchsortedproblems();
-        }   
+        }  
     }
 
     const problemcheckwrapper = async(problemid)=>{
@@ -86,7 +92,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                 body.tags=undefined;
             }
 
-            // console.log(body);
+            
             let response;
             if(problemsearch!==null){
                 response = await http.post(`${apis.SORTED_PROBLEM}?problemsearch=${problemsearch}&page=${pagenumber}`,body);
@@ -95,15 +101,22 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
             }
             if(response.data.status===200){
                 if(response.data.totalcount===0){
-                    setcurrenttag("All Tags");
-                    warning("sorry, no such question exists. Try with some other query")
+                    if(currenttag && currenttag!=="All Tags"){
+                        setcurrenttag("All Tags");   
+                    }
+                    if(level && level!=="Level"){
+                        setlevel("Level");
+                    }
+                    if(problemenquiry){
+                        console.log(problemenquiry)
+                        setproblemenquiry(undefined);
+                    }
+                    info("sorry, no such question exists. Try with some other query")
                     return;
                 }
 
-                let newlist = response.data.problemlist;
-
                 setproblemlist(prevproblemlist=>{
-                    return [...new Set([...prevproblemlist,...response.data.problemlist])];
+                    return [...prevproblemlist,...response.data.problemlist];
                 })
 
                 settags(response.data.tagelements);
