@@ -1,216 +1,226 @@
-.practicemain-content-inner {
-  padding-top: 15px;
-  padding-bottom: 20px;
-  /* background-color: yellow; */
+.main-content{
+    /* background: red; */
 }
+
+
+.practice-inner{
+    padding-top: 45px;
+}
+
+.sheets{
+    /* background-color: red; */
+    padding-top: 20px;
+}
+
+.categories{
+    margin-bottom: 30px;
+}
+
+.sheetname{
+    margin: 0 10px;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 13px;
+    background-color: rgb(230, 182, 27);
+    transition: color 0.3s ease-in-out;
+}
+
+.sheetname p{
+    font-size: 1.4rem;
+    font-family: 'Pacifico',sans-serif;
+}
+
+.sheet1{
+    background-color: #e76f51;
+}
+
+.sheet2{
+    background-color: #f6bd60;
+}
+
+.sheets a:hover{
+    color: rgb(88, 105, 105);
+}
+
 
 /* Practice Box */
 .practice-box-header {
-  /* background-color: violet; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
+    /* background-color: violet; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .practice-box-header-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .practice-box-header-img img {
+    width: 300px;
+  }
+  
+  .practice-box-header-content {
+    /* background-color: violet; */
+    width: 60%;
+  }
+  
+  .practice-box-header-content header {
+    color: #fd9d0e;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-family: "Spirax", cursive;
+  }
+  
+  .practice-box-header-content p {
+    font-size: 1.1rem;
+  }
+  
+  .practice-box-header-content h4 {
+    letter-spacing: 1.5px;
+    font-size: 2rem;
+  }
+  
+  .practice-box-header-quote {
+    text-align: right;
+    font-family: "Dancing Script", cursive;
+  }
+  
+  .practice-box-header-content hr {
+    margin: 0 0 10px 0;
+  }
+  
+  .practice-box-header-skeleton {
+    width: 600px;
+  }
+
+
+/* Filter Section */
+.practice-filter-box {
+    /* background-color: yellowgreen; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    margin-bottom: 10px;
 }
 
-.practice-box-header-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.check{
+    /* background-color: blue; */
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.practice-box-header-img img {
-  width: 300px;
+.rightfilters{
+    /* background-color: blanchedalmond; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
 }
 
-.practice-box-header-content {
-  /* background-color: violet; */
-  width: 60%;
+.showtags,.shuffle{
+    /* background: chartreuse; */
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.practice-box-header-content header {
-  color: #fd9d0e;
-  font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  font-family: "Spirax", cursive;
+.shuffle{
+    /* border-bottom: 1px solid grey; */
 }
 
-.practice-box-header-content p {
-  font-size: 1.1rem;
-}
-
-.practice-box-header-content h4 {
-  letter-spacing: 1.5px;
-  font-size: 2rem;
-}
-
-.practice-box-header-quote {
-  text-align: right;
-  font-family: "Dancing Script", cursive;
-}
-
-.practice-box-header-content hr {
-  margin: 0 0 10px 0;
-}
-
-.practice-box-header-skeleton {
-  width: 600px;
-}
-
-/* Practice Sortby Box */
-.practice-sortby-box {
-  /* background-color: yellowgreen; */
-  display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
-  margin-bottom: 20px;
-}
-
-.practice-sortby-box h5 {
-  font-size: 1.2rem;
-  margin: 0;
-  margin-top: 5px;
-}
-
-.dropdown-box-content {
-  width: fit-content;
-  display: flex;
-  justify-content: center;
-}
-
-.dropdown-box-content select {
-  margin-right: 17px;
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
-  background-color: white;
-  font-weight: bold;
-}
-
-.problem-search-box {
-  /* background-color: teal; */
-  width: 480px;
-}
-
-.problem-searchbox-btn {
-  outline: none;
-  text-decoration: none;
-  border: none;
-  /* background-color: rgb(40, 149, 221); */
-  background: rgb(248, 211, 1);
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
-  padding: 0 10px;
-  margin-left: 15px;
-  transition: background 0.2s ease-in-out;
-}
-
-.problem-searchbox-btn:hover {
-  background: rgb(226, 204, 7);
-}
-
-/* Practice Table */
-.pratice-table {
-  background-color: rgba(219, 205, 205, 0.568);
-  padding: 10px 15px;
-  height: 576px;
-  overflow: scroll;
-  margin-bottom: 20px;
-}
-
-.pratice-table table th,
-td {
-  border-color: rgb(143, 129, 111);
-  text-align: left;
-}
-
-.solved {
-  width: 50px;
-}
-
-.td-title {
-  width: 510px;
-}
-
-.td-title > a {
-  padding: 0;
-  color: black;
-}
-
-.td-title > div {
-  cursor: pointer;
-}
-
-.website-logo a {
-  /* background-color: brown; */
-  padding: 0;
-}
-
-.website-logo i {
-  color: green;
-}
-
-.website-logo img {
-  width: 28px;
-}
-
-.link-a > a {
-  color: black;
-}
-
-/* Scroll up */
-.scrollup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.scrollup i{
-    /* background: green; */
-    padding: 0px 10px;
-    margin-bottom: 15px;
-    animation-name: icon;
+#shuffle{
+    cursor: pointer;
+    font-family: "Pacifico", sans-serif;
+    color: #8d9205;
+    transition: transform 0.2s ease-out;
+    animation-name: scale;
     animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 
-
-.paginationbtns{
-  width: 80%;
-  height: 40px;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.showtags input{
+    margin-right: 10px;
 }
 
-.paginationbtns a{
-  padding: 5px 9px;
-  margin: 8px;
-  border-radius: 5px;
-  border: 1px solid #f0b719;
-  color: #f0b719;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
+.showtags label, .shuffle label{
+    font-size: 1rem;
 }
 
-.paginationbtns a:hover{
-  color: white;
-  background: #f0b719;
+.dropdown-box-content {
+    /* background: red; */
+    width: fit-content;
+    display: flex;
+    justify-content: center;
 }
 
-.paginationactive a{
-  color: white;
-  background-color: #f0b719;
+.dropdown-box-content select {
+    margin-right: 17px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    background-color: white;
+    font-weight: bold;
 }
+
+.problem-search-box {
+    /* background-color: teal; */
+    width: 380px;
+}
+
+.problem-searchbox-btn {
+    outline: none;
+    text-decoration: none;
+    border: none;
+    /* background-color: rgb(40, 149, 221); */
+    background: rgb(139, 212, 200);
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    padding: 0 10px;
+    margin-left: 15px;
+    transition: background 0.2s ease-in-out;
+}
+
+.problem-searchbox-btn:hover {
+    background: rgb(88, 192, 192);
+}
+
+
+/* Scroll up */
+.scrollup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .scrollup i{
+      /* background: green; */
+      padding: 0px 10px;
+      margin-bottom: 15px;
+      animation-name: icon;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+  }
 
 @keyframes icon {
     from {margin-bottom: 20px;}
     to {margin-bottom: 0px;}
+}
+
+@keyframes scale{
+  0% {transform: scale(1);}
+  50% {transform: scale(1.2);}
+  100% {transform: scale(1);}
 }
 
 .scrollup p {
@@ -218,124 +228,131 @@ td {
   font-family: 'Pacifico', sans-serif;
 }
 
+
+/* Practice Bottom Box */
 .practice-box-bottom {
-  /* background-color: burlywood; */
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 12px;
-  /* justify-content: space-around;
-    align-items: center; */
-}
-
-.practice-box-bottom-header {
-  font-size: 1.5rem;
-  /* background-color: crimson; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.practice-box-bottom-header-skeleton {
-  width: 600px;
-}
-
-.practice-box-bottom-header a {
-  margin: 0 6px;
-  color: #fd9d0e;
-  font-family: "Pacifico", cursive;
-}
-
-.practice-box-bottom-img img {
-  width: 450px;
-}
-
-.practice-box-bottom-skeleton {
-  width: 380px;
-}
-
-.practice-box-bottom-header {
-  width: 600px;
-}
-
-@media (max-width: 500px) {
-  /* Practice Box */
-
-  .practice-box-header {
-    flex-direction: column;
-  }
-
-  .practice-box-bottom-img{
-    display: flex;
-    justify-content: center;
-  }
-
-  .practice-box-bottom-img img {
-    width: 250px;
-  }
-
-  .practice-box-header-content {
-    width: unset;
-  }
-
-  .practice-box-header-content p {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .practice-box-header-content h4 {
-    font-size: 1.4rem;
-  }
-
-  .practice-box-header-skeleton {
-    width: 290px;
-  }
-
-  /* Practice Sort Table */
-
-  .practice-sortby-box {
-    grid-template-columns: 1fr;
-    margin-bottom: 10px;
-  }
-
-  .practice-sortby-box h5 {
-    font-size: unset;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .dropdown-box-content {
-    margin-bottom: 15px;
-    margin-left: 10px;
-  }
-
-  .dropdown-box-content select {
-    margin-right: unset;
-  }
-
-  .problem-search-box {
-    width: 299px;
-  }
-
-  /* Practice Table */
-  .pratice-table {
-    overflow: scroll;
-  }
-
-  /* Pagination */
-  .paginationbtns{
-    width: 100%;
-    height: 40px;
-    justify-content: space-around;
-    /* align-items: center; */
+    /* background-color: burlywood; */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 12px;
+    /* justify-content: space-around;
+      align-items: center; */
   }
   
-  .paginationbtns a{
-    padding: 4px 8px;
-    margin: 5px;
-    font-size: 0.8rem;
+  .practice-box-bottom-header {
+    font-size: 1.5rem;
+    /* background-color: crimson; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .practice-box-bottom-header-skeleton {
+    width: 600px;
+  }
+  
+  .practice-box-bottom-header a {
+    margin: 0 6px;
+    color: #fd9d0e;
+    font-family: "Pacifico", cursive;
+  }
+  
+  .practice-box-bottom-img img {
+    width: 450px;
+  }
+  
+  .practice-box-bottom-skeleton {
+    width: 380px;
+  }
+  
+  .practice-box-bottom-header {
+    width: 600px;
   }
 
-  /* Practice Bottom Box */
+
+
+
+@media (max-width: 500px) {
+    .sheetname{
+        padding: 20px;
+    }
+
+    .sheetname p{
+        font-size: 1rem;
+    }
+
+    /* Practice Box */
+    .practice-box-header {
+        flex-direction: column;
+      }
+
+      .practice-box-header-content header{
+        font-size: 1.8rem;
+        text-align: center;
+      }
+    
+      .practice-box-bottom-img{
+        display: flex;
+        justify-content: center;
+      }
+    
+      .practice-box-bottom-img img {
+        width: 250px;
+      }
+    
+      .practice-box-header-content {
+        width: unset;
+      }
+    
+      .practice-box-header-content p {
+        font-size: 1rem;
+        text-align: center;
+      }
+    
+      .practice-box-header-content h4 {
+        font-size: 1.3rem;
+      }
+    
+      .practice-box-header-skeleton {
+        width: 290px;
+      }
+
+
+      .showtags label, .shuffle label{
+        font-size: 0.9rem;
+      }
+
+
+    /* Filter Section */
+    .practice-filter-box {
+        grid-template-columns: 1fr;
+        margin-bottom: 10px;
+      }
+
+    .check{
+        /* grid-gap: 90px; */
+    }
+
+    .rightfilters{
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+    }
+
+    .dropdown-box-content {
+        margin-bottom: unset;
+    }
+
+    .dropdown-box-content select {
+        margin-right: unset;
+    }
+
+    .problem-search-box {
+        width: 334px;
+    }
+
+
+    /* Practice Bottom */
+    /* Practice Bottom Box */
   .practice-box-bottom {
     grid-template-columns: 1fr;
     grid-gap: 12px;
@@ -352,7 +369,7 @@ td {
 
   .practice-box-bottom-header p {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   /* .practice-box-bottom-img{
@@ -369,7 +386,7 @@ td {
     width: 290px;
   }
 
-  .practice-box-bottom-header {
+  /* .practice-box-bottom-header {
     width: 290px;
-  }
+  } */
 }

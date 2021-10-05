@@ -24,6 +24,12 @@ const apis = {
     SOLVEDPROBLEM : "/api/solved",
 
 
+    SHEETS : "/api/sheets",
+    SUBSCRIBE : "/api/subscribe",
+    SHEETINFO : "/api/sheet",
+    SHEETPROGRESS : "/api/sheetprogress",
+
+
     LEADERBOARD : "/api/leaderboard",
     SORTED_LEADERBOARD : "/api/sortedleaderboard",
     

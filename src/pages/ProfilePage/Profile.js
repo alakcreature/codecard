@@ -5,6 +5,7 @@ import './Profile.css';
 import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
+import {Line} from 'react-chartjs-2';
 import {connect} from 'react-redux';
 import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import http from '../../services/httpCall';
@@ -14,6 +15,7 @@ import {logout,setUserDetails} from "../../actions/authAction";
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from "../../actions/profileLoaderAction";
+import { useRef } from 'react';
 // import { addviews } from '../../../../server/controllers/viewsController';
 
 // Check if token is expired.
@@ -42,7 +44,23 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
     let [showeditoptions, setshoweditoptions] = useState(false);
     let [showscoremodal, setshowscoremodal] = useState(false);
     let [solved, setsolved]= useState([]);
+    let [subscribedsheetids, setsubscribedsheetids] = useState([]);
+    let [sheetprogress, setsheetprogress] = useState([]);
+    let [month, setmonth] = useState(new Date().getMonth()+1);
+    let [year, setyear] = useState(new Date().getFullYear());
+    let[sheetchangeid, setsheetchange] = useState("");
+    // let [currentdate, setcurrentdate] = useState(new Date().toLocaleString('en-us', { month: 'long' }));
 
+
+    const currentdate=new Date().toLocaleString('en-us', { month: 'long' });
+    const currentyear=new Date().getFullYear();
+    // console.log(currentyear)
+
+
+    const chartelement = useRef();
+    const options = {
+        maintainAspectRatio: false
+      };
 
     const dataURLtoBlob = (dataurl)=>{
         var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
@@ -198,8 +216,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
     }
 
     const connectmyprofile= ()=>{
-        // console.log(websitetoconnect)
-        // loader(true);
         profileloader(true);
         if(websitetoconnect===null){
             return error("please click on the right profile");
@@ -207,12 +223,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
         http.post(apis.CONNECTMYPROFILE,{
             website:websitetoconnect
         }).then((result)=>{
-            // console.log(result);
             if(result.data.status===200){
                 info(result.data.message);
                 setuserdetails(result.data.data);
             }else{
-                // console.log(result.data.error);
                 error(result.data.error);
             }
         }).catch((err)=>{
@@ -236,18 +250,17 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
         
         http.get(apis.GET_USER_INFO)
         .then((result)=>{
-            // console.log(result);
             if(result.data.status===200){
                 setsolved(result.data.data.problemsolved);
                 setUserDetails(result.data.data);
                 setuserdetails(result.data.data);
+                setsubscribedsheetids(result.data.data.subscribedsheetids);
                 if(result.data.data.error &&result.data.data.error.length>0){
                     result.data.data.error.forEach((error_el)=>{
                         error(error_el);
                     })
                 }
             }else{
-                // console.log(result.data.error);
                 info("please signin again");
                 logout();
             }
@@ -266,12 +279,61 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
         });
     }
 
+    let fetchSheetProgress = async(sheetid)=>{
+        try{
+            let response = await http.post(`${apis.SHEETPROGRESS}/${sheetid}`,{
+                month: Number(month),
+                year: Number(year)
+            });
+
+            console.log(response.data);
+            if(response.data.status===200){
+                setsheetprogress(prevprogress=>{
+                    if(prevprogress.length>0){
+                        return prevprogress.map(el=>{
+                            if(el.sheetid===response.data.data.sheetid){
+                                // console.log("hi");
+                                return response.data.data;
+                            }else{
+                                return el;
+                            }
+                        });
+                    }else{
+                        return [...prevprogress,...Array(response.data.data)];
+                    }
+                });
+            }else{
+                info(response.data.message);
+            }
+        }
+        catch(err){
+            console.log(err);
+            if(!navigator.onLine){
+                history.push("/networkerror");
+                dark("please connect to internet");
+            }else{
+                dark("so sorry, please try after sometime");
+            }
+        }
+    }
+
+
+
+    let sheetprogresswrapper = async(sheetids)=>{
+        for(let i=0;i<sheetids.length;i++){
+            if(sheetids[i]){
+                await fetchSheetProgress(sheetids[i]);
+            }
+        }
+        
+    }
+
+
     useEffect(()=>{
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
         window.onclick = (e)=>{
             let modalContent = document.querySelector("#modalbtn");
             if(e.target === modalContent){
-                // console.log("outside modal div clicked")
                 setusernamemodal(false);
                 setupdateabout(false);
             }
@@ -281,16 +343,12 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
     },[]);
 
     useEffect(()=>{
-        console.log(userdetails);
-    },[userdetails]);
-
-    useEffect(()=>{
-        // console.log(solved);
-    },[solved]);
+        sheetprogresswrapper(subscribedsheetids);
+        // eslint-disable-next-line
+    },[subscribedsheetids]);
 
     useEffect(()=>{
         if(newprofilepic){
-            // console.log(newprofilepic);
             handleedit();
         }
         // eslint-disable-next-line
@@ -298,15 +356,22 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
 
     useEffect(()=>{
         if(websitetoconnect){
-            // console.log(websitetoconnect);
             connectmyprofile();
         }
         // eslint-disable-next-line
     },[websitetoconnect]);
 
-    // useEffect(()=>{
-    //     console.log(website);
-    // },[website]);
+    useEffect(()=>{
+        if(sheetchangeid){
+            fetchSheetProgress(sheetchangeid);
+        }
+        // eslint-disable-next-line
+    },[year,month]);
+
+    useEffect(()=>{
+        console.log(sheetprogress);
+    },[sheetprogress]);
+
 
     return (
         <React.Fragment>
@@ -602,6 +667,84 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         </span>
                         }
                     </div>
+
+                    {/* Sheets Progress */}
+                    {sheetprogress && sheetprogress.length>0 && (
+                        <div className="sheetmain">
+                            <div className="sheetinner">
+                                {sheetprogress.map((sheet,index)=>(
+                                    <div key={index} className="sheet-info">
+                                        <div className="progressheader">
+                                        <h3>
+                                            {sheet.sheetdetails.name}
+                                             Progress
+                                        </h3>
+                                        <div className="date">
+                                            <select name="year" className="form-select form-select-sm" 
+                                                aria-label=".form-select-sm example"
+                                                onChange={(e)=>{
+                                                    setyear(e.target.value);
+                                                    setsheetchange(sheet.sheetid);
+                                            }}>
+                                                <option selected={currentyear===2019?true:false} value="2019">2019</option>
+                                                <option selected={currentyear===2020?true:false} value="2020">2020</option>
+                                                <option selected={currentyear===2021?true:false} value="2021">2021</option>
+                                            </select>
+                                            
+                                            <select 
+                                                className="form-select form-select-sm" 
+                                                aria-label=".form-select-sm example"
+                                                onChange={(e)=>{
+                                                    setmonth(e.target.value);
+                                                    setsheetchange(sheet.sheetid);
+                                                }}
+                                            >
+
+                                                <option selected={currentdate==="January"?true:false} value="1">January</option>
+                                                <option selected={currentdate==="February"?true:false} value="2">February</option>
+                                                <option selected={currentdate==="March"?true:false} value="3">March</option>
+                                                <option selected={currentdate==="April"?true:false} value="4">April</option>
+                                                <option selected={currentdate==="May"?true:false} value="5">May</option>
+                                                <option selected={currentdate==="June"?true:false} value="6">June</option>
+                                                <option selected={currentdate==="July"?true:false} value="7">July</option>
+                                                <option selected={currentdate==="August"?true:false} value="8">August</option>
+                                                <option selected={currentdate==="September"?true:false} value="9">September</option>                    
+                                                <option selected={currentdate==="October"?true:false} value="10">October</option>
+                                                <option selected={currentdate==="November"?true:false} value="11">November</option>
+                                                <option selected={currentdate==="December"?true:false} value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div className="progress-info">
+                                        <div className="chartmain">
+                                            <Line 
+                                                ref={chartelement} 
+                                                data={
+                                                {
+                                                    labels: sheet.monthlabel,
+                                                    datasets: [
+                                                        {
+                                                            label: "problem solved",
+                                                            data: sheet.sheetprogress,
+                                                            backgroundColor: '#F39C13',
+                                                            fill:false,
+                                                            borderColor: '#d4983d'
+                                                        }
+
+                                                    ]
+                                                }
+                                            }
+                                            width={100}
+                                            height={300}
+                                            options={options} />
+                                        </div>
+                                    </div>
+                                </div>
+                                ))}
+                                <hr />
+                            </div>
+                        </div>
+                    )}
 
                     {/* Problems Solved Section */}
                     <div className="problemsolvedmain">

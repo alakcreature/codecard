@@ -77,6 +77,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                 let token=result.data.token;
                 if(token && token!=="null" && token!=="undefined"){
                     login(result.data.token);
+                    // User details in redux store.
                     setUserDetails(result.data.user);
                     warning(`Welcome ${result.data.user.firstname}`);
                     if(previousroute){

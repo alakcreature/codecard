@@ -6,7 +6,7 @@ import http from "../../services/httpCall";
 import apis from "../../services/apis";
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
-import {logout} from "../../actions/authAction";
+import { logout,setUserDetails} from "../../actions/authAction";
 import { useEffect } from 'react';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import ProfileLoader from '../../pages/Partials/ProfileLoader/ProfileLoader';
@@ -24,6 +24,7 @@ function ProfileWrapper({dark,error,success,warning,info,loader,logout}) {
                 // Invalid Token
                 logout();
             }else{
+                // setUserDetails(result.data.user);
                 setloadcomponent(true);
             }
         })
@@ -43,7 +44,9 @@ function ProfileWrapper({dark,error,success,warning,info,loader,logout}) {
         // eslint-disable-next-line
     },[]);
 
-    useEffect(()=>{console.log(loadcomponent)},[loadcomponent]);
+    // useEffect(()=>{
+    //     console.log(loadcomponent)
+    // },[loadcomponent]);
 
     return (
         <>
@@ -69,6 +72,7 @@ export default connect(mapStateToProps, {
     dark,
     error,
     success,
+    setUserDetails,
     warning,
     info
 })(ProfileWrapper);

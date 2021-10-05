@@ -16,7 +16,7 @@ import Navbar from './pages/NavbarPage/Navbar';
 import Footer from './pages/FooterPage/Footer';
 import Home from './pages/Homepage/Home';
 import Contest from './pages/ContestPage/Contest';
-import Practice from './pages/PracticePage/Practice';
+// import Practice from './pages/PracticePage/Practice.jsx';
 import Contact from './pages/ContactusPage/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicyPage/PrivacyPolicy';
 import Terms from './pages/TermsPage/Terms';
@@ -30,7 +30,9 @@ import ProfileLoader from './pages/Partials/ProfileLoader/ProfileLoader';
 import Leaderboard from './pages/LeaderboardPage/Leaderboard';
 import SocialLogin from './pages/SocialLoginPage/SocialLogin';
 import User from './pages/UserPage/User';
-import OldPractice from './pages/OldPracticePage/OldPractice';
+import Sheets from './pages/Sheets/Sheets';
+import Sheet from './pages/Sheet/Sheet';
+import Practice from './pages/PracticePage/Practice';
 // import TestLogin from './pages/TestLogin/TestLogin';
 
 function App(props) {
@@ -57,16 +59,14 @@ function App(props) {
             <LoginComponent />
           </LoginWrapper>
           <Route exact path="/user/sociallogin" component={SocialLogin} />
-          {/* <Route exact path="/testlogin" component={TestLogin} /> */}
           <PrivateRoute exact path="/profile">
             <ProfileWrapper />
           </PrivateRoute>
           <Route exact path="/profile/:username" component={User}/>
           <Route exact path="/" component={Home}/>
+          <Route path="/sheets" component={Sheets}/>
+          <Route exact path="/sheet/:sheetid" component={Sheet}/>
           <Route path="/practice" component={Practice}/>
-          <Route path="/test/practice" exact component={OldPractice}/>
-          {/* Make Each Problem Page */}
-          {/* <Route exact path="/problem/:problemId" component={Practice}/> */}
           <Route exact path="/contests" component={Contest}/>
           <Route exact path="/contactus" component={Contact}/>
           <Route exact path="/privacypolicy" component={PrivacyPolicy}/>
@@ -76,7 +76,6 @@ function App(props) {
           <Route exact path="/emailconfirmation/:token" component={EmailConfirmationComponent}/>
           <Route exact path="/changepassword/:resetToken" component={ChangePasswordComponent}/>
           <Route exact path="/forgotpassword" component={ForgotPassword}/>
-          {/* <Route exact path="/testloader" component={ProfileLoader}/> */}
           <Route exact path="/networkerror" component={ErrorPage} />
           <Route component={ErrorPage}/>
         </Switch>

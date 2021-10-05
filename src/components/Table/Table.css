@@ -1,0 +1,75 @@
+.table-container {
+    /* background-color: rgba(219, 205, 205, 0.568); */
+    /* padding: 10px 15px; */
+    max-height: 576px;
+    overflow: scroll;
+    margin-bottom: 20px;
+}
+  
+.table-container table th,
+td {
+border-color: rgb(143, 129, 111);
+text-align: left;
+}
+
+.table-head th{
+    background: #eeeeee;
+}
+
+
+tr:nth-of-type(even){
+    background: #eeeeee;
+}
+
+tr:nth-of-type(odd){
+    background: white;
+}
+
+.solved {
+width: 50px;
+}
+
+.td-title {
+width: 530px;
+}
+
+.td-title a {
+padding: 0;
+color: black;
+transition: color 0.2s ease-out;
+}
+
+.td-title a:hover{
+    color: rgb(162, 206, 201);
+}
+
+.td-title div {
+cursor: pointer;
+}
+
+.website-logo a {
+/* background-color: brown; */
+padding: 0;
+}
+
+.website-logo i {
+color: green;
+}
+
+.website-logo img {
+width: 28px;
+}
+
+.link-a > a {
+color: black;
+}
+
+@media (max-width: 500px) {
+    .table-container {
+        overflow: scroll;
+    }
+
+    .table{
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,79 @@
+.maincarousel{
+    margin-bottom: 30px;
+}
+
+.carousel-inner a:hover{
+    color: rgb(88, 105, 105);
+}
+
+.carousel-inner{
+    position: relative;
+}
+
+
+.arrowright, .arrowleft{
+    position: absolute;
+    z-index: 10;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.arrowright:hover, .arrowleft:hover{
+    background: rgb(125, 129, 105);
+}
+
+.arrowleft{
+    background-color: grey;
+    opacity: 0.6;
+    left: 0;
+    padding: 47px 35px 48px 10px;
+    margin-left: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.arrowright{
+    background-color: grey;
+    opacity: 0.6;
+    top: 0;
+    right: 0;
+    padding: 47px 10px 47px 35px;
+    margin-right: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.arrowleft button, .arrowright button{
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.categorycarousel{
+    margin: 0 10px;
+    padding: 35px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 13px;
+    background: #e9c46a;
+    transition: color 0.3s ease-in-out;
+}
+
+
+.cactive{
+    background-color: #e76f51;
+}
+
+.categorycarousel p{
+    font-size: 1.4rem;
+    font-family: 'Pacifico',sans-serif;
+}
+
+
+@media (max-width: 500px) {    
+    .categorycarousel p{
+        font-size: 0.8rem;
+    }
+}

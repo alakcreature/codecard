@@ -28,6 +28,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
     let [hasmore,sethasmore] = useState(true);
     let history = useHistory();
 
+    // eslint-disable-next-line
     const pages = new Array(totalpages).fill(null).map((v,i)=>i);
 
     
@@ -76,14 +77,6 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
         e.target.reset();
     }
 
-    const gotoprevious = ()=>{
-        setpagenumber(Math.max(1,pagenumber-1));
-    }
-
-    const gotonext = ()=>{
-        setpagenumber(Math.min(totalpages, pagenumber+1));
-    }
-
     const observer = useRef();
     const lastuserfetched = useCallback(node => {
         // console.log(fetching)
@@ -98,6 +91,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
             observer.current.observe(node);
         }
         // console.log("Visible");
+        // eslint-disable-next-line
     },[fetching]);
 
 
@@ -112,6 +106,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
     
 
     useEffect(()=>{
+        window.scrollTo(0,0);
         if(category==="Select Category"){
             setleaderboardenquiry(undefined);
         }

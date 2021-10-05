@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
+import './OldPractice.css';
 import {connect} from 'react-redux';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
-import ReactPaginate from 'react-paginate';
 import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import staticimages from "../staticImagesLink";
 import http from '../../services/httpCall';
@@ -25,27 +25,33 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
     let problemsearch = navsearch.get("problemsearch");
     let [problemlist,setproblemlist] = useState([]);
     let [tags,settags] = useState([]);
+    // eslint-disable-next-line
     let [totalpages, settotalpages] = useState(0);
     let [pagenumber,setpagenumber] = useState(1);
     let [level,setlevel] = useState();
     let [currenttag,setcurrenttag] = useState();
     let [problemenquiry,setproblemenquiry] = useState();
     let [searchbox, setsearchbox] = useState();
-    
-    
-    const problemPerPage = 20;
-    const pageVisited = pagenumber * problemPerPage;
-
-
-    const displayProblems = problemlist.slice(pageVisited,pageVisited+problemlist);
+    let [fetching, setfetching] = useState(false);
+    let [hasmore, sethasmore] = useState(true);
 
 
     // const pages = new Array(totalpages).fill(null).map((v,i)=>i);
 
     const handleproblemcheck = async(problemid)=>{
         try{
+            // eslint-disable-next-line
             let response = await http.get(`${apis.SOLVEDPROBLEM}/${problemid}`);
             // console.log(response);
+            setproblemlist(prevproblemlist=>{
+                return prevproblemlist.map((op)=>{
+                    // eslint-disable-next-line
+                    if(op._id==problemid){
+                        op.issolved=!op.issolved;
+                    }
+                    return op;
+                });
+            })
         }catch(err){
             console.log(err);
             if(!navigator.onLine){
@@ -54,9 +60,7 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
             }else{
                 dark("so sorry, please try after sometime");
             }
-        }finally{
-            fetchsortedproblems();
-        }   
+        }  
     }
 
     const problemcheckwrapper = async(problemid)=>{
@@ -78,6 +82,7 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
     const fetchsortedproblems = async()=>{
         try{
             profileloader(true);
+            setfetching(true);
             let body={
                 level,
                 tags:currenttag,
@@ -90,7 +95,7 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
                 body.tags=undefined;
             }
 
-            // console.log(body);
+            
             let response;
             if(problemsearch!==null){
                 response = await http.post(`${apis.SORTED_PROBLEM}?problemsearch=${problemsearch}&page=${pagenumber}`,body);
@@ -99,16 +104,29 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
             }
             if(response.data.status===200){
                 if(response.data.totalcount===0){
-                    setcurrenttag("All Tags");
-                    warning("sorry, no such question exists. Try with some other query")
+                    if(currenttag && currenttag!=="All Tags"){
+                        setcurrenttag("All Tags");   
+                    }
+                    if(level && level!=="Level"){
+                        setlevel("Level");
+                    }
+                    if(problemenquiry){
+                        console.log(problemenquiry)
+                        setproblemenquiry(undefined);
+                    }
+                    info("sorry, no such question exists. Try with some other query")
                     return;
                 }
 
-                let newlist = response.data.problemlist;
+                setproblemlist(prevproblemlist=>{
+                    return [...prevproblemlist,...response.data.problemlist];
+                })
 
-                setproblemlist(newlist);
                 settags(response.data.tagelements);
                 settotalpages(Math.ceil(response.data.totalcount/20));
+                if(response.data.totalcount===problemlist.length){
+                    sethasmore(false);
+                }
             }else if(response.data.status===206){
                 setproblemlist(response.data.problemlist);
                 settags(response.data.tagelements);
@@ -129,6 +147,7 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
             }
         }
         finally{
+            setfetching(false);
             profileloader();
         }
     }
@@ -140,10 +159,23 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
         setproblemenquiry(searchbox);
     }
 
+    const observer = useRef();
+    
+    const lastproblemfetched = useCallback(node => {
+        // console.log(fetching)
+        if(fetching)return;
+        if(observer.current) observer.current.disconnect();
+        observer.current = new IntersectionObserver(entries=>{
+            if(entries[0].isIntersecting && hasmore){
+                setpagenumber(prevpagenumber=>prevpagenumber+1);
+            }
+        })
+        if(node){
+            observer.current.observe(node);
+        }
+        // eslint-disable-next-line
+    },[fetching]);
 
-    const changePage = ({selected})=> {
-        setpagenumber(selected+1);
-    }
 
 
     useEffect(()=>{
@@ -153,16 +185,13 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
 
     useEffect(()=>{
         fetchsortedproblems();
+        // eslint-disable-next-line
     },[level, currenttag, problemenquiry, problemsearch,Auth.isLoggedIn,pagenumber]);
 
 
     useEffect(()=>{
         console.log(problemlist);
     },[problemlist]);
-
-    useEffect(()=>{
-        console.log(pagenumber);
-    },[pagenumber]);
 
 
     return (
@@ -203,7 +232,7 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
                             Get better, and better prepare yourself for the competitions because...
                             </p>
                             <h4 className="practice-box-header-quote">All you need is a little push</h4>
-                            <h6 className="practice-box-header-quote">- Joker</h6>
+                            <h6 className="practice-box-header-quote">- By Joker Bhaiya</h6>
                             </>
                             }
                         </div>
@@ -259,7 +288,13 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
                             </form>
                         </div>
                     </div>
-   
+
+                    {/* Scroll Up */}
+                    <div className="scrollup">
+                        <i className="fas fa-angle-double-down"></i>
+                        <p>Scroll down the list buddy</p>
+                    </div>
+                        
                     {/* Practice Table */}
                     <div className="pratice-table">
                         {problemlist.length===0
@@ -284,7 +319,7 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
                             <tbody>
                                 {problemlist && problemlist.map((problem,index)=>{
                                     if(problemlist.length===index+1){
-                                        return <tr key={index+1}>
+                                        return <tr key={index+1} ref={lastproblemfetched}>
                                                     <td className="solved">
                                                         <input type="checkbox" 
                                                         checked={problem.issolved}
@@ -378,31 +413,15 @@ function OldPractice({error, info, warning, dark, success, loader, profileloader
                                             </td>
                                         </tr>
                                 }})}
-
-                                
-
                             </tbody>
                         </table>
                         }
                     </div>
                     
-                    {/* Pagination */}
-                    <div className="pagination">
-                        <ReactPaginate 
-                            previousLabel={'Previous'}
-                            nextLabel={'Next'}
-                            breakLabel={'...'}
-                            pageCount={totalpages}
-                            containerClassName={'paginationbtns'}
-                            previousLinkClassName={'previousbtn'}
-                            nextLinkClassName={'nextbtn'}
-                            disabledClassName={'paginationdisabled'}
-                            activeClassName={'paginationactive'}
-                            breakClassName={'break-me'}
-                            marginPagesDisplayed={1}
-                            pageRangeDisplayed={1}
-                            onPageChange={changePage}
-                        />
+                    {/* Scroll Up */}
+                    <div className="scrollup">
+                        <i className="fas fa-angle-double-down"></i>
+                        <p>Scroll down the list buddy</p>
                     </div>
 
                     <div className="practice-box-bottom">

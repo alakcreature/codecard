@@ -1,0 +1,99 @@
+.mainsheet-inner{
+    padding-top: 40px;
+}
+
+.sheetheader{
+    background-color: white;
+    margin-bottom: 10px;
+    margin: 0 0px 30px 0px;
+    padding: 10px 15px 10px 20px;
+    border-radius: 8px;
+    /* box-shadow: 3px 3px 5px 4px rgb(212, 207, 207); */
+}
+
+.sheetheader header{
+    margin: 10px 0px 10px 0px;
+}
+
+.sheetheader h3{
+    width: fit-content;
+    font-weight: bold;
+    /* font-size: 1.9rem; */
+    font-family: 'Pacifico', sans-serif;
+    color: #f18b71;
+    margin-bottom: 0;
+    /* border-bottom: 1px solid black; */
+}
+
+.sheetheader a{
+    color: #F39C13;
+    font-family: 'Pacifico', sans-serif;
+    font-size: 1.15rem;
+    transition: color 0.2s ease-out;
+}
+
+.sheetheader a:hover{
+    color: #f7ad36;
+}
+
+
+
+.sheetheader p {
+    /* font-size: 0.99rem; */
+    margin-bottom: 0;
+}
+
+
+.sheet-table{
+    /* background: red; */
+    position: relative;
+}
+
+.sheet-tableouter{
+    position: absolute;
+    background: rgb(195, 196, 191);
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.sheet-tableouter{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+
+.sheetbtn{
+    border: none;
+    outline: none;
+    background: black;
+    font-weight: 600;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    transition: background 0.2s ease-out;
+}
+
+.sheetbtn:hover{
+    background: rgb(221, 123, 18);
+    /* opacity: 0.9; */
+    color: black;
+}
+
+
+@media (max-width: 500px) {
+    .mainsheet-inner{
+        padding-top: 10px;
+    }
+
+    .sheetheader h3{
+        font-size: 1.3rem;
+    }
+
+    .sheetheader p{
+        font-size: 0.85rem;
+    }
+}
