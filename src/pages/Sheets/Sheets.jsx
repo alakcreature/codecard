@@ -20,6 +20,7 @@ function Sheets({dark,error,success,warning,info,loader, profileloader, Auth}) {
 
     const fetchsheets = async()=>{
         try{
+            profileloader(true);
             let response = await http.get(apis.SHEETS);
             // console.log(response);
             setsheets(response.data.data);

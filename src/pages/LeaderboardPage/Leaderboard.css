@@ -131,7 +131,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: rgb(231, 231, 231);
-    padding: 10px 15px;
+    /* padding: 10px 15px; */
     height: 567px;
     overflow: scroll;
 }

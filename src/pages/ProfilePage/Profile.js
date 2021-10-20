@@ -245,11 +245,11 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
     }
 
     let fetchUserDetails = ()=>{
-        // loader(true);
         profileloader(true);
         
         http.get(apis.GET_USER_INFO)
         .then((result)=>{
+            console.log(result.data);
             if(result.data.status===200){
                 setsolved(result.data.data.problemsolved);
                 setUserDetails(result.data.data);
@@ -281,12 +281,13 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
 
     let fetchSheetProgress = async(sheetid)=>{
         try{
+            profileloader(true);
             let response = await http.post(`${apis.SHEETPROGRESS}/${sheetid}`,{
                 month: Number(month),
                 year: Number(year)
             });
 
-            console.log(response.data);
+            
             if(response.data.status===200){
                 setsheetprogress(prevprogress=>{
                     if(prevprogress.length>0){
@@ -314,6 +315,8 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
             }else{
                 dark("so sorry, please try after sometime");
             }
+        }finally{
+            profileloader();
         }
     }
 
@@ -593,7 +596,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                     </div>
                                     :
                                     <>
-                                    <h3>{userdetails && userdetails.college}</h3>
+                                    <h3>{userdetails && (userdetails.college===undefined || userdetails.college==="undefined" || userdetails.college==="") ? "Please update your college name": userdetails.college}</h3>
                                     {showeditoptions &&
                                     <i className="fas fa-pen" onClick={()=>setupdatecollege(!updatecollege)}></i>
                                     }

@@ -1,8 +1,14 @@
 .updatetab{
-    background: #F39C13;
+    background: #ffcb77;
     font-family: 'Balsamiq Sans', sans-serif;
 }
 
+
+.updatetab span{
+    font-family: 'Pacifico',sans-serif !important;
+    margin-right: 10px;
+    
+}
 
 .navbar{
     background-color: #f2f2f2;
@@ -18,12 +24,48 @@
     margin-left: 15px;
 }
 
+.navbar-inner{
+    /* position: relative; */
+}
+
+.sheet-icon{
+    /* background: red; */
+    position: relative;
+}
+
+.icon-new{
+    position: absolute;
+    color: white;
+    /* background: chartreuse; */
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -5px;
+    right: -7px;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 0.62rem;
+    animation-name: iconnew;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes iconnew{
+    0%{background: #ff9e00;}
+    25%{background: #ff9100;}
+    50%{background: #ff8500;}
+    75%{background: #ff7900;}
+    100%{background: #ff9e00;}
+}
+
 .navbar-brand a{
     color: #F39C13;
 }
 
 .homepage-search-form{
-    width: 350px;
+    width: 315px;
 }
 
 .feedbackbtn{
@@ -158,5 +200,14 @@
     /* Feedback section */
     .q1 h3,.q2 h3,.q3 h3,.q4 h3,.q5 h3,.q6 h3{
         font-size: 1rem !important;
+    }
+
+
+    /* Icon new */
+    .icon-new{
+        width: 21px;
+        height: 20px;
+        right: 243px;
+        font-size: 0.51rem;
     }
 }

@@ -35,7 +35,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
 
     const fetchsortedleaderboard = async()=>{
         try{
-            profileloader(true);
+            // profileloader(true);
             setfetching(true);
             let response = await http.get(`${apis.SORTED_LEADERBOARD}?category=${category}&leaderboardenquiry=${leaderboardenquiry}&page=${pagenumber}`)
             
@@ -61,7 +61,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
             error("so, sorry please try again after sometime")
         }finally{
             setfetching(false);
-            profileloader();
+            // profileloader();
         }
     }
 
@@ -94,19 +94,9 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
         // eslint-disable-next-line
     },[fetching]);
 
-
-
-
-    // useEffect(()=>{
-    //     window.scrollTo(0,0);
-    //     fetchsortedleaderboard();
-    //     // eslint-disable-next-line
-    // },[]);
-
     
 
     useEffect(()=>{
-        window.scrollTo(0,0);
         if(category==="Select Category"){
             setleaderboardenquiry(undefined);
         }
@@ -194,7 +184,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                     
                     {/* Scroll Up */}
                     <div className="scrollup">
-                        <i class="fas fa-angle-double-down"></i>
+                        <i className="fas fa-angle-double-down"></i>
                         <p>Scroll down the list buddy</p>
                     </div>
                     {/* Leaderboard Table */}
@@ -235,7 +225,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                                         <span> codecard handle: {board_el.codecard_username}</span>
                                                     </ReactTooltip>
                                                 </td>
-                                                <td>{board_el.college}</td>
+                                                <td>{board_el.college && (board_el.college===undefined || board_el.college==="undefined" || board_el.college==="" ? "-" : board_el.college)}</td>
                                                 <td className="country-td-tag"><img src={India} alt="India" /></td>
                                                 <td>{board_el.profiledata.overall_rating}</td>
                                                 <td className={`td-perdaychange ${board_el.profiledata.last_perday_change>0?"":board_el.profiledata.last_perday_change===0?"neutral":"offline"}`}>
@@ -259,7 +249,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                                         <span> codecard handle: {board_el.codecard_username}</span>
                                                     </ReactTooltip>
                                                 </td>
-                                                <td>{board_el.college}</td>
+                                                <td>{board_el.college && (board_el.college===undefined || board_el.college==="undefined" || board_el.college==="" ? "-" : board_el.college)}</td>
                                                 <td className="country-td-tag"><img src={India} alt="India" /></td>
                                                 <td>{board_el.profiledata.overall_rating}</td>
                                                 <td className={`td-perdaychange ${board_el.profiledata.last_perday_change>0?"":board_el.profiledata.last_perday_change===0?"neutral":"offline"}`}>
@@ -276,7 +266,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
 
                     {/* Scroll Up */}
                     <div className="scrollup">
-                        <i class="fas fa-angle-double-down"></i>
+                        <i className="fas fa-angle-double-down"></i>
                         <p>Scroll down the list buddy</p>
                     </div>
 

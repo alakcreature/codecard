@@ -142,7 +142,8 @@ function User({dark,error,success,warning,info, profileloader}) {
                                             </div>
                                             :
                                             <>
-                                            <h6>{userdetails && userdetails.college}</h6>
+                                            
+                                            <h6>{userdetails && (userdetails.college===undefined || userdetails.college==="undefined" || userdetails.college==="") ? "-": userdetails.college}</h6>
                                             {/* {showeditoptions &&
                                             <i className="fas fa-pen" onClick={()=>setupdatecollege(!updatecollege)}></i>
                                             } */}

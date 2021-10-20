@@ -101,7 +101,12 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
         // Header Section
         <>
         <section className={`updatetab ${hide ?"hide":""}`}>
-            <marquee behavior="scroll" direction="left" scrollamount="16">Feature Update! Now, you can see your friend's profile as well. Do not forget to give feedback (Open menu bar).</marquee>
+            <marquee behavior="scroll" direction="left" scrollamount="16">
+                <span> 
+                    Feature Update!
+                </span>
+                Go to the practice page, we have a big surprise for you. Do not forget to give feedback (Open menu bar).
+            </marquee>
         </section>
         <nav className="navbar navbar-expand-lg navbar-light" >
             
@@ -113,7 +118,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav mr-auto mb-2 mb-lg-0 navbar-inner">
                         {/* <li className="nav-item">
                             <Link className="nav-link" aria-current="page" to="/" onClick={()=>setnavbutton(!navbutton)}>Home</Link>
                         </li> */}
@@ -122,6 +127,10 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/contests" onClick={()=>setnavbutton(!navbutton)}>Contests</Link>
+                        </li>
+                        <li className="nav-item sheet-icon">
+                            <Link className="nav-link" to="/sheets" onClick={()=>setnavbutton(!navbutton)}>Sheets</Link>
+                            <div className="icon-new">new</div>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile" onClick={()=>setnavbutton(!navbutton)}>Profile</Link>

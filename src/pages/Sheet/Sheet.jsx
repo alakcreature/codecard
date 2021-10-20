@@ -169,7 +169,7 @@ function Sheet({dark,error,success,warning,info,loader, profileloader, Auth}) {
                                 <p>
                                     {sheetdetails.description}
                                     <br />
-                                    Subscribe to his YouTube <Link to="#">channel.</Link>
+                                    Subscribe to his YouTube <Link to={{pathname: (sheetdetails.channellink)}} target="__blank">channel.</Link>
                                 </p>
                             </>
                         )}
