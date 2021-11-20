@@ -7,9 +7,7 @@ import { useEffect } from 'react';
 
 
 function PrivateRoute({ children,Auth, path, dark, warning, ...rest }) {
-    // console.log("Yes,here");
-    // console.log(path);
-    console.log(Auth.isLoggedIn);
+
     useEffect(()=>{
         if(!Auth.isLoggedIn){
             warning("Please sign in first.")

@@ -16,10 +16,9 @@ import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from "../../actions/profileLoaderAction";
 import { useRef } from 'react';
-// import { addviews } from '../../../../server/controllers/viewsController';
 
-// Check if token is expired.
-// Add edit option for about section.
+
+
 function Profile({dark,error,success,warning,info,loader, profileloader,logout,setUserDetails}) {
     let history = useHistory();
     let [usernamemodal,setusernamemodal] = useState(false);
@@ -54,7 +53,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
 
     const currentdate=new Date().toLocaleString('en-us', { month: 'long' });
     const currentyear=new Date().getFullYear();
-    // console.log(currentyear)
 
 
     const chartelement = useRef();
@@ -249,7 +247,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
         
         http.get(apis.GET_USER_INFO)
         .then((result)=>{
-            console.log(result.data);
             if(result.data.status===200){
                 setsolved(result.data.data.problemsolved);
                 setUserDetails(result.data.data);
@@ -287,25 +284,24 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                 year: Number(year)
             });
 
+            // console.log(response.data);
             
-            if(response.data.status===200){
-                setsheetprogress(prevprogress=>{
-                    if(prevprogress.length>0){
-                        return prevprogress.map(el=>{
-                            if(el.sheetid===response.data.data.sheetid){
-                                // console.log("hi");
-                                return response.data.data;
-                            }else{
-                                return el;
-                            }
-                        });
-                    }else{
-                        return [...prevprogress,...Array(response.data.data)];
-                    }
-                });
-            }else{
+            if(response.data.status===406){
                 info(response.data.message);
             }
+            setsheetprogress(prevprogress=>{
+                if(prevprogress.length>0){
+                    return prevprogress.map(el=>{
+                        if(el.sheetid===response.data.data.sheetid){
+                            return response.data.data;
+                        }else{
+                            return el;
+                        }
+                    });
+                }else{
+                    return [...prevprogress,...Array(response.data.data)];
+                }
+            });
         }
         catch(err){
             console.log(err);
@@ -787,42 +783,12 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         <div className="user-ratings">
                             <ul>
                                 <li>
-                                    {/* Render below tooltip only if rating exists but if rating not
-                                    exists but username exists, then render tooltip with "connect your profile" */}
-                                    {userdetails && userdetails.codechef ? userdetails.codechef===-1 ?
+                                    {/* If score in profile of any user is -1, it means it has no username */}
+                                    {/* but if it is -2, it means the username has recently changed */}
+                                    {userdetails && userdetails.codechef && userdetails.codechef===-1 
+                                    ?
+                                    // Username not exist, add cc username
                                     (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn"
-                                            onClick={()=>{setusernamemodal(true)}}
-                                            >
-                                                <img src={staticimages.Codechef} alt="codechef rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="codechef" type="info" effect="float">
-                                                    <span>Please add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ):                                   
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn">
-                                                <img src={staticimages.Codechef} alt="codechef rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="codechef" type="info" effect="float">
-                                                    <span>Your codechef rating: {userdetails.codechef}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (userdetails.codechef_username ? (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn"
-                                            onClick={()=>{setconnectwith("codechef")}}
-                                            >
-                                                <img src={staticimages.Codechef} alt="codechef rating" />
-                                            </button>
-                                            <ReactTooltip id="codechef" place="top" type="info" effect="float">
-                                                <span>{`${userdetails.codechef_username}, click on the image to connect your account`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (
                                         //  Modal to add username
                                         <React.Fragment>
                                             <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
@@ -832,29 +798,66 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                                 <span>Add your username</span>
                                             </ReactTooltip>
                                         </React.Fragment>
-                                    ))
+                                    )
+                                    :
+                                    (userdetails.codechef===-2
+                                    ?
+                                    // recently updated it codechef username
+                                    (
+                                        <React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn"
+                                            // onClick={()=>{setconnectwith("codechef")}}
+                                            >
+                                                <img src={staticimages.Codechef} alt="codechef rating" />
+                                            </button>
+                                            <ReactTooltip id="codechef" place="top" type="info" effect="float">
+                                                <span>{`${userdetails.codechef_username}, your codechef score may reflect after 24 hours`}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )
+                                    :
+                                    // show its codechef score
+                                    (<React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn">
+                                                <img src={staticimages.Codechef} alt="codechef rating" />
+                                            </button>
+                                            <ReactTooltip place="top" id="codechef" type="info" effect="float">
+                                                    <span>Your codechef rating: {userdetails.codechef}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )) 
                                     }
                                 </li>
 
+
                                 <li>
-                                    {/* Render below tooltip only if rating exists but if rating not
-                                    exists but username exists, then render tooltip with "connect your profile" */}
-                                    {userdetails && userdetails.codeforces ? userdetails.codeforces===-1 ?
+                                    {userdetails && userdetails.codeforces && userdetails.codeforces===-1 
+                                    ?
                                     (
                                         <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn"
-                                            onClick={()=>{setusernamemodal(true)}}
-                                            >
+                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
                                                 <img src={staticimages.Codeforces} alt="codeforces rating" />
                                             </button>
-                                            <ReactTooltip place="top" id="codeforces" type="info" effect="float">
-                                                    <span>Please add your username</span>
+                                            <ReactTooltip id="codeforces" place="top" type="info" effect="float">
+                                                <span>Add your username</span>
                                             </ReactTooltip>
                                         </React.Fragment>
-                                    ): 
-                                    
+                                    )
+                                    :
+                                    (userdetails.codeforces===-2
+                                    ?
                                     (
                                         <React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn" >
+                                                <img src={staticimages.Codeforces} alt="codeforces rating" />
+                                            </button>
+                                            <ReactTooltip id="codeforces" place="top" type="info" effect="float">
+                                                <span>{`${userdetails.codeforces_username}, your codeforces score may reflect after 24 hours`}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )
+                                    :
+                                    (<React.Fragment>
                                             <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn">
                                                 <img src={staticimages.Codeforces} alt="codeforces rating" />
                                             </button>
@@ -862,125 +865,85 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                                     <span>Your codeforces rating: {userdetails.codeforces}</span>
                                             </ReactTooltip>
                                         </React.Fragment>
-                                    ): (userdetails.codeforces_username ? (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn"
-                                            onClick={()=>{setconnectwith("codeforces")}}
-                                            >
-                                                <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="codeforces" type="info" effect="float">
-                                                <span>{`${userdetails.codeforces_username}, click on the image to connect your account`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (
-                                        //  Modal to add username
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn" onClick={()=>{setusernamemodal(true)}}>
-                                                <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="codeforces" type="info" effect="float">
-                                                <span>Add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ))
+                                    )) 
                                     }
                                 </li>
 
                                 <li>
-                                    {/* Render below tooltip only if rating exists but if rating not
-                                    exists but username exists, then render tooltip with "connect your profile" */}
-                                    {userdetails && userdetails.leetcode ? userdetails.leetcode===-1 ?
+                                    {userdetails && userdetails.leetcode && userdetails.leetcode===-1 
+                                    ?
                                     (
                                         <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn">
-                                                <img src={staticimages.Leetcode} alt="leetcode problem solved" />
+                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
+                                                <img src={staticimages.Leetcode} alt="leetcode rating" />
                                             </button>
-                                            <ReactTooltip place="top" id="leetcode" type="info" effect="float">
-                                                    <span>Please add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ):
-                                    
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn">
-                                                <img src={staticimages.Leetcode} alt="leetcode problem solved" />
-                                            </button>
-                                            <ReactTooltip place="top" id="leetcode" type="info" effect="float">
-                                                    <span>Your leetcode problem solved: {userdetails.leetcode}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (userdetails.leetcode_username ? (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn"
-                                            onClick={()=>{setconnectwith("leetcode")}}
-                                            >
-                                                <img src={staticimages.Leetcode} alt="leetcode problem solved" />
-                                            </button>
-                                            <ReactTooltip place="top" id="leetcode" type="info" effect="float">
-                                                <span>{`${userdetails.leetcode_username}, click on the image to connect your account`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (
-                                        //  Modal to add username
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn" onClick={()=>{setusernamemodal(true)}}>
-                                                <img src={staticimages.Leetcode} alt="leetcode problem solved" />
-                                            </button>
-                                            <ReactTooltip place="top" id="leetcode" type="info" effect="float">
+                                            <ReactTooltip id="leetcode" place="top" type="info" effect="float">
                                                 <span>Add your username</span>
                                             </ReactTooltip>
                                         </React.Fragment>
-                                    ))
+                                    )
+                                    :
+                                    (userdetails.leetcode===-2
+                                    ?
+                                    (
+                                        <React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn" >
+                                                <img src={staticimages.Leetcode} alt="leetcode rating" />
+                                            </button>
+                                            <ReactTooltip id="leetcode" place="top" type="info" effect="float">
+                                                <span>{`${userdetails.leetcode_username}, your leetcode score may reflect after 24 hours`}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )
+                                    :
+                                    (<React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn">
+                                                <img src={staticimages.Leetcode} alt="leetcode rating" />
+                                            </button>
+                                            <ReactTooltip place="top" id="leetcode" type="info" effect="float">
+                                                    <span>Your leetcode rating: {userdetails.leetcode}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )) 
                                     }
                                 </li>
 
                                 <li>
-                                    {/* Render below tooltip only if rating exists but if rating not
-                                    exists but username exists, then render tooltip with "connect your profile" */}
-                                    {userdetails && userdetails.geeksforgeeks ? userdetails.geeksforgeeks===-1 ?
+                                    {userdetails && userdetails.geeksforgeeks && userdetails.geeksforgeeks===-1 
+                                    ?
                                     (
                                         <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn">
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks problem solved" />
+                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
+                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
                                             </button>
-                                            <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
-                                                    <span>Please add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ):
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn">
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks problem solved" />
-                                            </button>
-                                            <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
-                                                    <span>Your geeksforgeeks problem solved: {userdetails.geeksforgeeks}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (userdetails.geeksforgeeks_username ? (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn"
-                                            onClick={()=>{setconnectwith("geeksforgeeks")}}
-                                            >
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks problem solved" />
-                                            </button>
-                                            <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
-                                                <span>{`${userdetails.geeksforgeeks_username}, click on the image to connect your account`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    ): (
-                                        //  Modal to add username
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn" onClick={()=>{setusernamemodal(true)}}>
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks problem solved" />
-                                            </button>
-                                            <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
+                                            <ReactTooltip id="geeksforgeeks" place="top" type="info" effect="float">
                                                 <span>Add your username</span>
                                             </ReactTooltip>
                                         </React.Fragment>
-                                    ))
+                                    )
+                                    :
+                                    (userdetails.geeksforgeeks===-2
+                                    ?
+                                    (
+                                        <React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn" >
+                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
+                                            </button>
+                                            <ReactTooltip id="geeksforgeeks" place="top" type="info" effect="float">
+                                                <span>{`${userdetails.gfg_username}, your geeksforgeeks score may reflect after 24 hours`}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )
+                                    :
+                                    (<React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn">
+                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
+                                            </button>
+                                            <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
+                                                    <span>Your geeksforgeeks rating: {userdetails.geeksforgeeks}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )) 
                                     }
                                 </li>
                             </ul>
