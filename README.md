@@ -96,6 +96,7 @@ Features:
 * [Quora][quora-link]
 * [Facebook Page][facebook-url]
 * [Blogs][codecard-blogs]
+* [Twitter][twitter-page]
 
 
 
@@ -235,6 +236,7 @@ I have listed down the resources which I have used for this project.
 [youtube-channel]: https://www.youtube.com/channel/UCoWPZGojQB9elA9kXHbtJFw
 [quora-link]: https://www.quora.com/profile/CodeCard-Official-1
 [facebook-url]: https://www.facebook.com/codecardofficial
-[codecard-blogs]: https://blogs.codecard.in
+[codecard-blogs]: https://blogs.codecard.co.in
+[twitter-page]: https://twitter.com/codecardoffcl
 
 
