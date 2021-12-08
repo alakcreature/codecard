@@ -126,10 +126,6 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 * yarn
   ```sh
   npm install --global yarn
@@ -144,7 +140,7 @@ To get a local copy up and running follow these simple example steps.
    ```
 3. Install NPM packages
    ```sh
-   npm install or yarn install
+   yarn install
    ```
 4. Run the client
    ```
