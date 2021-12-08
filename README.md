@@ -38,9 +38,9 @@
   <p align="center">
     <a href="https://codecard.in">View Demo</a>
     ·
-    <a href="https://github.com/alakcreature/codecard_client/issues">Report Bug</a>
+    <a href="https://github.com/alakcreature/codecard/issues">Report Bug</a>
     ·
-    <a href="https://github.com/alakcreature/codecard_client/issues">Request Feature</a>
+    <a href="https://github.com/alakcreature/codecard/issues">Request Feature</a>
   </p>
 </div>
 
