@@ -100,16 +100,10 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
     return (
         // Header Section
         <>
-        <section className={`updatetab ${hide ?"hide":""}`}>
-            <marquee behavior="scroll" direction="left" scrollamount="16">
-                <span> 
-                    Feature Update!
-                </span>
-                Go to the practice page, we have a big surprise for you. Do not forget to give feedback (Open menu bar).
-            </marquee>
+        <section className={`updatetab ${hide ?"hide":""}`}> 
+                Important Announcement! We are moving to <Link to={{pathname:"https://codecard.in"}} target="__blank">codecard.in</Link>
         </section>
         <nav className="navbar navbar-expand-lg navbar-light" >
-            
             <div className="container-fluid">
                 <div className="navbar-brand">
                     <Link to="/">CodeCard</Link>
@@ -119,18 +113,15 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto mb-2 mb-lg-0 navbar-inner">
-                        {/* <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="/" onClick={()=>setnavbutton(!navbutton)}>Home</Link>
-                        </li> */}
                         <li className="nav-item">
                             <Link className="nav-link" to="/practice" onClick={()=>setnavbutton(!navbutton)}>Practice</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/contests" onClick={()=>setnavbutton(!navbutton)}>Contests</Link>
                         </li>
-                        <li className="nav-item sheet-icon">
+                        <li className="nav-item navbar-new-icon">
                             <Link className="nav-link" to="/sheets" onClick={()=>setnavbutton(!navbutton)}>Sheets</Link>
-                            <div className="icon-new">new</div>
+                            {/* <div className="icon-new">new</div> */}
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/profile" onClick={()=>setnavbutton(!navbutton)}>Profile</Link>
@@ -160,6 +151,10 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                             </li>
                         )
                         }
+                        <li className="nav-item navbar-new-icon">
+                            <Link className="nav-link" to={{pathname: "https://blogs.codecard.in"}} target="__blank">Blogs</Link>
+                            <div className="icon-new">new</div>
+                        </li>
                         <li className="nav-item" className="feedbackbtn">
                             <Link className="nav-link" to="#" onClick={()=>setfeedbackmodal(true)}>Feedback</Link>
                         </li>

@@ -11,7 +11,8 @@ export default (state = initialState, action )=>{
             return {
                 ...state,
                 isLoggedIn : true,
-                token : action.token
+                token : action.token,
+                userdetails : action.payload
             }
         case 'LOGOUT':
             return {

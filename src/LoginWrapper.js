@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Redirect,Route} from 'react-router-dom';
 import {connect} from "react-redux";
 
 function LoginWrapper({ children,Auth, ...rest }) {
-    console.log(Auth);
-    // console.log({...rest});
+
+    
     return (
         <Route
         {...rest}
@@ -14,7 +14,6 @@ function LoginWrapper({ children,Auth, ...rest }) {
             children
             )
             :
-            !location.previousroute &&           
             (
                 <Redirect to="/profile" />
             )

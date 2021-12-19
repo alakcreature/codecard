@@ -6,7 +6,7 @@ export const login = (token,userdetails) => {
     return {
         type: 'LOGIN',
         token : token,
-        userdetails:userdetails
+        payload : userdetails
     };
 };
 

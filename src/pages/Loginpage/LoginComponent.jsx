@@ -10,6 +10,8 @@ import {profileloader} from "../../actions/profileLoaderAction";
 import './LoginComponent.css';
 import staticimages from "../staticImagesLink";
 import { useEffect } from 'react';
+import GoogleLogin from 'react-google-login'
+
 
 
 
@@ -60,6 +62,43 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
         togglepassword();
     }
 
+
+    const responseSuccessGoogle = async(response)=>{
+        try{
+            profileloader(true);
+            let result = await http.post(apis.GOOGLEAUTHENTICATION,{
+                idToken: response.tokenId
+            })
+            // console.log(result);
+            if(result.data.status===200){
+                login(result.data.token, result.data.user);
+                warning(`Welcome ${result.data.user.firstname}`);
+                console.log(previousroute)
+                if(previousroute){
+                    history.push({
+                        pathname:previousroute
+                    });
+                }
+            }else if(result.data.status===401){
+                warning(result.data.message);
+            }
+        }
+        catch(err){
+            console.log(err);
+            if(!navigator.onLine){
+                history.push("/networkerror");
+            }
+            error("so sorry, please try again after sometime");
+        }finally{
+            profileloader();
+        }
+    }
+
+
+    const responseErrorGoogle = async(response)=>{
+        
+    }
+
     let submit =(e)=>{
         e.preventDefault();
         
@@ -75,10 +114,10 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                 password: password
             }).then((result)=>{
                 let token=result.data.token;
+                console.log(result.data);
                 if(token && token!=="null" && token!=="undefined"){
-                    login(result.data.token);
+                    login(result.data.token,result.data.user);
                     // User details in redux store.
-                    setUserDetails(result.data.user);
                     warning(`Welcome ${result.data.user.firstname}`);
                     if(previousroute){
                         history.push({
@@ -162,6 +201,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
     }
 
     useEffect(()=>{
+        console.log("Login component renders")
         window.scrollTo(0,0);
         window.onclick = (e)=>{
             let modalContent = document.querySelector("#infomodal");
@@ -219,9 +259,23 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                 <div className="signin-main-content-inner">
                     <div className="signin-form">
                         <div className="social-login-container">
-                            <div className="social-login">
+                            <div className="github-social-login">
                                 <i className="fab fa-github fa-2x"></i>
-                                <a href="https://github.com/login/oauth/authorize?client_id=1945aaec7bd346116630">Sign in with Github</a>
+                                <Link to={{pathname: "https://github.com/login/oauth/authorize?client_id=1945aaec7bd346116630"}}  target="__blank">Sign in with Github</Link>
+                            </div>
+                            <div className="google-social-login">
+                                <i className="fab fa-google fa-2x"></i>
+                                <GoogleLogin
+                                    clientId="4729798451-b16lrq05nd92f4tl2pvf9emntrue85ld.apps.googleusercontent.com"
+                                    render={renderProps => (
+                                        <button className="google-social-btn" onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in using Google</button>
+                                    )
+                                    }
+                                    buttonText="Login"
+                                    onSuccess={responseSuccessGoogle}
+                                    onFailure={responseErrorGoogle}
+                                    cookiePolicy={'single_host_origin'}
+                                />
                             </div>
                         </div>
                         <div className="or">

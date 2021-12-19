@@ -1,8 +1,7 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import {dark,warning} from './actions/alertAction';
-import { useEffect } from 'react';
 
 
 
@@ -12,15 +11,23 @@ function PrivateRoute({ children,Auth, path, dark, warning, ...rest }) {
         if(!Auth.isLoggedIn){
             warning("Please sign in first.")
         }
+
         // eslint-disable-next-line
     },[]);
     return (
         <Route
             {...rest}
             render={() =>
-                Auth.isLoggedIn ? (
+                Auth.isLoggedIn ? 
+                
+                Auth.userdetails && Auth.userdetails.codecard_username ?
+                (
                     children
-                ) : (
+                )
+                :(
+                    <Redirect to="/addusername"/>
+                )
+                : (
                 <Redirect
                     to={{
                         pathname: "/signin",

@@ -1,14 +1,25 @@
 .updatetab{
     background: #ffcb77;
-    font-family: 'Balsamiq Sans', sans-serif;
+    padding: 5px 5px;
+    font-family: cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
 }
 
 
-.updatetab span{
-    font-family: 'Pacifico',sans-serif !important;
-    margin-right: 10px;
-    
+.updatetab a{
+    margin-left: 5px;
+    color: black;
+    transition: color 0.3s ease-in-out;
 }
+
+.updatetab a:hover{
+    color: rgba(247, 77, 51, 0.904);
+}
+
+
 
 .navbar{
     background-color: #f2f2f2;
@@ -28,7 +39,7 @@
     /* position: relative; */
 }
 
-.sheet-icon{
+.navbar-new-icon{
     /* background: red; */
     position: relative;
 }
@@ -187,6 +198,17 @@
 @media (max-width: 500px){
     body{
         padding-bottom: 190px;
+    }
+
+
+    .updatetab{
+        font-size: 0.75rem;
+        font-family: unset;
+    }
+
+    .updatetab a{
+        border-bottom: unset;
+        color: rgba(247, 77, 51, 0.904);
     }
 
     .navbar{

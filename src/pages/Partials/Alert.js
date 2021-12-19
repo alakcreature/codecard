@@ -10,7 +10,7 @@ function Alert(props) {
     const success = ()=>{
         toast.success(props.Alert.message, {
             position: "top-right",
-            autoClose: 4000,
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
