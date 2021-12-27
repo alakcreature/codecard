@@ -4,7 +4,7 @@
 } */
 
 .error-main-inner{
-    background: url("../static/error_pic.jpg") no-repeat 3px center/cover;
+    background: url("https://codecard-static.sgp1.digitaloceanspaces.com/error_pic.jpg") no-repeat 3px center/cover;
     /* background-color: green; */
     border-top-left-radius: 12px;
     border-top-right-radius: 15px;

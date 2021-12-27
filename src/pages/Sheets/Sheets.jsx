@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import "./Sheets.css";
-import Meena3 from "../static/meena3.png";
+import Meena from "../static/meena.png";
 import http from '../../services/httpCall';
 import apis from '../../services/apis';
 import {connect} from 'react-redux';
@@ -101,7 +101,7 @@ function Sheets({dark,error,success,warning,info,loader, profileloader, Auth}) {
                                 </div>
                             </div>
                             <div className="sheet-box-header-img">
-                                <img src={Meena3} alt="panda" />
+                                <img src={Meena} alt="panda" />
                             </div>
                         </div>
 
