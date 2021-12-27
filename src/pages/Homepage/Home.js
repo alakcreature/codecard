@@ -209,9 +209,9 @@ function Home({loader, success}) {
                         <TwitterTweetEmbed
                         tweetId={'1377216337999585280'}
                         />
-                        <TwitterTweetEmbed
+                        {/* <TwitterTweetEmbed
                         tweetId={'1401055321150222341'}
-                        />
+                        /> */}
                         </div>
                     </div>
                 </div>

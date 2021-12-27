@@ -23,11 +23,11 @@ function App(props) {
 
   return (
     <React.Fragment>
+      {/* Global Alerts */}
+      <Alert />
       {/* Global Loader */}
       <Loader />
       <ProfileLoader />
-      {/* Global Alerts */}
-      <Alert />
 
       <RouteGuard />
     </React.Fragment>

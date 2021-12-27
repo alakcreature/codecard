@@ -31,8 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
-    "deploy": "react-scripts build && aws s3 rm s3://codecard-frontend/ --recursive && aws s3 cp ./build s3://codecard-frontend/ --recursive --acl public-read"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

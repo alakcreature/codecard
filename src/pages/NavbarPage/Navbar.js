@@ -168,117 +168,114 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                 </div>
             </div>
         </nav>
-        {/* <marquee className="updatebar" behavior="scroll" direction="left" scrollamount="12">Little Fast Scrolling</marquee> */}
-        {/* <marquee width="60%" direction="left" height="100px">
-This is a sample scrolling text that has scrolls texts to left.
-</marquee> */}
+        
         {feedbackmodal &&
             (
-                <div className="info-modal" id="infomodal">
+                <div className="feedback-info-modal" id="infomodal">
                     <div className="info-modal-main">
-                    <span className="info-closebtn" onClick={()=>{setfeedbackmodal(false)}}>&times;</span>
-                    <div className="info-modal-inner">
-                    <div className="info-header">
-                        <h2>What do you think about us?</h2>
-                        <hr/>
-                    </div>
-                    <div className="info-content">
-                        <div className="main-feedback">
-                            <div className="main-feedback-inner">
-                                <form onSubmit={handlefeedback}>
+                        <span className="info-closebtn" onClick={()=>{setfeedbackmodal(false)}}>&times;</span>
+                        <div className="info-modal-inner">
+                            <div className="info-header">
+                                <h2>What do you think about us?</h2>
+                                <hr/>
+                            </div>
+                            <div className="info-content">
+                                <div className="main-feedback">
+                                    <div className="main-feedback-inner">
+                                        <form onSubmit={handlefeedback}>
 
-                                    <div className="q1">
-                                        <h3>1. On a scale of 1 - 10 how much satisfied you were with the website?</h3>
-                                        {websiteratingarray.map((d,index)=>(
-                                            <div className="form-check form-check-inline" key={index}>
-                                                <input onChange={(e)=>{
-                                                    setwebsiterating(e.target.value);
-                                                }} className="form-check-input" type="radio" name="websiterating" id="websiterating" value={index+1} />
-                                                <label className="form-check-label" htmlFor="websiterating">{index+1}</label>
-                                            </div>    
-                                        ))}
+                                            <div className="q1">
+                                                <h3>1. On a scale of 1 - 10 how much satisfied you were with the website?</h3>
+                                                {websiteratingarray.map((d,index)=>(
+                                                    <div className="form-check form-check-inline" key={index}>
+                                                        <input onChange={(e)=>{
+                                                            setwebsiterating(e.target.value);
+                                                        }} className="form-check-input" type="radio" name="websiterating" id="websiterating" value={index+1} />
+                                                        <label className="form-check-label" htmlFor="websiterating">{index+1}</label>
+                                                    </div>    
+                                                ))}
+                                            </div>
+
+                                            <div className="q2">
+                                                <h3>2. What was the best feature you came across?</h3>
+                                                <select
+                                                className="form-select form-select-sm"
+                                                aria-label=".form-select-sm example"
+                                                onClick={(e)=> setfeature(e.target.value)}
+                                                >
+                                                    <option value="Practice">Practice</option>
+                                                    <option value="Overall Ratings System">Overall Ratings System</option>
+                                                    <option value="Leaderboard">Leaderboard</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="q3">
+                                                <h3>3. On what domain you want us to improve?</h3>
+                                                <select 
+                                                className="form-select form-select-sm" 
+                                                aria-label=".form-select-sm example"
+                                                onClick={(e)=> setdomain(e.target.value)}
+                                                >
+                                                    <option value="UI">UI</option>
+                                                    <option value="UX">UX</option>
+                                                    <option value="Functionality">Functionality</option>
+                                                </select>
+                                            </div>
+
+                                            <div className="q4">
+                                                <h3>4. Any important feature you think we are missing out?</h3>
+                                                <textarea 
+                                                className="form-control" 
+                                                name="question4" 
+                                                cols="30" 
+                                                rows="4"
+                                                onChange={(e)=> setadditional_feature(e.target.value)}
+                                                ></textarea>
+                                            </div>
+
+                                            <div className="q5">
+                                                <h3>5. How likely are you going to suggest this website as a CP manager to your peers?</h3>
+                                                {recommendcparray.map((d,index)=>(
+                                                    <div className="form-check form-check-inline" key={index}>
+                                                        <input onChange={(e)=>{
+                                                            setrecommend_cp(e.target.value);
+                                                        }} className="form-check-input" type="radio" name="recommendcp" id="recommendcp" value={index+1} />
+                                                        <label className="form-check-label" htmlFor="recommendcp">{index+1}</label>
+                                                    </div>    
+                                                ))}
+                                            </div>
+
+                                            <div className="q6">
+                                                <h3>6. That was a lot but if you still have something, let us know below:</h3>
+                                                <textarea 
+                                                className="form-control" 
+                                                name="question4" 
+                                                cols="30" 
+                                                rows="4"
+                                                onChange={(e)=>{setanything_else(e.target.value);}}
+                                                ></textarea>
+                                            </div>
+
+                                            <div className="q4">
+                                                <h3>
+                                                    7. We want to credit your valuable suggestion, 
+                                                    if you can share your codecard username?
+                                                </h3>
+                                                <textarea 
+                                                className="form-control" 
+                                                name="question4" 
+                                                cols="30" 
+                                                rows="4"
+                                                onChange={(e)=>{setcodecard_username(e.target.value);}}
+                                                ></textarea>
+                                            </div>
+
+                                            <button type="submit">Submit</button>
+                                        </form>
                                     </div>
-
-                                    <div className="q2">
-                                        <h3>2. What was the best feature you came across?</h3>
-                                        <select
-                                        className="form-select form-select-sm"
-                                        aria-label=".form-select-sm example"
-                                        onClick={(e)=> setfeature(e.target.value)}
-                                        >
-                                            <option value="Practice">Practice</option>
-                                            <option value="Overall Ratings System">Overall Ratings System</option>
-                                            <option value="Leaderboard">Leaderboard</option>
-                                        </select>
-                                    </div>
-
-                                    <div className="q3">
-                                        <h3>3. On what domain you want us to improve?</h3>
-                                        <select 
-                                        className="form-select form-select-sm" 
-                                        aria-label=".form-select-sm example"
-                                        onClick={(e)=> setdomain(e.target.value)}
-                                        >
-                                            <option value="UI">UI</option>
-                                            <option value="UX">UX</option>
-                                            <option value="Functionality">Functionality</option>
-                                        </select>
-                                    </div>
-
-                                    <div className="q4">
-                                        <h3>4. Any important feature you think we are missing out?</h3>
-                                        <textarea 
-                                        className="form-control" 
-                                        name="question4" 
-                                        cols="30" 
-                                        rows="4"
-                                        onChange={(e)=> setadditional_feature(e.target.value)}
-                                        ></textarea>
-                                    </div>
-
-                                    <div className="q5">
-                                        <h3>5. How likely are you going to suggest this website as a CP manager to your peers?</h3>
-                                        {recommendcparray.map((d,index)=>(
-                                            <div className="form-check form-check-inline" key={index}>
-                                                <input onChange={(e)=>{
-                                                    setrecommend_cp(e.target.value);
-                                                }} className="form-check-input" type="radio" name="recommendcp" id="recommendcp" value={index+1} />
-                                                <label className="form-check-label" htmlFor="recommendcp">{index+1}</label>
-                                            </div>    
-                                        ))}
-                                    </div>
-
-                                    <div className="q6">
-                                        <h3>6. That was a lot but if you still have something, let us know below:</h3>
-                                        <textarea 
-                                        className="form-control" 
-                                        name="question4" 
-                                        cols="30" 
-                                        rows="4"
-                                        onChange={(e)=>{setanything_else(e.target.value);}}
-                                        ></textarea>
-                                    </div>
-
-                                    <div className="q4">
-                                        <h3>
-                                            7. We want to credit your valuable suggestion, 
-                                            if you can share your codecard username?
-                                        </h3>
-                                        <textarea 
-                                        className="form-control" 
-                                        name="question4" 
-                                        cols="30" 
-                                        rows="4"
-                                        onChange={(e)=>{setcodecard_username(e.target.value);}}
-                                        ></textarea>
-                                    </div>
-
-                                    <button type="submit">Submit</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
                     </div>
                 </div>
             )}

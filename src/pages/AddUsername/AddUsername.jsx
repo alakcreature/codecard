@@ -21,11 +21,13 @@ function AddUsername({dark, error, profileloader, setUserDetails}) {
             let response = await http.post(apis.ADD_CODECARDUSERNAME, {
                 username
             });
-        
+            console.log(response.data)
             if(response.data.status===200){
                 setUserDetails(response.data.user)
                 warning(response.data.message)
                 history.push("/profile")
+            }else{
+                error(response.data.message)
             }
         }
         catch(err){
