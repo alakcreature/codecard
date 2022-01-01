@@ -58,7 +58,7 @@ function Contact({dark,error,success,warning,info,profileloader,loader}) {
                     {/* Contact Header Box */}
                     <div className="contact-box-header">
                         <div className="contact-box-header-content">
-                            <header>Contact Us (contactus@codecard.co.in)</header>
+                            <header>Contact Us (contactus@codecard.in)</header>
                             <hr />
                             <p>
                             We would love to hear from you about how you are enjoying using our website
