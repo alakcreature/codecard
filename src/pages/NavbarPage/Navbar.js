@@ -100,9 +100,9 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
     return (
         // Header Section
         <>
-        <section className={`updatetab ${hide ?"hide":""}`}> 
+        {/* <section className={`updatetab ${hide ?"hide":""}`}> 
                 Important Announcement! We are moving to <Link to={{pathname:"https://codecard.in"}} target="__blank">codecard.in</Link>
-        </section>
+        </section> */}
         <nav className="navbar navbar-expand-lg navbar-light" >
             <div className="container-fluid">
                 <div className="navbar-brand">
