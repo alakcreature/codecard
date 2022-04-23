@@ -43,6 +43,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
 
 
     const carouselobserver = useRef();
+
     const handleshuffle = ()=>{
         if(currenttag){
             setcurrenttag(undefined);
@@ -296,8 +297,8 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                         {/* Category Wise Section */}
                         <Carousel 
                         data={category} 
-                        method={setcurrenttag} 
-                        currenttag={currenttag}
+                        method={setcurrenttag}
+                        // currenttag={currenttag}
                         ref={carouselobserver}
                         />
                         

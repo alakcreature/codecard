@@ -191,7 +191,7 @@ function Home({loader, success}) {
                         {/* Main Bottom Box */}
                         <div className="main-content-bottom">
                             <h3>Do you have your codecard profile yet?</h3>
-                            <p>If not, <Link to="/profile">register</Link> now to kickstart your programming journey with us.</p>
+                            <p>If not, <Link to="/signin">register</Link> now to kickstart your programming journey with us.</p>
                         </div> 
                         </div>
                     

@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 
 
-let Carousel = forwardRef(({data,method, currenttag},ref)=>{
+let Carousel = forwardRef(({data,method},ref)=>{
     let [active, setactive] = useState(-1);
 
 
@@ -36,10 +36,6 @@ let Carousel = forwardRef(({data,method, currenttag},ref)=>{
         <>
             <div className="maincarousel">
                 <div className="carousel-inner">
-                    
-                    {/* <div className="arrowleft" onClick={()=>{prev()}}>
-                        <i className="fas fa-chevron-left"></i>
-                    </div> */}
                     <OwlCarousel
                     ref={carousel}
                     className="owl-theme"
@@ -58,9 +54,6 @@ let Carousel = forwardRef(({data,method, currenttag},ref)=>{
                             </div>
                         ))}
                     </OwlCarousel>
-                    {/* <div className="arrowright" onClick={()=>{next()}}>
-                        <i className="fas fa-chevron-right"></i>
-                    </div> */}
                 </div>
             </div>
         </>

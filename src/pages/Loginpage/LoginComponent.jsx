@@ -264,11 +264,13 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                                 <Link to={{pathname: "https://github.com/login/oauth/authorize?client_id=1945aaec7bd346116630"}}  target="__blank">Sign in with Github</Link>
                             </div>
                             <div className="google-social-login">
-                                <i className="fab fa-google fa-2x"></i>
                                 <GoogleLogin
                                     clientId="4729798451-b16lrq05nd92f4tl2pvf9emntrue85ld.apps.googleusercontent.com"
                                     render={renderProps => (
-                                        <button className="google-social-btn" onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in using Google</button>
+                                        <button className="google-social-btn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                                            <i className="fab fa-google fa-2x"></i>
+                                            Sign in using Google
+                                        </button>
                                     )
                                     }
                                     buttonText="Login"

@@ -125,11 +125,19 @@
 }
 
 .google-social-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     border: none;
     background: unset;
     font-size: 1.11rem;
     padding: 3px 18px;
+}
+
+.fa-google{
+    font-size: 1.4rem;
+    margin-right: 10px;
 }
 
 .or{
@@ -345,6 +353,15 @@
     .social-login-container{
         /* background: chartreuse; */
         margin-top: 25px;
+    }
+
+
+    .github-social-login a{
+        font-size: 0.9rem;
+    }
+
+    .google-social-btn{
+        font-size: 0.9rem;
     }
 
     .signin-form form{

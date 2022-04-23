@@ -12,7 +12,7 @@ function Footer() {
             <hr />
             <div className="footer-inner">
                 <div className="footer-left-side">
-                    <span className="copyright">Copyright © 2021 Codecard</span>
+                    <span className="copyright">Copyright © 2021-2022 Codecard</span>
                     <ul>
                         {/* <li><Link to="/surprise">Surprise Me</Link></li> */}
                         <li><Link to="/about">About</Link></li>
@@ -22,20 +22,16 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="footer-middle">
-                    <p>Made by Shubham 
+                    <p>Made by alakcreature 
                     <Link to={{pathname: "https://www.linkedin.com/in/subham-kumar-88593814a/"}} target="_blank">
                                     <i className="fab fa-linkedin" aria-hidden="true"></i>
                     </Link>
-                    & Ojas
-                    <Link to={{pathname: "https://www.linkedin.com/in/ojas-vishwakarma-067300147/"}} target="_blank">
-                                    <i className="fab fa-linkedin" aria-hidden="true"></i>
-                    </Link>
-                    Team
                     </p>
                 </div>
                 <div className="footer-right-side">
-                <img src={staticimages.India} alt="India" />
-                <span>India</span>
+                    With <i class='fa fa-heart' style={{color: 'red'}}></i> from
+                    <img src={staticimages.India} alt="India" />
+                    {/* <span>India</span> */}
                 </div>
             </div>
         </footer>
