@@ -348,6 +348,45 @@ function User({dark,error,success,warning,info, profileloader}) {
                                             )
                                             }
                                         </li>
+
+                                        <li>
+                                            {userdetails && userdetails.hackerearth && userdetails.hackerearth===-1 ?
+                                            (
+                                                <React.Fragment>
+                                                    <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
+                                                        <img src={staticimages.Hackerearth} alt="hackerearth problem solved" />
+                                                    </button>
+                                                    <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
+                                                            <span>Hackerearth handle not addd</span>
+                                                    </ReactTooltip>
+                                                </React.Fragment>
+                                            )
+                                            :
+                                            (userdetails.hackerearth===-2
+                                            ?
+                                            (
+                                                <React.Fragment>
+                                                    <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
+                                                        <img src={staticimages.Hackerearth} alt="hackerearth problem solved" />
+                                                    </button>
+                                                    <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
+                                                            <span>{`${userdetails.hackerearth_username} score will be updated in 24 hours`}</span>
+                                                    </ReactTooltip>
+                                                </React.Fragment>
+                                            )
+                                            :
+                                            (
+                                                <React.Fragment>
+                                                    <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
+                                                        <img src={staticimages.Hackerearth} alt="hackerearth problem solved" />
+                                                    </button>
+                                                    <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
+                                                            <span>Your hackerearth problem solved: {userdetails.hackerearth}</span>
+                                                    </ReactTooltip>
+                                                </React.Fragment>
+                                            ))
+                                            }
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

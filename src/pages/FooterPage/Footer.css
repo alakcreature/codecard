@@ -94,6 +94,7 @@
         padding-left: unset;
         padding-right: unset;
         justify-content: center;
+        flex-direction: column;
     }
 
     .footer-left-side{

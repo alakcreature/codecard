@@ -411,6 +411,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                     <option value="codeforces">Codeforces</option>
                                     <option value="leetcode">Leetcode</option>
                                     <option value="geeksforgeeks">Geeksforgeeks</option>
+                                    <option value="hackerearth">Hackerearth</option>
                                 </select>
                             </div>
                             <div className="mb-3">
@@ -941,6 +942,45 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                             </button>
                                             <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
                                                     <span>Your geeksforgeeks rating: {userdetails.geeksforgeeks}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )) 
+                                    }
+                                </li>
+
+                                <li>
+                                    {userdetails && userdetails.hackerearth && userdetails.hackerearth===-1 
+                                    ?
+                                    (
+                                        <React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
+                                                <img src={staticimages.Hackerearth} alt="hackerearth rating" />
+                                            </button>
+                                            <ReactTooltip id="hackerearth" place="top" type="info" effect="float">
+                                                <span>Add your username</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )
+                                    :
+                                    (userdetails.hackerearth===-2
+                                    ?
+                                    (
+                                        <React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn" >
+                                                <img src={staticimages.Hackerearth} alt="hackerearth rating" />
+                                            </button>
+                                            <ReactTooltip id="hackerearth" place="top" type="info" effect="float">
+                                                <span>{`${userdetails.hackerearth_username}, your hackerearth score may reflect after 24 hours`}</span>
+                                            </ReactTooltip>
+                                        </React.Fragment>
+                                    )
+                                    :
+                                    (<React.Fragment>
+                                            <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
+                                                <img src={staticimages.Hackerearth} alt="hackerearth rating" />
+                                            </button>
+                                            <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
+                                                    <span>Your hackerearth rating: {userdetails.hackerearth}</span>
                                             </ReactTooltip>
                                         </React.Fragment>
                                     )) 

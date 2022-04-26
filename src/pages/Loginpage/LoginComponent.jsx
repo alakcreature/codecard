@@ -35,6 +35,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
     let [codeforces_username,setcodeforcesusername] = useState();
     let [gfg_username,setgeeksforgeeksusername] = useState();
     let [leetcode_username,setleetcodeusername] = useState();
+    let [hackerearth_username,sethackerearthusername] = useState();
     let [about,setabout] = useState();
     let [country,setcountry] = useState("India");
     let [college,setcollege] = useState();
@@ -165,6 +166,9 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             }
             if(leetcode_username){
                 data.append("leetcode_username",leetcode_username);
+            }
+            if(hackerearth_username){
+                data.append("hackerearth_username",hackerearth_username);
             }
             if(about){
                 data.append("about",about);
@@ -351,7 +355,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                             <p>Jab tak ye register</p>
                             <p>nhi hoga sahab</p>
                             <p>apun idhar-ich hai.</p>
-                            <h6>-By Gaitonde</h6>
+                            <h6>-Gaitonde</h6>
                         </div>
                     </div>
                     <div className="signup-form">
@@ -429,7 +433,22 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                                     <input type="text" onChange={(e)=>setgeeksforgeeksusername(e.target.value)} className="form-control form-control-sm" placeholder="Geeksforgeeks Username(optional)" aria-label="Geeksforgeeks Username"/>
                                 </div>
                                 <div className="col">
-                                    <input type="text" onChange={(e)=>setleetcodeusername(e.target.value)} className="form-control form-control-sm" placeholder="Leetcode Username(optional)" aria-label="Leetcode Username"/>
+                                    <input 
+                                        type="text" 
+                                        onChange={(e)=>setleetcodeusername(e.target.value)} 
+                                        className="form-control form-control-sm" 
+                                        placeholder="Leetcode Username(optional)" 
+                                        aria-label="Leetcode Username"
+                                    />
+                                </div>
+                                <div className="col">
+                                    <input 
+                                        type="text" 
+                                        onChange={(e)=>sethackerearthusername(e.target.value)} 
+                                        className="form-control form-control-sm" 
+                                        placeholder="Hackerearth Username(optional)" 
+                                        aria-label="Hackerearth Username"
+                                    />
                                 </div>
                             </div>
                             <br/>
