@@ -118,18 +118,18 @@
 
 .update-li{
     position: relative;
-    animation-name: updateicon;
+    /* animation-name: iconupdate;
     animation-duration: 4s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 
-@keyframes updateicon{
+/* @keyframes iconupdate{
     0%{color: #000;}
     25%{color: #ff9100;}
     50%{color: #ff8500;}
     75%{color: #ff9100;}
     100%{color: #000;}
-}
+} */
 
 .update-box{
     position: absolute;
