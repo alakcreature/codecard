@@ -81,11 +81,6 @@
     100%{background: #ff9e00;}
 }
 
-@keyframes updateicon{
-    0%{color: #ff9e00;}
-    50%{color: #ff8500;}
-    100%{color: #ff9e00;}
-}
 
 .navbar-brand a{
     color: #F39C13;
@@ -107,12 +102,6 @@
     padding: 0rem 0.5rem;
 }
 
-/* .navbar-icons:first-child{
-    background: red;
-    animation-name: updateicon;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-} */
 
 .navbar-icons li i{
     cursor: pointer;
@@ -129,10 +118,22 @@
 
 .update-li{
     position: relative;
+    animation-name: updateicon;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes updateicon{
+    0%{color: #000;}
+    25%{color: #ff9100;}
+    50%{color: #ff8500;}
+    75%{color: #ff9100;}
+    100%{color: #000;}
 }
 
 .update-box{
     position: absolute;
+    z-index: 2;
     background: white;
     margin-top: 0.7rem;
     right: 0;
