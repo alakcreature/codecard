@@ -58,7 +58,6 @@
 .icon-new{
     position: absolute;
     color: white;
-    /* background: chartreuse; */
     width: 22px;
     height: 22px;
     display: flex;
@@ -82,21 +81,107 @@
     100%{background: #ff9e00;}
 }
 
+@keyframes updateicon{
+    0%{color: #ff9e00;}
+    50%{color: #ff8500;}
+    100%{color: #ff9e00;}
+}
+
 .navbar-brand a{
     color: #F39C13;
 }
 
 .homepage-search-form{
-    width: 315px;
+    width: 340px;
+}
+
+
+.navbar-icons{
+    display: flex;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    padding-left: 0.5rem;
+}
+
+.navbar-icons li{
+    padding: 0rem 0.5rem;
+}
+
+/* .navbar-icons:first-child{
+    background: red;
+    animation-name: updateicon;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+} */
+
+.navbar-icons li i{
+    cursor: pointer;
+}
+
+.navbar-icons li i:hover{
+    color: lightslategrey;
+}
+
+
+.navbar-icons li a{
+    color: black;
+}
+
+.update-li{
+    position: relative;
+}
+
+.update-box{
+    position: absolute;
+    background: white;
+    margin-top: 0.7rem;
+    right: 0;
+    width: 21rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border: 1px solid lightgrey;
+}
+
+.update-box header{
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    background: lightgrey;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.update-inner{
+    overflow-y: scroll;    
+    height: 21rem;
+}
+
+.update-inner p{
+    font-size: 0.9rem;
+}
+
+.update-content{
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column; 
+    padding-left: 1rem;
+    padding-top: 1rem;
+    border-bottom: 0.1px solid lightgrey;
+}
+
+.update-content span{
+    font-size: 0.75rem;
+    color: darkslategrey;
+}
+
+.update-content p{
+    font-size: 0.9rem;
 }
 
 .feedbackbtn{
     color: black; 
     /* font-weight: bold; */
-}
-
-.navbar-light .navbar-nav .nav-link {
-    
 }
 
 
@@ -108,8 +193,6 @@
     padding-top: 10px;
 }
 
-.main-feedback-inner{
-}
 
 /* Question 1 */
 

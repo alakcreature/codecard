@@ -24,8 +24,8 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
     let [anything_else, setanything_else] = useState();
     let [codecard_username, setcodecard_username] = useState();
     let [showsearchbar,setshowsearchbar] = useState(true);
+    let [showupdatebox,setshowupdatebox] = useState(false);
     let [feedbackmodal, setfeedbackmodal] = useState(false);
-    let [hide,sethide] = useState(false);
 
     let websiteratingarray = Array.from({length: 10}).fill(['1']).flat();
     let recommendcparray = Array.from({length: 10}).fill(['1']).flat();
@@ -84,6 +84,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
     useEffect(()=>{
         window.onclick = (e)=>{
             let modalContent = document.querySelector("#infomodal");
+           
             if(e.target === modalContent){
                 // console.log("outside modal div clicked")
                 setfeedbackmodal(false);
@@ -92,23 +93,18 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
     },[feedbackmodal]);
 
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            sethide(true);
-        },50000);
-    },[]);
+
     return (
         // Header Section
         <>
-        {/* <section className={`updatetab ${hide ?"hide":""}`}> 
-                Important Announcement! We are moving to <Link to={{pathname:"https://codecard.in"}} target="__blank">codecard.in</Link>
-        </section> */}
         <nav className="navbar navbar-expand-lg navbar-light" >
             <div className="container-fluid">
                 <div className="navbar-brand">
                     <Link to="/">CodeCard</Link>
                 </div>
-                <button className="navbar-toggler" type="button" onClick={()=>{setshowsearchbar(false)}} data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" onClick={()=>{
+                        setshowsearchbar(false);
+                    }} data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -121,50 +117,132 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                         </li>
                         <li className="nav-item navbar-new-icon">
                             <Link className="nav-link" to="/sheets" onClick={()=>setnavbutton(!navbutton)}>Sheets</Link>
-                            {/* <div className="icon-new">new</div> */}
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/profile" onClick={()=>setnavbutton(!navbutton)}>Profile</Link>
-                        </li>
+                        {!showsearchbar && (
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/profile" onClick={()=>setnavbutton(!navbutton)}>Profile</Link>
+                                </li>
+
+                                {Auth.isLoggedIn 
+                                ?
+                                (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="#" onClick={()=>{
+                                            setnavbutton(!navbutton);
+                                            handlesignout();
+                                        }}>Sign Out</Link>
+                                    </li>
+                                )
+                                :
+                                (
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/signin" onClick={()=>{
+                                            setnavbutton(!navbutton);
+                                        }}>Sign In</Link>
+                                    </li>
+                                )
+                                }
+                            </>
+                        )}
                         <li className="nav-item">
                             <Link className="nav-link" to="/leaderboard" onClick={()=>setnavbutton(!navbutton)}>Leaderboard</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/about" onClick={()=>setnavbutton(!navbutton)}>About</Link>
                         </li>
-                        {Auth.isLoggedIn 
-                        ?
-                        (
-                            <li className="nav-item">
-                                <Link className="nav-link" to="#" onClick={()=>{
-                                    setnavbutton(!navbutton);
-                                    handlesignout();
-                                }}>Sign Out</Link>
-                            </li>
-                        )
-                        :
-                        (
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/signin" onClick={()=>{
-                                    setnavbutton(!navbutton);
-                                }}>Sign In</Link>
-                            </li>
-                        )
-                        }
                         <li className="nav-item navbar-new-icon">
                             <Link className="nav-link" to={{pathname: "https://blogs.codecard.in"}} target="__blank">Blogs</Link>
                             <div className="icon-new">new</div>
                         </li>
-                        <li className="nav-item" className="feedbackbtn">
+                        <li className="nav-item feedbackbtn">
                             <Link className="nav-link" to="#" onClick={()=>setfeedbackmodal(true)}>Feedback</Link>
                         </li>
                     </ul>
                     {showsearchbar && (
+                        <>
+                            <form className="d-flex homepage-search-form" onSubmit={handlenavsearch}>
+                                <input onChange={(e)=>setnavsearch(e.target.value)} className="form-control form-control-sm mr-2" type="search" placeholder="Search problems by name,tags..." aria-label="Search" />
+                                <button className="btn btn-sm btn-outline-warning" type="submit" >Search</button>
+                            </form>
+                            <ul className="navbar-icons">
+                                <li className="update-li">
+                                    <i className="fas fa-code-branch" onClick={()=>setshowupdatebox(!showupdatebox)}>
+                                    </i>
+                                    {showupdatebox && (
+                                        <div className="update-box">
+                                            <header className="update-header">
+                                                All Updates
+                                            </header>
+                                            <div className="update-inner">
+                                                <div className="update-content">
+                                                    <span>
+                                                        2 Days Ago
+                                                    </span>
+                                                    <p>Hackerearth handle has been added in profile section</p>
+                                                </div>
+                                                <div className="update-content">
+                                                    <span>5 Days Ago</span>
+                                                    <p>Contests Fetch Bug Fixed</p>
+                                                </div>
+                                                <div className="update-content">
+                                                    <span>40 Days Ago</span>
+                                                    <p>Blog on Cron Job Scheduler has been published</p>
+                                                </div>
+                                                <div className="update-content">
+                                                    <span>50 Days Ago</span>
+                                                    <p>Sheet 180 has been added</p>
+                                                </div>
+                                                <div className="update-content">
+                                                    <span>61 Days Ago</span>
+                                                    <p>Various filters has been added for pratice questions</p>
+                                                </div>
+                                                <div className="update-content">
+                                                    <span>65 Days Ago</span>
+                                                    <p>Social Media OAuth Added (Google)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+                                </li>
+                                
+                                <li>
+                                    <Link to="/profile" onClick={()=>setnavbutton(!navbutton)}>
+                                        <i className="fas fa-user"></i>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    {Auth.isLoggedIn 
+                                        ?
+                                        (
+                                            <Link to="#" onClick={()=>{
+                                                setnavbutton(!navbutton);
+                                                handlesignout();
+                                            }}>
+                                                <i className="fas fa-sign-out"></i>
+                                            </Link>
+                                        )
+                                        :
+                                        (
+                                            <Link to="/signin" onClick={()=>{
+                                                setnavbutton(!navbutton);
+                                            }}>
+                                                <i className="fas fa-sign-in"></i>
+                                            </Link>
+                                        )
+                                        }
+                                </li>
+                            </ul>
+                        </>
+                    )}
+                    {/* {showsearchbar && (
                         <form className="d-flex homepage-search-form" onSubmit={handlenavsearch}>
                             <input onChange={(e)=>setnavsearch(e.target.value)} className="form-control form-control-sm mr-2" type="search" placeholder="Search problems by name,tags..." aria-label="Search" />
                             <button className="btn btn-sm btn-outline-warning" type="submit" >Search</button>
                         </form>
-                    )}
+                    )} */}
+
                 </div>
             </div>
         </nav>

@@ -44,20 +44,25 @@ function About() {
                     <div className="socialmedia-section">
                         <ul>
                             <li>
-                                <Link to={{pathname: "https://www.linkedin.com/company/codecard"}} target="_blank">
-                                    <i className="fab fa-linkedin" aria-hidden="true"></i>
+                                <Link to={{pathname: "https://t.me/codecard"}} target="_blank">
+                                    <i className="fab fa-telegram" aria-hidden="true"></i>
                                 </Link>
                             </li>
                             <li>
                                 <Link to={{pathname: "https://www.youtube.com/channel/UCoWPZGojQB9elA9kXHbtJFw"}} target="_blank">
                                     <i className="fab fa-youtube" aria-hidden="true"></i>
                                 </Link>
+                            </li>
+                            <li>
+                                <Link to={{pathname: "https://www.linkedin.com/company/codecard"}} target="_blank">
+                                    <i className="fab fa-linkedin" aria-hidden="true"></i>
+                                </Link>
                             </li> 
                             <li>
                                 <Link to={{pathname: "https://twitter.com/codecardoffcl"}} target="_blank">
                                     <i className="fab fa-twitter" aria-hidden="true"></i>
                                 </Link>
-                            </li>                            
+                            </li>                        
                         </ul>
 
                     </div>

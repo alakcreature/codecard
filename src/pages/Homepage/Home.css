@@ -90,51 +90,27 @@
 /* Before Header Section */
 
 .before_header{
-    position: relative;
-    /* background-color: #bd6d8e; */
-    /* background: url(../static/header.jpg) no-repeat center center/cover; */
-    background: url("https://testbucketnode124.s3.amazonaws.com/frontend_static_images/header.jpg") no-repeat center center/cover;
+    background-color: white;
     height: 280px;
     padding: 20px;
-    /* margin-bottom: 20px; */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
-.before_header p{
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin: 0;
-    text-align: right;
-    /* transform: translate(0,80px); */
-}
-
-.before_header>.content{
-    /* background-color: red; */
-    z-index: 1;
-    transform: translate(-240px,114px);
-    font-family: 'Fredoka One', cursive;
-    color: #F39C13;
-}
-
-.before_header>.content h3{
-    margin: 0;
-    font-size: 1.40rem;
-    font-weight: bold;
-}
 
 .before-header-content{
-    position: absolute;
-    left: 0;
-    /* background-color: red; */
-    transform: translate(511px,83px);
+   font-family: 'Fredoka One', sans-serif;
+   font-size: 1.9rem;
+   color: #F39C13;
+   text-align: center;
 }
 
-.before-header-content h3{
-    text-align: right;
+.before-header-content p{
+    margin: 0;
 }
+
 
 /* Rating Section */
 
@@ -713,11 +689,7 @@
     }
 
     .before-header-content{
-        transform: translate(167px,-20px);
-    }
-
-    .before_header p{
-        font-size: 0.8rem;
+        font-size: 1.5rem;   
     }
 
     .rating-main{

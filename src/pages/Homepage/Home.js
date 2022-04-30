@@ -47,13 +47,9 @@ function Home({loader, success}) {
 
                         {/* Before Header Section */}
                         <div className="before_header">
-                            <div className="content">
-                                <h3>CodeCard</h3>
-                            </div>
                             <div className="before-header-content">
-                                <p>Your</p>
-                                <p>Competitive Programming</p>
-                                <p>Report Card.</p>
+                                <p>DSA</p>
+                                <p>Report Card</p>
                             </div>
                         </div>
 
