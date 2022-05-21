@@ -153,7 +153,6 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                         </li>
                         <li className="nav-item navbar-new-icon">
                             <Link className="nav-link" to={{pathname: "https://blogs.codecard.in"}} target="__blank">Blogs</Link>
-                            <div className="icon-new">new</div>
                         </li>
                         <li className="nav-item feedbackbtn">
                             <Link className="nav-link" to="#" onClick={()=>setfeedbackmodal(true)}>Feedback</Link>
@@ -167,8 +166,13 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                             </form>
                             <ul className="navbar-icons">
                                 <li className="update-li">
-                                    <i className="fas fa-code-branch" onClick={()=>setshowupdatebox(!showupdatebox)}>
+                                    <i 
+                                        class="fas fa-bell update-icon"
+                                        onClick={()=>setshowupdatebox(!showupdatebox)}
+                                    >
+                                        <div></div>
                                     </i>
+
                                     {showupdatebox && (
                                         <div className="update-box">
                                             <header className="update-header">
@@ -177,28 +181,43 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                             <div className="update-inner">
                                                 <div className="update-content">
                                                     <span>
-                                                        2 Days Ago
+                                                        May 21, 2022
+                                                    </span>
+                                                    <p>
+                                                        <Link to="/sheet/627551d9a0859b16e87c800b">
+                                                            DSA 450 sheet has been added. Check it out now.
+                                                            <i
+                                                                class="fas fa-link"
+                                                            ></i>
+                                                        </Link>
+                                                    </p>
+                                                </div>
+                                                <div className="update-content">
+                                                    <span>
+                                                        April 15, 2022
                                                     </span>
                                                     <p>Hackerearth handle has been added in profile section</p>
                                                 </div>
                                                 <div className="update-content">
-                                                    <span>5 Days Ago</span>
+                                                    <span>
+                                                        April 2, 2022
+                                                    </span>
                                                     <p>Contests Fetch Bug Fixed</p>
                                                 </div>
                                                 <div className="update-content">
-                                                    <span>40 Days Ago</span>
+                                                    <span>March 2, 2022</span>
                                                     <p>Blog on Cron Job Scheduler has been published</p>
                                                 </div>
                                                 <div className="update-content">
-                                                    <span>50 Days Ago</span>
+                                                    <span>January 9, 2022</span>
                                                     <p>Sheet 180 has been added</p>
                                                 </div>
                                                 <div className="update-content">
-                                                    <span>61 Days Ago</span>
+                                                    <span>November 15, 2022</span>
                                                     <p>Various filters has been added for pratice questions</p>
                                                 </div>
                                                 <div className="update-content">
-                                                    <span>65 Days Ago</span>
+                                                    <span>November 10, 2022</span>
                                                     <p>Social Media OAuth Added (Google)</p>
                                                 </div>
                                             </div>
@@ -206,43 +225,36 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                     )}
                                 </li>
                                 
-                                <li>
-                                    <Link to="/profile" onClick={()=>setnavbutton(!navbutton)}>
-                                        <i className="fas fa-user"></i>
-                                    </Link>
-                                </li>
+                                {Auth.isLoggedIn 
+                                    ?
+                                    <>
+                                        <li>
+                                            <Link to="/profile" onClick={()=>setnavbutton(!navbutton)}>
+                                                <i className="fas fa-user"></i>
+                                            </Link>
+                                        </li>
 
-                                <li>
-                                    {Auth.isLoggedIn 
-                                        ?
-                                        (
+                                        <li>
                                             <Link to="#" onClick={()=>{
-                                                setnavbutton(!navbutton);
-                                                handlesignout();
-                                            }}>
+                                                    setnavbutton(!navbutton);
+                                                    handlesignout();
+                                                }}>
                                                 <i className="fas fa-sign-out"></i>
                                             </Link>
-                                        )
-                                        :
-                                        (
-                                            <Link to="/signin" onClick={()=>{
+                                        </li>
+                                    </>
+                                    :
+                                    <li>
+                                        <Link to="/signin" onClick={()=>{
                                                 setnavbutton(!navbutton);
                                             }}>
-                                                <i className="fas fa-sign-in"></i>
-                                            </Link>
-                                        )
-                                        }
-                                </li>
+                                                <i className="fas fa-user"></i>
+                                        </Link>
+                                    </li>
+                                }
                             </ul>
                         </>
                     )}
-                    {/* {showsearchbar && (
-                        <form className="d-flex homepage-search-form" onSubmit={handlenavsearch}>
-                            <input onChange={(e)=>setnavsearch(e.target.value)} className="form-control form-control-sm mr-2" type="search" placeholder="Search problems by name,tags..." aria-label="Search" />
-                            <button className="btn btn-sm btn-outline-warning" type="submit" >Search</button>
-                        </form>
-                    )} */}
-
                 </div>
             </div>
         </nav>

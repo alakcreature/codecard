@@ -33,8 +33,8 @@
 
 
 .navbar{
-    background-color: #f2f2f2;
-    padding: 10px 60px 0px 60px;
+    background-color: ghostwhite;
+    padding: 10px 60px 10px 60px;
 }
 
 .navbar-brand{
@@ -55,31 +55,7 @@
     position: relative;
 }
 
-.icon-new{
-    position: absolute;
-    color: white;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: -5px;
-    right: -7px;
-    font-weight: bold;
-    border-radius: 50%;
-    font-size: 0.62rem;
-    animation-name: iconnew;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-}
 
-@keyframes iconnew{
-    0%{background: #ff9e00;}
-    25%{background: #ff9100;}
-    50%{background: #ff8500;}
-    75%{background: #ff7900;}
-    100%{background: #ff9e00;}
-}
 
 
 .navbar-brand a{
@@ -116,11 +92,18 @@
     color: black;
 }
 
-.update-li{
+.update-icon{
     position: relative;
-    /* animation-name: iconupdate;
-    animation-duration: 4s;
-    animation-iteration-count: infinite; */
+}
+
+.update-icon div{
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: red;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
 }
 
 /* @keyframes iconupdate{
@@ -141,6 +124,7 @@
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border: 1px solid lightgrey;
+    transform: translateX(-6rem);
 }
 
 .update-box header{
@@ -178,6 +162,14 @@
 
 .update-content p{
     font-size: 0.9rem;
+}
+
+.update-content a:hover{
+    color: grey;
+}
+
+.update-content i{
+    margin-left: 0.5rem;
 }
 
 .feedbackbtn{
@@ -317,14 +309,5 @@
     /* Feedback section */
     .q1 h3,.q2 h3,.q3 h3,.q4 h3,.q5 h3,.q6 h3{
         font-size: 1rem !important;
-    }
-
-
-    /* Icon new */
-    .icon-new{
-        width: 21px;
-        height: 20px;
-        right: 243px;
-        font-size: 0.51rem;
     }
 }

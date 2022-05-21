@@ -143,32 +143,6 @@ function Sheets({dark,error,success,warning,info,loader, profileloader, Auth}) {
                             </div>
                         ))}
 
-                        <div className="sheet1-container">
-                            <div className="sheet1-inner">
-                                <div className="sheet-name sheet450" onClick={()=>{
-                                    info("Have patience dear, it's coming soon.")
-                                    }}>
-                                    <p>DSA 450</p>
-                                </div>
-                                <div className="sheet-description">
-                                    <div className="sharebtns">
-                                        <div className="youtube">
-                                            <Link to="#">
-                                                <i className="fab fa-youtube fa-2x"></i>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    <div className="info">
-                                        <p style={{fontFamily:'Pacifico', fontSize:"1.2rem"}}>Coming Soon...</p>
-                                    </div>
-                                    <div className="subscribe">
-                                        <button className="subscribed">
-                                            Subscribe Sheet
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     
                     </div>
                 </div>

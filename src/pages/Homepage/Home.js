@@ -194,7 +194,7 @@ function Home({loader, success}) {
                     <div className="tweet">
                         <div className="tweet-inner">
                         <TwitterTweetEmbed
-                        tweetId={'1470379693647937542'}
+                        tweetId={'1527943410954276864'}
                         />
                         <TwitterTweetEmbed
                         tweetId={'1470289452568178688'}

@@ -22,7 +22,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="footer-middle">
-                    <p>Made by alakcreature 
+                    <p>Made by Alak 
                     <Link to={{pathname: "https://www.linkedin.com/in/subham-kumar-88593814a/"}} target="_blank">
                                     <i className="fab fa-linkedin" aria-hidden="true"></i>
                     </Link>
@@ -31,7 +31,6 @@ function Footer() {
                 <div className="footer-right-side">
                     With <i class='fa fa-heart' style={{color: 'red'}}></i> from
                     <img src={staticimages.India} alt="India" />
-                    {/* <span>India</span> */}
                 </div>
             </div>
         </footer>
