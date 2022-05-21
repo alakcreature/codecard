@@ -641,13 +641,18 @@
     
     .homepage-main-content{
         margin:unset;
-        margin-top: 60px;
     }
 
     .home-main-content-inner{
         margin-top: unset;
         padding: 0;
         grid-template-columns: 1fr;
+    }
+
+
+    .home-main-content{
+        margin-top: unset;
+        border-radius: unset;
     }
 
     .main-content{
