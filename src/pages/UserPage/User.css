@@ -126,7 +126,7 @@
 
 /* Profile Info Section */
 .profile-info{
-    background-color: white;
+    background-color: #f2f2f2;
     position: relative;
     border-radius: 12px;
     margin-bottom: 20px;
@@ -279,7 +279,7 @@ input[type="file"]{
 
 /* About Section */
 .about{
-    background-color: white;
+    background-color: #f2f2f2;
     margin-bottom: 10px;
     margin: 0 0px 30px 0px;
     padding: 10px 15px 10px 20px;
@@ -348,7 +348,7 @@ input[type="file"]{
 /* Problem Solved section */
 
 .problemsolvedmain{
-    background-color: white;
+    background-color: #f2f2f2;
     margin-bottom: 10px;
     margin: 0 0px 30px 0px;
     padding: 10px 15px 10px 20px;
@@ -418,7 +418,7 @@ input[type="file"]{
 
 /* Profile Ratings */
 .ratings{
-    background-color: white;
+    background-color: #f2f2f2;
     margin: 0 0px 25px 0px;
     padding: 10px 15px 10px 20px;
     border-radius: 8px;
