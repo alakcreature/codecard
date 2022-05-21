@@ -284,13 +284,16 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                 year: Number(year)
             });
 
-            // console.log(response.data);
-            
             if(response.data.status===406){
                 info(response.data.message);
             }
             setsheetprogress(prevprogress=>{
-                if(prevprogress.length>0){
+                // one loading for the first time
+                // second if year/month changes.
+                if(!sheetchangeid){
+                    // fetching for the first time
+                    return [...prevprogress,...Array(response.data.data)];
+                }else{
                     return prevprogress.map(el=>{
                         if(el.sheetid===response.data.data.sheetid){
                             return response.data.data;
@@ -298,8 +301,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                             return el;
                         }
                     });
-                }else{
-                    return [...prevprogress,...Array(response.data.data)];
                 }
             });
         }
@@ -367,9 +368,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
         // eslint-disable-next-line
     },[year,month]);
 
-    useEffect(()=>{
-        console.log(sheetprogress);
-    },[sheetprogress]);
 
 
     return (
@@ -673,6 +671,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         <div className="sheetmain">
                             <div className="sheetinner">
                                 {sheetprogress.map((sheet,index)=>(
+                                    <>
                                     <div key={index} className="sheet-info">
                                         <div className="progressheader">
                                         <h3>
@@ -714,34 +713,35 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                                 <option selected={currentdate==="December"?true:false} value="12">December</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div className="progress-info">
-                                        <div className="chartmain">
-                                            <Line 
-                                                ref={chartelement} 
-                                                data={
-                                                {
-                                                    labels: sheet.monthlabel,
-                                                    datasets: [
-                                                        {
-                                                            label: "problem solved",
-                                                            data: sheet.sheetprogress,
-                                                            backgroundColor: '#F39C13',
-                                                            fill:false,
-                                                            borderColor: '#d4983d'
-                                                        }
+                                        </div>
+                                        <div className="progress-info">
+                                            <div className="chartmain">
+                                                <Line 
+                                                    ref={chartelement} 
+                                                    data={
+                                                    {
+                                                        labels: sheet.monthlabel,
+                                                        datasets: [
+                                                            {
+                                                                label: "problem solved",
+                                                                data: sheet.sheetprogress,
+                                                                backgroundColor: '#F39C13',
+                                                                fill:false,
+                                                                borderColor: '#d4983d'
+                                                            }
 
-                                                    ]
+                                                        ]
+                                                    }
                                                 }
-                                            }
-                                            width={100}
-                                            height={300}
-                                            options={options} />
+                                                width={100}
+                                                height={300}
+                                                options={options} />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <hr />
+                                    </>
                                 ))}
-                                <hr />
                             </div>
                         </div>
                     )}
