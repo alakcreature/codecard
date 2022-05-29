@@ -19,13 +19,8 @@ function PrivateRoute({ children,Auth, path, dark, warning, ...rest }) {
             {...rest}
             render={() =>
                 Auth.isLoggedIn ? 
-                
-                Auth.userdetails && Auth.userdetails.codecard_username ?
                 (
                     children
-                )
-                :(
-                    <Redirect to="/addusername"/>
                 )
                 : (
                 <Redirect

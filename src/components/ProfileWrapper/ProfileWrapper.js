@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {Redirect, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import './ProfileWrapper.css';
 import http from "../../services/httpCall";
@@ -12,48 +12,59 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import ProfileLoader from '../../pages/Partials/ProfileLoader/ProfileLoader';
 
 
-function ProfileWrapper({dark,error,success,warning,info,loader,logout}) {
+function ProfileWrapper(props) {
     let history = useHistory();
-    let [loadcomponent,setloadcomponent] = useState(false);
 
     const checkvalidity = ()=>{
         http.get(apis.VALIDATION)
         .then((result)=>{
-            console.log(result);
             if(result.data.status===502){
                 // Invalid Token
-                logout();
+                props.logout();
             }else{
-                // setUserDetails(result.data.user);
-                setloadcomponent(true);
+                props.setUserDetails(result.data.user);
             }
         })
         .catch((err)=>{
             console.log(err);
             if(err.message==="Network Error"){
-                error("Network Error");
+                props.error("Network Error");
                 history.push("/networkerror");
             }else{
-                error(err.message);
+                props.error(err.message);
             }
         })
     }
 
     useEffect(()=>{
-        checkvalidity();
+        if(!(props.Auth.userdetails && Object.keys(props.Auth.userdetails).length>0)){
+            checkvalidity();
+        }
         // eslint-disable-next-line
     },[]);
 
-    // useEffect(()=>{
-    //     console.log(loadcomponent)
-    // },[loadcomponent]);
-
     return (
         <>
-        {!loadcomponent ?
-        <ProfileLoader />
+        {!(props.Auth.userdetails && Object.keys(props.Auth.userdetails).length>0)
+        ?
+            <>
+                <ProfileLoader />
+            </>
         :
-        <ProtectedRoute />
+        
+        <>
+            {props.Auth.userdetails.codecard_username ?
+                <>
+                    <ProtectedRoute />
+                </>
+            :
+            <>
+                {/* {console.log("heeeiiiii")} */}
+                <Redirect to="/addusername"/>
+            </>
+            }
+        </>
+        // <ProtectedRoute />
         }
         </>
     )
@@ -62,7 +73,8 @@ function ProfileWrapper({dark,error,success,warning,info,loader,logout}) {
 
 const mapStateToProps= (state) => (
     {
-        Loader:state.Loader
+        Loader:state.Loader,
+        Auth: state.Auth
     }
 )
 
