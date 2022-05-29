@@ -24,7 +24,6 @@ function SocialLogin({login,profileloader,setUserDetails,error,warning}) {
         try{
             profileloader(true);
             let code=params.get("code");
-            // console.log(code);
             // apis.GITHUBAUTHENTICATION
             let response = await http.post(apis.GITHUBAUTHENTICATION,{
                 code

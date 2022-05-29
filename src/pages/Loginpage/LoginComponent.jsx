@@ -265,7 +265,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                         <div className="social-login-container">
                             <div className="github-social-login">
                                 <i className="fab fa-github fa-2x"></i>
-                                <Link to={{pathname: "https://github.com/login/oauth/authorize?client_id=1945aaec7bd346116630"}}  target="__blank">Sign in with Github</Link>
+                                <Link to={{pathname: "https://github.com/login/oauth/authorize?client_id=169c61c0314ec3999ba4"}}  target="__blank">Sign in with Github</Link>
                             </div>
                             <div className="google-social-login">
                                 <GoogleLogin
