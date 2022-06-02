@@ -281,7 +281,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                                         <p>Striver's 180</p>
                                     </div>
                                 </Link>
-                                <Link to="/sheets">
+                                <Link to="/sheet/627551d9a0859b16e87c800b">
                                     <div className="sheetname sheet2">
                                         <p>DSA 450</p>
                                     </div>

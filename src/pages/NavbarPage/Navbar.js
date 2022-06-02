@@ -167,7 +167,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                             <ul className="navbar-icons">
                                 <li className="update-li">
                                     <i 
-                                        class="fas fa-bell update-icon"
+                                        className="fas fa-bell update-icon"
                                         onClick={()=>setshowupdatebox(!showupdatebox)}
                                     >
                                         <div></div>
@@ -187,7 +187,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                                         <Link to="/sheet/627551d9a0859b16e87c800b">
                                                             DSA 450 sheet has been added. Check it out now.
                                                             <i
-                                                                class="fas fa-link"
+                                                                className="fas fa-link"
                                                             ></i>
                                                         </Link>
                                                     </p>

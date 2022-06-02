@@ -29,7 +29,7 @@ function Footer() {
                     </p>
                 </div>
                 <div className="footer-right-side">
-                    With <i class='fa fa-heart' style={{color: 'red'}}></i> from
+                    With <i className='fa fa-heart' style={{color: 'red'}}></i> from
                     <img src={staticimages.India} alt="India" />
                 </div>
             </div>

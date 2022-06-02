@@ -48,12 +48,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
     let [month, setmonth] = useState(new Date().getMonth()+1);
     let [year, setyear] = useState(new Date().getFullYear());
     let[sheetchangeid, setsheetchange] = useState("");
-    // let [currentdate, setcurrentdate] = useState(new Date().toLocaleString('en-us', { month: 'long' }));
+    
 
-
-    const currentdate=new Date().toLocaleString('en-us', { month: 'long' });
+    const currentmonth=new Date().toLocaleString('en-us', { month: 'long' });
     const currentyear=new Date().getFullYear();
-
 
     const chartelement = useRef();
     const options = {
@@ -68,6 +66,21 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
         }
         return new Blob([u8arr], {type:mime});
     }
+
+    function getNumericMonth(monthAbbr) {
+        return (String(['January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December'].indexOf(monthAbbr) + 1).padStart(2));
+      }
 
     const getCroppedImg = ()=>{
         const canvas = document.createElement('canvas');
@@ -174,7 +187,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
             }
         }).finally(()=>{
             profileloader();
-            setshoweditoptions(false);
+            // setshoweditoptions(false);
         });
     }
 
@@ -288,8 +301,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                 info(response.data.message);
             }
             setsheetprogress(prevprogress=>{
-                // one loading for the first time
-                // second if year/month changes.
                 if(!sheetchangeid){
                     // fetching for the first time
                     return [...prevprogress,...Array(response.data.data)];
@@ -343,7 +354,9 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
     },[]);
 
     useEffect(()=>{
-        sheetprogresswrapper(subscribedsheetids);
+        if(subscribedsheetids.length>0){
+            sheetprogresswrapper(subscribedsheetids);
+        }
         // eslint-disable-next-line
     },[subscribedsheetids]);
 
@@ -679,38 +692,43 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                              Progress
                                         </h3>
                                         <div className="date">
-                                            <select name="year" className="form-select form-select-sm" 
+                                            <select 
+                                                name="year" 
+                                                className="form-select form-select-sm" 
                                                 aria-label=".form-select-sm example"
+                                                defaultValue={currentyear}
                                                 onChange={(e)=>{
                                                     setyear(e.target.value);
                                                     setsheetchange(sheet.sheetid);
                                             }}>
-                                                <option selected={currentyear===2019?true:false} value="2019">2019</option>
-                                                <option selected={currentyear===2020?true:false} value="2020">2020</option>
-                                                <option selected={currentyear===2021?true:false} value="2021">2021</option>
+                                                {/* //TODO: starting year should be the user's creation year */}
+                                                <option value={currentyear}>{currentyear}</option>
+                                                <option value={currentyear-1}>{currentyear-1}</option>
+                                                <option value={currentyear-2}>{currentyear-2}</option>
                                             </select>
                                             
                                             <select 
                                                 className="form-select form-select-sm" 
                                                 aria-label=".form-select-sm example"
+                                                defaultValue={currentmonth}
                                                 onChange={(e)=>{
-                                                    setmonth(e.target.value);
+                                                    setmonth(getNumericMonth(e.target.value));
                                                     setsheetchange(sheet.sheetid);
                                                 }}
                                             >
-
-                                                <option selected={currentdate==="January"?true:false} value="1">January</option>
-                                                <option selected={currentdate==="February"?true:false} value="2">February</option>
-                                                <option selected={currentdate==="March"?true:false} value="3">March</option>
-                                                <option selected={currentdate==="April"?true:false} value="4">April</option>
-                                                <option selected={currentdate==="May"?true:false} value="5">May</option>
-                                                <option selected={currentdate==="June"?true:false} value="6">June</option>
-                                                <option selected={currentdate==="July"?true:false} value="7">July</option>
-                                                <option selected={currentdate==="August"?true:false} value="8">August</option>
-                                                <option selected={currentdate==="September"?true:false} value="9">September</option>                    
-                                                <option selected={currentdate==="October"?true:false} value="10">October</option>
-                                                <option selected={currentdate==="November"?true:false} value="11">November</option>
-                                                <option selected={currentdate==="December"?true:false} value="12">December</option>
+                                                
+                                                <option  value="January">January</option>
+                                                <option  value="February">February</option>
+                                                <option  value="March">March</option>
+                                                <option  value="April">April</option>
+                                                <option  value="May">May</option>
+                                                <option  value="June">June</option>
+                                                <option  value="July">July</option>
+                                                <option  value="August">August</option>
+                                                <option  value="September">September</option>                    
+                                                <option  value="October">October</option>
+                                                <option  value="November">November</option>
+                                                <option  value="December">December</option>
                                             </select>
                                         </div>
                                         </div>
