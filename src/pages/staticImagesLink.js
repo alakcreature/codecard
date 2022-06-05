@@ -29,35 +29,5 @@ const staticdata = {
     Happy: "https://codecard-static.sgp1.digitaloceanspaces.com/happy.svg"
 }
 
-const oldstaticdata = {
-    UserAvatar: "https://testbucketnode124.s3.amazonaws.com/avatar.png",
-    Rating: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/rating.svg",
-    Raju: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/raju.png",
-    Practice: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/practice.svg",
-    Munna: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/munna.png",
-    ProblemSearch: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/problem_search.svg",
-    Monk1: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/monk1.png",
-    LeaderboardPic: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/leaderboard.svg",
-    Dhamaal: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/dhamaal.png",
-    Friends: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/friends.svg",
-    India: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/india.png",
-    ContactPanda: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/contactpanda.png",
-    Error: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/404.svg",
-    Bean: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/bean.png",
-    MunnaBhaiya: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/munnabhaiya.png",
-    Codechef: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/codechef.jpg",
-    Codeforces: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/codeforces.png",
-    Hackerearth: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/HackerEarth.png",
-    Panda: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/panda.png",
-    GeeksforGeeks: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/gfg.jpg",
-    Leetcode: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/leetcode.png",
-    Popeye: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/popeye.gif",
-    Ganesh: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/ganesh.png",
-    Bhoola: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/bhoola.png",
-    Confirm: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/confirm.svg",
-    Welcome: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/welcome.svg",
-    Skateboard: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/skateboard.svg",
-    Happy: "https://testbucketnode124.s3.amazonaws.com/frontend_static_images/happy.svg"
-}
 
 export default staticdata;

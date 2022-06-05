@@ -265,8 +265,8 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                 setUserDetails(result.data.data);
                 setuserdetails(result.data.data);
                 setsubscribedsheetids(result.data.data.subscribedsheetids);
-                if(result.data.data.error &&result.data.data.error.length>0){
-                    result.data.data.error.forEach((error_el)=>{
+                if(result.data.data.wrongfields &&result.data.data.wrongfields.length>0){
+                    result.data.data.wrongfields.forEach((error_el)=>{
                         error(error_el);
                     })
                 }
@@ -495,14 +495,8 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                 <div className="profile-main-content-inner">
                     <div className="profile-info">
                         <div className="edit-btn">
-                                {/* <h5>Edit your details</h5> */}
-                                <div data-tip="React-tooltip" data-for="editdetails" className="editdetails">
-                                    <i className="fas fa-pen" onClick={()=>{setshoweditoptions(!showeditoptions)}}></i>
-                                </div>
-                                <ReactTooltip place="top" id="editdetails" type="warning" effect="solid">
-                                        <span>Edit your details</span>
-                                </ReactTooltip>
-                            </div>
+                            <i className="fas fa-pen" onClick={()=>{setshoweditoptions(!showeditoptions)}}></i>
+                        </div>
                         <div className="profile-img" >
                             <input type="file" className="profile-image-input" 
                             onChange={handleprofilepicchange} id="image"
@@ -549,7 +543,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                     <>
                                     <h4>{userdetails && userdetails.firstname} {userdetails && userdetails.lastname}</h4>
                                     {showeditoptions &&
-                                    <i className="fas fa-pen" onClick={()=>setupdatename(!updatename)}></i>
+                                        <i className="fas fa-pen" onClick={()=>setupdatename(!updatename)}></i>
                                     }
                                     </>
                                 }
@@ -560,15 +554,15 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                 type="text" 
                                 className="form-control form-control-sm" 
                                 placeholder="Update your firstname*" 
-                                aria-label="name" 
-                                aria-describedby="name"
+                                aria-label="firstname" 
+                                aria-describedby="firstname"
                                 onChange={(e)=>setnewfirstname(e.target.value)}
                                 />
-                                {/* <button
+                                <button
                                 className="btn btn-outline-warning btn-sm" 
-                                id="name" onClick={handleedit}>
+                                id="firstname" onClick={handleedit}>
                                     Update
-                                </button> */}
+                                </button>
 
                                 <h5 className="name-divider"> OR</h5>
                                 
@@ -577,12 +571,12 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                 onChange={(e)=>setnewlastname(e.target.value)} 
                                 className="form-control form-control-sm lastnamechange-input" 
                                 placeholder="Update your lastname*" 
-                                aria-label="name" 
-                                aria-describedby="name" 
+                                aria-label="lastname" 
+                                aria-describedby="lastname" 
                                 />
                                 <button
                                 className="btn btn-outline-warning btn-sm lastnamechange-input" 
-                                id="name" onClick={handleedit}>
+                                id="lastname" onClick={handleedit}>
                                     Update
                                 </button>
                                 <i className="fas fa-pen" onClick={()=>setupdatename(!updatename)}></i>
@@ -632,52 +626,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         </div>
                     </div>
 
-                    {/* About Section */}
-                    <div className={`about ${showfullabout?"a-tag-expand":""}`}>
-                        <header>
-                            <div className="about-div">
-                                <h3>About</h3>
-                                {showeditoptions &&
-                                <i className="fas fa-pen" onClick={()=>setupdateabout(true)}></i>
-                                }
-                            </div>
-
-                        </header>
-                        {Object.keys(userdetails).length===0
-                        ?
-                        <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
-                            <p>
-                                <Skeleton count={3}/>
-                            </p>
-                        </SkeletonTheme>
-                        :
-                        <p className="about-p">
-                            {userdetails.about}
-                        </p>
-                        
-                        }
-
-                        {Object.keys(userdetails).length===0
-                        ?
-                        <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
-                            <p>
-                                <Skeleton count={1}/>
-                            </p>
-                        </SkeletonTheme>
-                        :
-                        <span className={`about-span-tag ${hidespan?"hide":""}`}>
-                            ...
-                            <Link to="#" className="about-a-tag"
-                                onClick={()=>{
-                                    sethidespan(true);
-                                    setshowfullabout(true);
-                                }}
-                            >
-                                see more
-                            </Link>
-                        </span>
-                        }
-                    </div>
 
                     {/* Sheets Progress */}
                     {sheetprogress && sheetprogress.length>0 && (
@@ -687,10 +635,9 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                     <>
                                     <div key={index} className="sheet-info">
                                         <div className="progressheader">
-                                        <h3>
-                                            {sheet.sheetdetails.name}
-                                             Progress
-                                        </h3>
+                                            <h3>
+                                                {sheet.sheetdetails.name} Sheet Progress
+                                            </h3>
                                         <div className="date">
                                             <select 
                                                 name="year" 
@@ -757,18 +704,62 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                             </div>
                                         </div>
                                     </div>
-                                    <hr />
                                     </>
                                 ))}
                             </div>
                         </div>
                     )}
 
+                    {/* About Section */}
+                    <div className={`about ${showfullabout?"a-tag-expand":""}`}>
+                        <header>
+                            <div className="about-div">
+                                <h3>About</h3>
+                                <i className="fas fa-pen" onClick={()=>setupdateabout(true)}></i>
+                            </div>
+
+                        </header>
+                        {Object.keys(userdetails).length===0
+                        ?
+                        <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
+                            <p>
+                                <Skeleton count={3}/>
+                            </p>
+                        </SkeletonTheme>
+                        :
+                        <p className="about-p">
+                            {userdetails.about}
+                        </p>
+                        
+                        }
+
+                        {Object.keys(userdetails).length===0
+                        ?
+                        <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
+                            <p>
+                                <Skeleton count={1}/>
+                            </p>
+                        </SkeletonTheme>
+                        :
+                        <span className={`about-span-tag ${hidespan?"hide":""}`}>
+                            ...
+                            <Link to="#" className="about-a-tag"
+                                onClick={()=>{
+                                    sethidespan(true);
+                                    setshowfullabout(true);
+                                }}
+                            >
+                                see more
+                            </Link>
+                        </span>
+                        }
+                    </div>
+
                     {/* Problems Solved Section */}
                     <div className="problemsolvedmain">
                         <header>
                             <div className="problemsolvedinner">
-                                <h3>Problems Solved</h3>
+                                <h3>Problems Solved (<span>{solved && solved.length}</span>)</h3>
                             </div>
 
                         </header>
@@ -791,227 +782,87 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                     {/* Profile Ratings */}
                     <div className="ratings">
                         <header>
-                        <div className="rating-heading">
-                            <h3>Profile Ratings</h3>
-                            {showeditoptions &&
-                            <i className="fas fa-pen" onClick={()=>setusernamemodal(true)}></i>
-                            }
-                        </div>
+                            <div className="rating-heading">
+                                <h3>Progress Card</h3>
+                                <i className="fas fa-pen" onClick={()=>setusernamemodal(true)}></i>
+                            </div>
                         </header>
-
+                        
                         <div className="user-ratings">
-                            <ul>
-                                <li>
-                                    {/* If score in profile of any user is -1, it means it has no username */}
-                                    {/* but if it is -2, it means the username has recently changed */}
-                                    {userdetails && userdetails.codechef && userdetails.codechef===-1 
-                                    ?
-                                    // Username not exist, add cc username
-                                    (
-                                        //  Modal to add username
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
-                                                <img src={staticimages.Codechef} alt="codechef rating" />
-                                            </button>
-                                            <ReactTooltip id="codechef" place="top" type="info" effect="float">
-                                                <span>Add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (userdetails.codechef===-2
-                                    ?
-                                    // recently updated it codechef username
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn"
-                                            // onClick={()=>{setconnectwith("codechef")}}
-                                            >
-                                                <img src={staticimages.Codechef} alt="codechef rating" />
-                                            </button>
-                                            <ReactTooltip id="codechef" place="top" type="info" effect="float">
-                                                <span>{`${userdetails.codechef_username}, your codechef score may reflect after 24 hours`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    // show its codechef score
-                                    (<React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn">
-                                                <img src={staticimages.Codechef} alt="codechef rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="codechef" type="info" effect="float">
-                                                    <span>Your codechef rating: {userdetails.codechef}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )) 
-                                    }
-                                </li>
+                            <div className="user-ratings-header">
+                                <span>Profile Link</span>
+                                <span>Problems Solved</span>
+                                <span>Ratings</span>
+                            </div>
 
+                            <div className="user-progress-content codechef">
+                                <Link to={{pathname: userdetails.leetcode_username?`https://leetcode.com/${userdetails.leetcode_username}/`:"#"}} target="__blank" className="image-wrapper">
+                                    <img src={staticimages.Leetcode} alt="leetcode rating" />
+                                </Link>
+                                <div className="problem-solved">
+                                    {(userdetails.leetcode!==-1 && userdetails.leetcode!==-2) ? userdetails.leetcode : "-"}
+                                </div>
+                                <div className="ratings-info">
+                                    -
+                                </div>
+                            </div>
 
-                                <li>
-                                    {userdetails && userdetails.codeforces && userdetails.codeforces===-1 
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
-                                                <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                            </button>
-                                            <ReactTooltip id="codeforces" place="top" type="info" effect="float">
-                                                <span>Add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (userdetails.codeforces===-2
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn" >
-                                                <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                            </button>
-                                            <ReactTooltip id="codeforces" place="top" type="info" effect="float">
-                                                <span>{`${userdetails.codeforces_username}, your codeforces score may reflect after 24 hours`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (<React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn">
-                                                <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="codeforces" type="info" effect="float">
-                                                    <span>Your codeforces rating: {userdetails.codeforces}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )) 
-                                    }
-                                </li>
+                            <div className="user-progress-content codechef">
+                                <Link to={{pathname: userdetails.gfg_username ? `https://auth.geeksforgeeks.org/user/${userdetails.gfg_username}/practice/`:"#"}} target="__blank" className="image-wrapper">
+                                    <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
+                                </Link>
+                                <div className="problem-solved">
+                                    {(userdetails.geeksforgeeks!==-1 && userdetails.geeksforgeeks!==-2) ? userdetails.geeksforgeeks : "-"}
+                                </div>
+                                <div className="ratings-info">
+                                    -
+                                </div>
+                            </div>
 
-                                <li>
-                                    {userdetails && userdetails.leetcode && userdetails.leetcode===-1 
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
-                                                <img src={staticimages.Leetcode} alt="leetcode rating" />
-                                            </button>
-                                            <ReactTooltip id="leetcode" place="top" type="info" effect="float">
-                                                <span>Add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (userdetails.leetcode===-2
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn" >
-                                                <img src={staticimages.Leetcode} alt="leetcode rating" />
-                                            </button>
-                                            <ReactTooltip id="leetcode" place="top" type="info" effect="float">
-                                                <span>{`${userdetails.leetcode_username}, your leetcode score may reflect after 24 hours`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (<React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn">
-                                                <img src={staticimages.Leetcode} alt="leetcode rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="leetcode" type="info" effect="float">
-                                                    <span>Your leetcode rating: {userdetails.leetcode}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )) 
-                                    }
-                                </li>
+                            <div className="user-progress-content codechef">
+                                <Link to={{pathname: userdetails.codechef_username ? `https://www.codechef.com/users/${userdetails.codechef_username}`:"#"}} target="__blank" className="image-wrapper">
+                                    <img src={staticimages.Codechef} alt="codechef rating" />
+                                </Link>
+                                <div className="problem-solved">
+                                    -
+                                </div>
+                                <div className="ratings-info">
+                                    {(userdetails.codechef!==-1 || userdetails.codechef!==-2) && userdetails.codechef}
+                                </div>
+                            </div>
 
-                                <li>
-                                    {userdetails && userdetails.geeksforgeeks && userdetails.geeksforgeeks===-1 
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
-                                            </button>
-                                            <ReactTooltip id="geeksforgeeks" place="top" type="info" effect="float">
-                                                <span>Add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (userdetails.geeksforgeeks===-2
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn" >
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
-                                            </button>
-                                            <ReactTooltip id="geeksforgeeks" place="top" type="info" effect="float">
-                                                <span>{`${userdetails.gfg_username}, your geeksforgeeks score may reflect after 24 hours`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (<React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn">
-                                                <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
-                                                    <span>Your geeksforgeeks rating: {userdetails.geeksforgeeks}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )) 
-                                    }
-                                </li>
+                            <div className="user-progress-content codechef">
+                                <Link to={{pathname: userdetails.codeforces_username ? `https://codeforces.com/profile/${userdetails.codeforces_username}`:"#"}} target="__blank" className="image-wrapper">
+                                    <img src={staticimages.Codeforces} alt="codeforces rating" />
+                                </Link>
+                                <div className="problem-solved">
+                                    -
+                                </div>
+                                <div className="ratings-info">
+                                    {(userdetails.codeforces!==-1 && userdetails.codeforces!==-2) ? userdetails.codeforces : "-"}
+                                </div>
+                            </div>
 
-                                <li>
-                                    {userdetails && userdetails.hackerearth && userdetails.hackerearth===-1 
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn" onClick={()=>setusernamemodal(true)}>
-                                                <img src={staticimages.Hackerearth} alt="hackerearth rating" />
-                                            </button>
-                                            <ReactTooltip id="hackerearth" place="top" type="info" effect="float">
-                                                <span>Add your username</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (userdetails.hackerearth===-2
-                                    ?
-                                    (
-                                        <React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn" >
-                                                <img src={staticimages.Hackerearth} alt="hackerearth rating" />
-                                            </button>
-                                            <ReactTooltip id="hackerearth" place="top" type="info" effect="float">
-                                                <span>{`${userdetails.hackerearth_username}, your hackerearth score may reflect after 24 hours`}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )
-                                    :
-                                    (<React.Fragment>
-                                            <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
-                                                <img src={staticimages.Hackerearth} alt="hackerearth rating" />
-                                            </button>
-                                            <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
-                                                    <span>Your hackerearth rating: {userdetails.hackerearth}</span>
-                                            </ReactTooltip>
-                                        </React.Fragment>
-                                    )) 
-                                    }
-                                </li>
-                            </ul>
+                            <div className="user-progress-content codechef">
+                                <Link to={{pathname: userdetails.hackerearth_username ? `https://www.hackerearth.com/@${userdetails.hackerearth_username}`:"#"}} target="__blank" className="image-wrapper">
+                                    <img src={staticimages.Hackerearth} alt="hackerearth rating" />
+                                </Link>
+                                <div className="problem-solved">
+                                    -
+                                </div>
+                                <div className="ratings-info">
+                                    {userdetails.hackerearth && (userdetails.hackerearth!==-1 && userdetails.hackerearth!==-2) ? userdetails.hackerearth : "-"}
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
+                    {/* Overall Progress */}
                     <div className="overall-progress">
                         <div className="overall-contest-rating">
                         <h4 data-tip="React-tooltip" data-for="score-info" onClick={()=>{setshowscoremodal(true)}}>
-                            Codec Score:
+                            Codec Score
                         </h4>
                         <ReactTooltip place="top" id="score-info" type="warning" effect="solid">
                                 <span>Click here to know more about it.</span>
@@ -1043,7 +894,6 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                 :
                                 <span>{userdetails.last_perday_change}</span>
                                 }
-                                {/* <span>0.105</span> */}
                             </h5>
                         </div>
                         <div className="per-day-illustration-right">

@@ -161,12 +161,17 @@ function Sheet(props) {
         handlecategoryselect();
     },[parsed.categoryid, oldproblems]);
 
+    // useEffect(()=>{
+    //     if(category && category.length>0){
+    //         setcurrenttagid(category[0]._id);
+    //     }
+    // },[category]);
+
 
 
     return (
         
-        <div className="container">
-            {console.log(startPosition)}    
+        <div className="container">    
             <div className="container-fluid mainsheet">
                 <div className="mainsheet-inner">
                     {/* Sheet Header */}

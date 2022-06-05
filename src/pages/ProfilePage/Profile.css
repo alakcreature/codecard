@@ -209,6 +209,10 @@ input[type="file"]{
     font-size: 1.3rem;
 }
 
+.collegechange-div h3{
+    font-size: 0.9rem;
+}
+
 .username-div i, .edit-btn i{
     cursor: pointer;
     padding: 10px;
@@ -311,6 +315,10 @@ input[type="file"]{
     margin: 10px 0px 10px 0px;
 }
 
+.about-div h3{
+    font-size: 1.2rem;
+}
+
 
 .about-p {
     /* background: #F39C13; */
@@ -364,18 +372,16 @@ input[type="file"]{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
-
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
+    padding: 10px 0px;
 }
 
 .progressheader h3{
     font-size: 1.3rem;
-    /* color: #e97c61; */
-    font-family: 'Pacifico', sans-serif;
     width: fit-content;
-    /* border-bottom: 0.9px solid grey; */
+}
+
+.progressheader span{
+    margin-left: 10px;
 }
 
 .date{
@@ -385,16 +391,12 @@ input[type="file"]{
     width: fit-content;
 }
 
-.sheet-info{
-    margin-bottom: 1rem;
-}
-
-
 
 .progress-info{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 25px 0px 20px 0px;
 }
 
 .chartmain{
@@ -425,12 +427,6 @@ input[type="file"]{
     font-size: 1.3rem;
 }
 
-/* .problemsolvedmain i{
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    transition: all 0.2s ease-in-out;
-} */
 
 .problemsolvedinner i:hover{
     background-color: rgb(165, 155, 144);
@@ -442,7 +438,6 @@ input[type="file"]{
 
 
 .solvedproblemslist{
-    /* background: red; */
     max-height: 300px;
     overflow-y: scroll;
 }
@@ -480,7 +475,7 @@ input[type="file"]{
 .ratings{
     background-color: #f2f2f2;
     margin: 0 0px 25px 0px;
-    padding: 10px 15px 10px 20px;
+    padding: 10px 15px 30px 20px;
     border-radius: 8px;
 }
 
@@ -509,11 +504,56 @@ input[type="file"]{
     background-color: rgb(165, 155, 144);
 }
 
+
 .user-ratings{
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    padding: 0px 114px;
 }
+
+.user-ratings-header{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+}
+
+
+
+.user-progress-header{
+    background-color: aqua;
+}
+
+.user-progress-content{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+    border-bottom: 1px solid darkgrey;
+}
+
+.user-progress-content:last-of-type{
+    border: none;
+}
+
+.image-wrapper{
+    padding-right: 60px;
+}
+
+.image-wrapper img{
+    max-width: 42px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.problem-solved{
+    padding: 10px 31px 0px 10px;
+}
+
+.ratings-info{
+    padding: 10px;
+}
+
+
 
 .user-ratings ul{
     list-style: none;
@@ -533,11 +573,11 @@ input[type="file"]{
     outline: none;
 }
 
-.user-ratings img{
+/* .user-ratings img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-}
+} */
 
 /* Overall Progress */
 .overall-progress{
@@ -564,7 +604,6 @@ input[type="file"]{
 
 .overall-contest-rating h4, .per-day h4{
     font-size: 1.3rem;
-    font-family: 'Pacifico',sans-serif;
 }
 
 .overall-contest-rating h4{
@@ -637,7 +676,6 @@ input[type="file"]{
     .profile-img{
         position: relative;
         width: fit-content;
-        /* background-color: brown; */
         transform: translate(10px,-51px);
     }
     
@@ -681,13 +719,16 @@ input[type="file"]{
         width: 260px;
     }
 
+    .username-div h4{
+        font-size: 1.2rem;
+    }
+
     .collegename-div-skeleton{
         width: 260px;
     }
 
 
     /* About */
-
     .about header{
         margin: 10px 0px 5px 0px;
     }
@@ -706,6 +747,7 @@ input[type="file"]{
     }
 
     .progressheader h3{
+        font-size: 1.1rem;
         margin-bottom: 0;
     }
 
@@ -723,21 +765,36 @@ input[type="file"]{
         margin: 10px 0 5px 0;
     }
 
+    .problemsolvedinner h3{
+        font-size: 1.2rem;
+    }
+
     /* User Rating */
-    .user-ratings ul{
-        padding: 0;
-        grid-template-columns: repeat(1,1fr);
-        grid-gap: 15px;
+    .user-ratings{
+        padding: unset;
     }
 
-    .user-ratings ul li button{
-        padding: 0 15px;
+    .user-ratings-header span{
+        width: min-content;
     }
 
-    .user-ratings img{
-        width: 35px;
-        height: 35px;
+    .rating-heading h3{
+        font-size: 1.2rem;
     }
+
+    .image-wrapper{
+        padding-right: 19px;
+    }
+
+    .image-wrapper img{
+        max-width: 33px;
+    }
+    
+    .problem-solved{
+        padding: 10px 55px 0px 10px;
+    }
+
+
 
     /* Overall Progress */
     .overall-contest-rating{

@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import "./User.css";
+// import "./User.css";
 import Skeleton, {SkeletonTheme} from "react-loading-skeleton";
 import staticimages from "../staticImagesLink";
 import { Link, useHistory, useParams } from 'react-router-dom';
@@ -205,10 +205,7 @@ function User({dark,error,success,warning,info, profileloader}) {
                             <div className="problemsolvedmain">
                                 <header>
                                     <div className="problemsolvedinner">
-                                        <h3>Problems Solved</h3>
-                                        {/* {showeditoptions &&
-                                        <i className="fas fa-pen" onClick={()=>setupdateabout(true)}></i>
-                                        } */}
+                                        <h3>Problems Solved (<span>{solved && solved.length}</span>)</h3>
                                     </div>
 
                                 </header>
@@ -237,164 +234,86 @@ function User({dark,error,success,warning,info, profileloader}) {
                             {/* Profile Ratings */}
                             <div className="ratings">
                                 <header>
-                                <div className="rating-heading">
-                                    <h3>Profile Ratings</h3>
-                                </div>
+                                    <div className="rating-heading">
+                                        <h3>Progress Card</h3>
+                                    </div>
                                 </header>
-
+                                
                                 <div className="user-ratings">
-                                    <ul>
-                                        <li>
-                                            {userdetails && userdetails.codechef && userdetails.codechef===-1 ?
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn">
-                                                        <img src={staticimages.Codechef} alt="codechef rating" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="codechef" type="info" effect="float">
-                                                            <span>CC handle not added</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            :
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="codechef" className="user-ratings-btn">
-                                                        <img src={staticimages.Codechef} alt="codechef rating" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="codechef" type="info" effect="float">
-                                                            <span>Your codechef rating: {userdetails.codechef}</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            }
-                                        </li>
+                                    <div className="user-ratings-header">
+                                        <span>Profile Link</span>
+                                        <span>Problems Solved</span>
+                                        <span>Ratings</span>
+                                    </div>
 
-                                        <li>
-                                            {userdetails && userdetails.codeforces && userdetails.codeforces===-1 ?
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn">
-                                                        <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="codeforces" type="info" effect="float">
-                                                            <span>CF handle not added</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            :
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="codeforces" className="user-ratings-btn">
-                                                        <img src={staticimages.Codeforces} alt="codeforces rating" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="codeforces" type="info" effect="float">
-                                                            <span>Your codeforces rating: {userdetails.codeforces}</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            }
-                                        </li>
+                                    <div className="user-progress-content codechef">
+                                        <Link to={{pathname: userdetails.leetcode_username?`https://leetcode.com/${userdetails.leetcode_username}/`:"#"}} target="__blank" className="image-wrapper">
+                                            <img src={staticimages.Leetcode} alt="leetcode rating" />
+                                        </Link>
+                                        <div className="problem-solved">
+                                            {(userdetails.leetcode!==-1 && userdetails.leetcode!==-2) ? userdetails.leetcode : "-"}
+                                        </div>
+                                        <div className="ratings-info">
+                                            -
+                                        </div>
+                                    </div>
 
-                                        <li>
-                                            {userdetails && userdetails.leetcode && userdetails.leetcode===-1 ?
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn">
-                                                        <img src={staticimages.Leetcode} alt="leetcode problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="leetcode" type="info" effect="float">
-                                                            <span>LC handle not added</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            :
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="leetcode" className="user-ratings-btn">
-                                                        <img src={staticimages.Leetcode} alt="leetcode problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="leetcode" type="info" effect="float">
-                                                            <span>Your leetcode problem solved: {userdetails.leetcode}</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            }
-                                            
-                                        </li>
+                                    <div className="user-progress-content codechef">
+                                        <Link to={{pathname: userdetails.gfg_username ? `https://auth.geeksforgeeks.org/user/${userdetails.gfg_username}/practice/`:"#"}} target="__blank" className="image-wrapper">
+                                            <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
+                                        </Link>
+                                        <div className="problem-solved">
+                                            {(userdetails.geeksforgeeks!==-1 && userdetails.geeksforgeeks!==-2) ? userdetails.geeksforgeeks : "-"}
+                                        </div>
+                                        <div className="ratings-info">
+                                            -
+                                        </div>
+                                    </div>
 
-                                        <li>
-                                            {userdetails && userdetails.geeksforgeeks && userdetails.geeksforgeeks===-1 ?
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn">
-                                                        <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
-                                                            <span>GeeksforGeeks handle not addd</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            :
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="geeksforgeeks" className="user-ratings-btn">
-                                                        <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="geeksforgeeks" type="info" effect="float">
-                                                            <span>Your geeksforgeeks problem solved: {userdetails.geeksforgeeks}</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            }
-                                        </li>
+                                    <div className="user-progress-content codechef">
+                                        <Link to={{pathname: userdetails.codechef_username ? `https://www.codechef.com/users/${userdetails.codechef_username}`:"#"}} target="__blank" className="image-wrapper">
+                                            <img src={staticimages.Codechef} alt="codechef rating" />
+                                        </Link>
+                                        <div className="problem-solved">
+                                            -
+                                        </div>
+                                        <div className="ratings-info">
+                                            {(userdetails.codechef!==-1 || userdetails.codechef!==-2) && userdetails.codechef}
+                                        </div>
+                                    </div>
 
-                                        <li>
-                                            {userdetails && userdetails.hackerearth && userdetails.hackerearth===-1 ?
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
-                                                        <img src={staticimages.Hackerearth} alt="hackerearth problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
-                                                            <span>Hackerearth handle not addd</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            :
-                                            (userdetails.hackerearth===-2
-                                            ?
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
-                                                        <img src={staticimages.Hackerearth} alt="hackerearth problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
-                                                            <span>{`${userdetails.hackerearth_username} score will be updated in 24 hours`}</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            )
-                                            :
-                                            (
-                                                <React.Fragment>
-                                                    <button data-tip="React-tooltip" data-for="hackerearth" className="user-ratings-btn">
-                                                        <img src={staticimages.Hackerearth} alt="hackerearth problem solved" />
-                                                    </button>
-                                                    <ReactTooltip place="top" id="hackerearth" type="info" effect="float">
-                                                            <span>Your hackerearth problem solved: {userdetails.hackerearth}</span>
-                                                    </ReactTooltip>
-                                                </React.Fragment>
-                                            ))
-                                            }
-                                        </li>
-                                    </ul>
+                                    <div className="user-progress-content codechef">
+                                        <Link to={{pathname: userdetails.codeforces_username ? `https://codeforces.com/profile/${userdetails.codeforces_username}`:"#"}} target="__blank" className="image-wrapper">
+                                            <img src={staticimages.Codeforces} alt="codeforces rating" />
+                                        </Link>
+                                        <div className="problem-solved">
+                                            -
+                                        </div>
+                                        <div className="ratings-info">
+                                            {(userdetails.codeforces!==-1 && userdetails.codeforces!==-2) ? userdetails.codeforces : "-"}
+                                        </div>
+                                    </div>
+
+                                    <div className="user-progress-content codechef">
+                                        <Link to={{pathname: userdetails.hackerearth_username ? `https://www.hackerearth.com/@${userdetails.hackerearth_username}`:"#"}} target="__blank" className="image-wrapper">
+                                            <img src={staticimages.Hackerearth} alt="hackerearth rating" />
+                                        </Link>
+                                        <div className="problem-solved">
+                                            -
+                                        </div>
+                                        <div className="ratings-info">
+                                            {userdetails.hackerearth && (userdetails.hackerearth!==-1 && userdetails.hackerearth!==-2) ? userdetails.hackerearth : "-"}
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
 
+                            {/* Overall Progress */}
                             <div className="overall-progress">
                                 <div className="overall-contest-rating">
                                 <h4 data-tip="React-tooltip" data-for="score-info" onClick={()=>{setshowscoremodal(true)}}>
-                                    Codec Score:
+                                    Codec Score
                                 </h4>
                                 <ReactTooltip place="top" id="score-info" type="warning" effect="solid">
                                         <span>Click here to know more about it.</span>
