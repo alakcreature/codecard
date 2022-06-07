@@ -62,9 +62,8 @@ function Home({loader, success}) {
                                 </div>
                                 <div className="rating-content-inner">
                                     <p>
-                                        Monitor your coding performance with our <Link to="#">
-                                            codec score</Link>
-                                            <i className="fas fa-info fa-xs" onClick={()=>setshowscoremodal(true)}></i>
+                                        Monitor your coding performance with our codec score
+                                        <i className="fas fa-info fa-xs" onClick={()=>setshowscoremodal(true)}></i>
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +76,7 @@ function Home({loader, success}) {
                         <div className="meme-main">
                             <div className="meme-content">
                                 <p>Rating hi rating hogi.</p>
-                                <h6>-By Raju Bhai</h6>
+                                <h6>-Raju Bhai</h6>
                             </div>
                             <div className="meme-img">
                                 <img src={staticimages.Raju} alt="raju-bhai" />
@@ -92,7 +91,7 @@ function Home({loader, success}) {
                                 <div className="practice-content-bubble2">  
                                 </div>
                                 <div className="practice-content-inner">
-                                    <p>Become better version of yourself by more <Link to="#">practice</Link>.</p>
+                                    <p>Become better version of yourself by more practice.</p>
                                 </div>
                             </div>
                             <div className="practice-img">
@@ -105,7 +104,7 @@ function Home({loader, success}) {
                             <div className="munnameme-content">
                                 <p>Tension kyun leta hai,</p>
                                 <p>Ye le practice kar.</p>
-                                <h6>-By Munna Bhai</h6>
+                                <h6>-Munna Bhai</h6>
                             </div>
                             <div className="munnameme-img">
                                 <img src={staticimages.Munna} alt="munna-bhai" />
@@ -131,8 +130,8 @@ function Home({loader, success}) {
                         {/* Krishna Section */}
                         <div className="motivate">
                             <div className="motivate-content">
-                                <h3>If you fail to achieve your goal,</h3>
-                                <h3>change the strategy, not the goal.</h3>
+                                <p>If you fail to achieve your goal,</p>
+                                <p>change the strategy, not the goal.</p>
                                 <h6>- Lord Krishna</h6>
                             </div>
                             <div className="motivate-img">
@@ -161,7 +160,7 @@ function Home({loader, success}) {
                                 <p>Agar apan 1-2 mahine cp kare,</p>
                                 <p>aur contests mein participate karey,</p>
                                 <p>to pakka leaderboard pe aa jayenge.</p>
-                                <h6>-By Magician Adi</h6>
+                                <h6>-Magician Adi</h6>
                             </div>
                             <div className="meme2-img">
                                 <img src={staticimages.Dhamaal} alt="magicianadi" />
@@ -187,7 +186,7 @@ function Home({loader, success}) {
                         {/* Main Bottom Box */}
                         <div className="main-content-bottom">
                             <h3>Do you have your codecard profile yet?</h3>
-                            <p>If not, <Link to="/signin">register</Link> now to kickstart your programming journey with us.</p>
+                            <p>If not, then <Link to="/signin">register</Link> now to kickstart your programming journey with us.</p>
                         </div> 
                         </div>
                     

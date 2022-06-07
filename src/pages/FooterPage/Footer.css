@@ -58,10 +58,10 @@
 
 .footer-middle a{
     background: transparent;
-    padding: 5px 8px;
+    padding: 4px 8px;
     border-radius: 50%;
     border: 1px solid black;
-    margin: 0 10px;
+    margin: 0 5px;
     margin-bottom: 10px;
     color: black;
     transition: background 0.3s ease-in-out;
@@ -72,7 +72,7 @@
 }
 
 .footer-right-side{
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .footer-right-side img{
@@ -108,5 +108,10 @@
 
     .footer-left-side ul{
         padding-left: unset;
+    }
+
+    .footer-right-side img{
+        margin-bottom: 0px;
+        margin-left: 3px;
     }
 }

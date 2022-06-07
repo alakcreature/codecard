@@ -8,8 +8,7 @@
 }
 
 .sheets{
-    /* background-color: red; */
-    padding-top: 20px;
+  padding: 20px 0px 40px 0px;
 }
 
 .categories{
@@ -28,8 +27,8 @@
 }
 
 .sheetname p{
-    font-size: 1.4rem;
-    font-family: 'Pacifico',sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 0px;
 }
 
 .sheet1{
@@ -71,19 +70,18 @@
   
   .practice-box-header-content header {
     color: #fd9d0e;
-    font-size: 2rem;
-    font-weight: 900;
+    font-size: 2.2rem;
     letter-spacing: 2px;
-    font-family: "Spirax", cursive;
+    font-family: "Dancing Script", cursive;
   }
   
   .practice-box-header-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .practice-box-header-content h4 {
     letter-spacing: 1.5px;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .practice-box-header-quote {
@@ -131,14 +129,9 @@
     align-items: center;
 }
 
-.shuffle{
-    /* border-bottom: 1px solid grey; */
-}
-
 #shuffle{
     cursor: pointer;
-    font-family: "Pacifico", sans-serif;
-    color: #8d9205;
+    font-family: "Dancing Script", cursive;
     transition: transform 0.2s ease-out;
     animation-name: scale;
     animation-duration: 2s;
@@ -200,48 +193,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    padding: 18px 0px;
   }
   
   .scrollup i{
-      /* background: green; */
       padding: 0px 10px;
-      margin-bottom: 15px;
-      animation-name: icon;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
   }
 
-@keyframes icon {
-    from {margin-bottom: 20px;}
-    to {margin-bottom: 0px;}
-}
+  .scrollup p{
+    margin-bottom: 0px;
+  }
 
 @keyframes scale{
   0% {transform: scale(1);}
-  50% {transform: scale(1.2);}
+  50% {transform: scale(1.4);}
   100% {transform: scale(1);}
-}
-
-.scrollup p {
-  padding: 10px 0px 0px 0px;
-  font-family: 'Pacifico', sans-serif;
 }
 
 
 /* Practice Bottom Box */
 .practice-box-bottom {
-    /* background-color: burlywood; */
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 12px;
-    /* justify-content: space-around;
-      align-items: center; */
   }
   
   .practice-box-bottom-header {
-    font-size: 1.5rem;
-    /* background-color: crimson; */
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -254,11 +232,10 @@
   .practice-box-bottom-header a {
     margin: 0 6px;
     color: #fd9d0e;
-    font-family: "Pacifico", cursive;
   }
   
   .practice-box-bottom-img img {
-    width: 450px;
+    max-width: 450px;
   }
   
   .practice-box-bottom-skeleton {
@@ -385,8 +362,4 @@
   .practice-box-bottom-skeleton {
     width: 290px;
   }
-
-  /* .practice-box-bottom-header {
-    width: 290px;
-  } */
 }

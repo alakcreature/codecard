@@ -179,7 +179,7 @@ function Sheet(props) {
                         {sheetdetails && (
                             <>
                                 <header>
-                                    <h3>{sheetdetails.name}</h3>
+                                    <h3>{sheetdetails.name} Sheet</h3>
                                 </header>
                                 <p>
                                     {sheetdetails.description}

@@ -140,7 +140,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                     <hr />
                                     <p>Beginner hai ye important nhi</p>
                                     <p>Board pe aana hai ye important hai.</p>
-                                    <h6>- By Kaleen Bhaiya</h6>
+                                    <h6>- Kaleen Bhaiya</h6>
                                 </div>
                             }
                         </div>
@@ -149,7 +149,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                     {/* Search Box */}
                     <div className="search-info">
                         <div className="search-info-text">
-                            <h5>Search for programmer in your institute/country</h5>
+                            <p>Search for programmer in your institute/country</p>
                         </div>
                         <div className="search-box-dropdown container-fluid">
                             <div className="dropdown container">
@@ -270,27 +270,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                         <p>Scroll down the list buddy</p>
                     </div>
 
-                    {/* Pagination
-                    <div className="pagination">
-                        <nav aria-label="Page navigation example">
-                            <ul className="pagination justify-content-center">
-                                <li className="page-item">
-                                    <button className="page-link" onClick={gotoprevious}>Previous</button>
-                                </li>
-                                {pages && pages.map((pageindex)=>(
-                                    <li key={pageindex} className="page-item"><button className={`page-link ${pagenumber===pageindex+1?"active":""}`} onClick={()=>{
-                                        // console.log(pagenumber);
-                                        setpagenumber(pageindex+1)}
-                                    }>{pageindex+1}</button></li>
-                                ))}
-                                <li className="page-item">
-                                    <button className="page-link" onClick={gotonext}>Next</button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div> */}
-
-                    {/* Quote Section */}
+                   {/* Quote Section */}
                     <div className="quote-container container">
                         <div className="character-img">
                             {leaderboarddata.length===0
@@ -320,16 +300,6 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                 <h6> - H3 Boys, Chhichhore</h6>
                             </div>
                         }
-                        </div>
-
-                    {/* Leaderboard Bottom Section */}
-                    <div className="practice-page-link">
-                        <div className="character-content">
-                            <h4>Be realistic & plan for the miracle</h4>
-                            <h6> - Osho</h6>
-                        </div>
-                        <p>Head over to our <span><Link  to="/practice">practice page</Link>.</span></p>
-                        <img src={Bottompic} alt="osho" />
                     </div>
                 </div>
           </div>

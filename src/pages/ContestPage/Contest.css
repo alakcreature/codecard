@@ -21,16 +21,14 @@
 }
 
 .contest-box-header-content{
-    /* background-color: red; */
-    width: 55%;
+   width: 55%;
 }
 
 .contest-box-header-content header{
     color: #fd9d0e;
-    font-size: 2rem;
-    font-weight: 900;
+    font-size: 2.2rem;
     letter-spacing: 2px;
-    font-family: 'Spirax', cursive;
+    font-family: 'Dancing Script', cursive;
 }
 
 .contest-box-header-content p{
@@ -44,7 +42,7 @@
 
 .contest-box-header-content h6{
     text-align: right;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: 'Dancing Script', cursive;
 }
 
@@ -109,16 +107,15 @@
 
 .contest-bottom-box-content a{
     color: #fd9d0e;
-    font-family: 'Pacifico', cursive;;
 }
 
 .contest-bottom-box-content p{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .contest-bottom-box-content h6{
     font-family: 'Dancing Script', cursive;
-    font-size: 1.3rem;
+    font-size: 1rem;
     text-align: right;
 }
 
@@ -171,8 +168,9 @@
     }
 
     .contest-bottom-box-content p{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-align: center;
+        margin-bottom: 0px;
     }
 
     .contest-bottom-box-content{

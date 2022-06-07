@@ -17,17 +17,15 @@
 
 .sheetheader h3{
     width: fit-content;
-    font-weight: bold;
-    /* font-size: 1.9rem; */
-    font-family: 'Pacifico', sans-serif;
-    color: #f18b71;
+    color: #fd9d0e;
+    font-size: 1.6rem;
     margin-bottom: 0;
-    /* border-bottom: 1px solid black; */
+    font-family: "Dancing Script", cursive;
 }
 
 .sheetheader a{
     color: #F39C13;
-    font-family: 'Pacifico', sans-serif;
+    /* font-family: 'Pacifico', sans-serif; */
     font-size: 1.15rem;
     transition: color 0.2s ease-out;
 }
@@ -39,7 +37,7 @@
 
 
 .sheetheader p {
-    /* font-size: 0.99rem; */
+    font-size: 1rem;
     margin-bottom: 0;
 }
 

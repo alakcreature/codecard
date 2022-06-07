@@ -16,9 +16,7 @@ function About() {
         <div className="container">
             <div className="container-fluid main-content">
                 <div className="about-main-inner">
-                    <h4><strong>About Us</strong></h4>
-                    <div id="border">
-                    </div>
+                    <h4>About Us</h4>
                     <div className="about-content-section">  
                         <p>Hello Coders,</p>
                         <p>We are a small team of people devoted to bringing the one stop solution for your competitive coding kickoff.</p>

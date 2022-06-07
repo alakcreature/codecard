@@ -170,7 +170,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                         className="fas fa-bell update-icon"
                                         onClick={()=>setshowupdatebox(!showupdatebox)}
                                     >
-                                        <div></div>
+                                        {/* <div></div> */}
                                     </i>
 
                                     {showupdatebox && (

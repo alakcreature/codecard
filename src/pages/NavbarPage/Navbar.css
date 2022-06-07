@@ -100,7 +100,7 @@
     position: absolute;
     width: 0.5rem;
     height: 0.5rem;
-    background-color: red;
+    background: red;
     border-radius: 50%;
     top: 0;
     right: 0;

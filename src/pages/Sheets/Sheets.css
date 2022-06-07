@@ -36,23 +36,24 @@
     font-size: 2rem;
     font-weight: 900;
     letter-spacing: 2px;
-    font-family: "Spirax", cursive;
   }
   
   .sheet-box-header-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .sheet-box-header-content h4 {
     letter-spacing: 1px;
-    font-size: 1.65rem;
+    font-size: 1.3rem;
   }
   
   .sheet-box-header-quote {
-    font-size: 1rem;
     text-align: right;
     font-family: "Dancing Script", cursive;
   }
+
+
+
   
   .sheet-box-header-content hr {
     margin: 0 0 10px 0;
@@ -85,10 +86,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Pacifico', sans-serif;
-    height: 175px;
+    min-height: 175px;
     border-radius: 50%;
-    background: #e76f51;
+    background: #f39c1399;
     transition: all 0.2s ease-in-out;
 }
 
@@ -98,7 +98,7 @@
 
 .sheet-name p{
     font-size: 1.2rem;
-    font-weight: bold;
+    margin-bottom: 0px;
 }
 
 .sheet-description{
@@ -119,7 +119,7 @@
 
 .sheet-description>.info a{
   /* border-bottom: 1px solid black; */
-  font-family: "Pacifico", sans-serif;
+  /* font-family: "Pacifico", sans-serif; */
   color: #e76f51;
 }
 
@@ -208,7 +208,7 @@
   .sheet-box-bottom-header a {
     margin: 0 6px;
     color: #fd9d0e;
-    font-family: "Pacifico", cursive;
+    /* font-family: "Pacifico", cursive; */
   }
   
   .sheet-box-bottom-img img {
@@ -253,7 +253,7 @@
   }
 
   .sheet-box-header-content h4 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .sheet-box-header-skeleton {
@@ -267,14 +267,15 @@
   .sheet-box-header-content p {
     font-size: 1rem;
     text-align: center;
-  }
-
-  .sheet-box-header-content h4 {
-    font-size: 1.4rem;
+    padding-bottom: 10px;
   }
 
   .sheet-box-header-skeleton {
     width: 290px;
+  }
+
+  .sheet-box-header-quote{
+    text-align: center;
   }
 
 
@@ -285,7 +286,7 @@
     }
 
     .sheet-name{
-        height: unset;
+        min-height: unset;
         border-radius: unset;
         background: unset;
     }

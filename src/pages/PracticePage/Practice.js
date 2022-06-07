@@ -286,11 +286,6 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                                         <p>DSA 450</p>
                                     </div>
                                 </Link>
-                                <Link to="/sheets">
-                                    <div className="sheetname sheet3">
-                                        <p>View All</p>
-                                    </div>
-                                </Link>
                             </OwlCarousel>
                         </div>
 

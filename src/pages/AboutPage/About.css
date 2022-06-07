@@ -1,18 +1,15 @@
 .about-main-inner{
     margin-top: 30px;
     text-align: center;
-    /* background-color: rosybrown; */
-    /* background-color: #f2f2f2; */
-    /* box-shadow: 6px 6px 10px 9px #ccc; */
-    
     padding: 0 15px;
-    padding-bottom: 90px;
 }
 
 .about-main-inner h4{
+    font-family: 'Dancing Script', cursive;
     padding-top: 20px;
     padding-bottom: 5px;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
 }
 
 #border{
@@ -74,19 +71,23 @@
 }
 
 .about-content-section p{
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 5px;
 }
 
 .about-content-section p a{
     font-family: 'Fredoka One', cursive;
     color: #F39C13;
-    font-size: 1.4rem;
+    font-size: 1rem;
     /* cursor: pointer; */
 }
 
 @media (max-width: 500px){
     #border{
         margin-left: 70px;
+    }
+
+    .about-main-inner h4{
+        padding-top: 0px;
     }
 }

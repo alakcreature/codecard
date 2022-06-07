@@ -9,7 +9,7 @@
     /* background-color: gold; */
     margin: 0 8%;
     /* margin-top: 60px; */
-    font-family: 'Kumbh Sans', sans-serif;
+    /* font-family: 'Kumbh Sans', sans-serif; */
 }
 
 .home-main-content-inner{
@@ -43,7 +43,7 @@
 
 .scoreinfo-modal-main{
     /* background-color: red; */
-    font-family: 'Kumbh Sans' ,sans-serif;
+    /* font-family: 'Kumbh Sans' ,sans-serif; */
     color: black;
     margin: 70px auto;
     width: 750px;
@@ -68,7 +68,7 @@
 .scoreinfo-header h2{
     margin-top: 6px;
     font-weight: bold;
-    font-family: 'Spirax', cursive;
+    /* font-family: 'Spirax', cursive; */
     color: #fd9d0e;
 }
 
@@ -102,8 +102,8 @@
 
 
 .before-header-content{
-   font-family: 'Fredoka One', sans-serif;
-   font-size: 1.9rem;
+   font-weight: bold;
+   font-size: 1.5rem;
    color: #F39C13;
    text-align: center;
 }
@@ -165,10 +165,7 @@
 }
 
 .rating-content-inner a{
-    /* background: chocolate; */
-    font-size: 1.2rem;
-    color: #803663;
-    font-family: 'Pacifico', sans-serif;
+    color: #000;
 }
 
 .rating-content-inner i{
@@ -220,7 +217,7 @@
 }
 
 .meme-content h6{
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Dancing Script', cursive; */
     margin-left: 150px;
     font-size: 1rem;
 }
@@ -286,8 +283,8 @@
 }
 
 .practice-content-inner a{
-    font-family: 'Pacifico', cursive;
-    color: #803663;
+    /* font-family: 'Pacifico', cursive; */
+    /* color: #803663; */
 }
 
 .practice-img{
@@ -326,7 +323,7 @@
 }
 
 .munnameme-content h6{
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Dancing Script', cursive; */
     margin-left: 150px;
     font-size: 1rem;
 }
@@ -395,8 +392,6 @@
 /* Krishna Section */
 
 .motivate{
-    /* margin-bottom: 20px; */
-    background-color: rgb(195, 213, 216);
     display: flex;
     height: 230px;
     justify-content: space-around;
@@ -411,21 +406,17 @@
 }
 
 .motivate-content{
-    /* background-color: red; */
     margin-right: 20px;
     text-align: right;
-    font-family: 'Dancing Script', cursive;
 }
 
-.motivate-content h3{
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    /* font-weight: bold; */
+.motivate-content p{
+    font-size: 1.2rem;
+    margin-bottom: 0px;
 }
 
 .motivate-content h6{
     font-size: 1rem;
-    letter-spacing: 2px;
 }
 
 /* Leaderboard Section */
@@ -506,12 +497,12 @@
 }
 
 .meme2-content p{
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
 }
 
 .meme2-content h6{
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Dancing Script', cursive; */
     margin-top: 10px;
     margin-left: 200px;
     font-size: 0.9rem;
@@ -581,7 +572,6 @@
 
 /* Main Content Bottom */
 .main-content-bottom{
-    /* background-color: seagreen; */
     padding: 13px 24px;
     display: flex;
     flex-direction: column;
@@ -589,34 +579,22 @@
     align-items: center;
 }
 
+.main-content-bottom h3{
+    font-size: 1.5rem;
+}
+
 .main-content-bottom a{
-    font-family: 'Pacifico', cursive;
-    color: #803663;
+    /* font-family: 'Pacifico', cursive; */
+    color: #F39C13;
 }
 
 
 
 /* Feedback Section */
-
-.tweet{
-    /* background-color: lightseagreen; */
-    font-family: 'Balsamiq Sans', cursive;
-    /* position: relative; */
-    /* text-align: center; */
-    /* padding-top: 10px; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
-
 .tweet-inner{
-    /* transform: translateX(40px); */
-    /* background-color: mediumorchid; */
     width: 100%;
     margin: 10px auto;
     padding: 0px 10px 5px 10px;
-    /* position: absolute; */
-    /* top: 50px; */
 }
 
 @media (max-width: 500px){
@@ -662,6 +640,10 @@
     .scoreinfo-modal-main{
         width: 315px;
         padding: 50px 4px;
+    }
+
+    .rating-content-inner i{
+        padding: 6px 4px;
     }
 
     .scoreinfo-closebtn{
@@ -894,8 +876,8 @@
         margin-right: 2px;
     }
 
-    .motivate-content h3{
-        font-size: 1.1rem;
+    .motivate-content p{
+        font-size: 0.9rem;
     }
 
     .motivate-content h6{
@@ -945,12 +927,11 @@
     .meme2-main{
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
-        min-height: 100px;
+        min-height: 182px;
     }
 
     .meme2-content{
         padding-top: 18px;
-        /* align-items: unset; */
     }
 
     .meme2-content p{

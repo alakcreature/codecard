@@ -246,7 +246,7 @@ function User({dark,error,success,warning,info, profileloader}) {
                                         <span>Ratings</span>
                                     </div>
 
-                                    <div className="user-progress-content codechef">
+                                    <div className="user-progress-content leetcode">
                                         <Link to={{pathname: userdetails.leetcode_username?`https://leetcode.com/${userdetails.leetcode_username}/`:"#"}} target="__blank" className="image-wrapper">
                                             <img src={staticimages.Leetcode} alt="leetcode rating" />
                                         </Link>
@@ -258,7 +258,7 @@ function User({dark,error,success,warning,info, profileloader}) {
                                         </div>
                                     </div>
 
-                                    <div className="user-progress-content codechef">
+                                    <div className="user-progress-content geeksforgeeks">
                                         <Link to={{pathname: userdetails.gfg_username ? `https://auth.geeksforgeeks.org/user/${userdetails.gfg_username}/practice/`:"#"}} target="__blank" className="image-wrapper">
                                             <img src={staticimages.GeeksforGeeks} alt="geeksforgeeks rating" />
                                         </Link>
@@ -278,11 +278,11 @@ function User({dark,error,success,warning,info, profileloader}) {
                                             -
                                         </div>
                                         <div className="ratings-info">
-                                            {(userdetails.codechef!==-1 || userdetails.codechef!==-2) && userdetails.codechef}
+                                            {(userdetails.codechef!==-1 && userdetails.codechef!==-2) ? userdetails.codechef : "-"}
                                         </div>
                                     </div>
 
-                                    <div className="user-progress-content codechef">
+                                    <div className="user-progress-content codeforces">
                                         <Link to={{pathname: userdetails.codeforces_username ? `https://codeforces.com/profile/${userdetails.codeforces_username}`:"#"}} target="__blank" className="image-wrapper">
                                             <img src={staticimages.Codeforces} alt="codeforces rating" />
                                         </Link>
@@ -294,15 +294,15 @@ function User({dark,error,success,warning,info, profileloader}) {
                                         </div>
                                     </div>
 
-                                    <div className="user-progress-content codechef">
+                                    <div className="user-progress-content hackerearth">
                                         <Link to={{pathname: userdetails.hackerearth_username ? `https://www.hackerearth.com/@${userdetails.hackerearth_username}`:"#"}} target="__blank" className="image-wrapper">
                                             <img src={staticimages.Hackerearth} alt="hackerearth rating" />
                                         </Link>
                                         <div className="problem-solved">
-                                            -
+                                            {userdetails.hackerearth && (userdetails.hackerearth!==-1 && userdetails.hackerearth!==-2) ? userdetails.hackerearth : "-"}
                                         </div>
                                         <div className="ratings-info">
-                                            {userdetails.hackerearth && (userdetails.hackerearth!==-1 && userdetails.hackerearth!==-2) ? userdetails.hackerearth : "-"}
+                                            -
                                         </div>
                                     </div>
                                 </div>

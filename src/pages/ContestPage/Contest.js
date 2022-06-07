@@ -70,7 +70,7 @@ function Contest({dark,error,success,warning,info,loader, profileloader}) {
                         <hr />
                         <p>Participate in various contests and hop-in the train of your competitive programming journey. What do you think about me, am I beautiful?</p>
                         {/* <h4>All you need is a little push</h4>  */}
-                        <h6>- By Mr. Bean</h6>
+                        <h6>- Mr. Bean</h6>
                     </div>
                     }
                     <div className="contest-box-header-img">
@@ -190,7 +190,7 @@ function Contest({dark,error,success,warning,info,loader, profileloader}) {
                         :
                         <>
                         <p>Yogyata hai aur saabit bhi karenge <Link to="/practice">practice</Link> karke.</p>
-                        <h6>-By Munna Bhaiya</h6>
+                        <h6>- Munna Bhaiya</h6>
                         </>
                         }
                     </div>
