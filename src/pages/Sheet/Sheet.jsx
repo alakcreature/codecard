@@ -15,7 +15,7 @@ import {loader} from "../../actions/loaderAction";
 import {profileloader} from "../../actions/profileLoaderAction";
 
 
-// {dark,error,success,warning,info,loader, props.profileloader, props.Auth}
+
 function Sheet(props) {
     let {sheetid} = useParams();
     let history = useHistory();
@@ -23,7 +23,6 @@ function Sheet(props) {
     let [oldproblems, setoldproblems] = useState([]);
     let [category,setcategory] = useState([]);
     let [currenttagid, setcurrenttagid] = useState("");
-    let [active, setactive] = useState(0);
     let [issubcsribed,setissubcsribed] = useState(false);
     let [sheetdetails, setsheetdetails] = useState({});
     let [startPosition, setstartPosition] = useState(0);
@@ -38,12 +37,12 @@ function Sheet(props) {
 
 
 
-    const handlecategoryselect = async()=>{
+    const handlecategoryselect = async(categoryid)=>{
         setproblems(el =>{
             let newproblems = oldproblems; 
             return newproblems.filter((op)=>{
                 // eslint-disable-next-line
-                if(op.categoryid==parsed.categoryid){
+                if(op.categoryid==categoryid){
                     return op;
                 }
             });
@@ -157,15 +156,11 @@ function Sheet(props) {
     },[currenttagid]);
 
     useEffect(()=>{
-        setstartPosition(parsed.pos);
-        handlecategoryselect();
-    },[parsed.categoryid, oldproblems]);
-
-    // useEffect(()=>{
-    //     if(category && category.length>0){
-    //         setcurrenttagid(category[0]._id);
-    //     }
-    // },[category]);
+        if(Object.keys(parsed).length>0){
+            setstartPosition(parsed.pos);
+            handlecategoryselect(parsed.categoryid);    
+        }
+    },[oldproblems]);
 
 
 
@@ -189,16 +184,8 @@ function Sheet(props) {
                             </>
                         )}
                     </div>
-                    
-                    {/* Categories Carousel */}
-                    {/* <Carousel
-                        data={category}
-                        method={}
-                        method2={setcurrenttag}
-                        currenttag={currenttag}
-                        ref={carouselobserver}
-                    /> */}
 
+                    {/* Sheet Carousel */}
                     <div className="maincarousel">
                         <div className="carousel-inner">
                             
@@ -214,6 +201,7 @@ function Sheet(props) {
                                     className={`${index===startPosition && 'cactive'} categorycarousel`}
                                     onClick={()=>{
                                         setstartPosition(index);
+                                        handlecategoryselect(element._id);
                                         setcurrenttagid(element._id);
                                     }}
                                     >
