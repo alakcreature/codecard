@@ -19,13 +19,8 @@
     width: 400px;
   }
   
-  .sheet-box-header-content p{
-    margin-bottom: 0px;
-  }
 
   .sheet-box-header-content {
-    /* background-color: violet; */
-    /* width: 60%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,13 +38,12 @@
   }
   
   .sheet-box-header-content h4 {
-    letter-spacing: 1px;
-    font-size: 1.3rem;
+    font-size: 0.95rem;
+    margin-bottom: 0;
   }
   
   .sheet-box-header-quote {
     text-align: right;
-    font-family: "Dancing Script", cursive;
   }
 
 

@@ -97,7 +97,7 @@ function Sheets({dark,error,success,warning,info,loader, profileloader, Auth}) {
                                         So you are not able to track your progress on your favourite DSA sheets? We have a solution for you. Here, all of your favourite DSA sheets are  well consolidated. All problems are listed according to the tags. Here is a bonus for you, subscribe to the sheets for free and get a graphical representation of your progress. 
                                     </p>
                                     <h4 className="sheet-box-header-quote">Kitna competitive mahaul hai</h4>
-                                    <h6 className="sheet-box-header-quote">- Meenal</h6>
+                                    <h4 className="sheet-box-header-quote">- Meenal</h4>
                                 </div>
                             </div>
                             <div className="sheet-box-header-img">
