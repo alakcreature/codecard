@@ -4,6 +4,8 @@ const apis = {
     BASE_LOCAL_URL : envoirnment === "development" ? "http://localhost:3000" : "",
     BASE_SERVER_URL : envoirnment === "development"? "http://localhost:7000/": "https://api.codecard.in",
 
+    BASE_HASHNODE_URL : "https://api.hashnode.com",
+
     LOGIN : "/api/login",
     REGISTER : "/api/signup",
     VALIDATION: "/api/validation",

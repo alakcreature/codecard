@@ -2,18 +2,55 @@ import React,{ useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { TwitterTweetEmbed } from 'react-twitter-embed'
 import './Home.css';
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import staticimages from "../staticImagesLink";
+import apis from '../../services/apis';
 
 
-function Home({loader, success}) {
+const query = `
+    {
+      user(username: "codecard") {
+        publication {
+          posts{
+            slug
+            title
+            brief
+            coverImage
+          }
+        }
+      }
+    }
+  `;
+
+
+function Home(props) {
     let [showscoremodal, setshowscoremodal] = useState(false);
+    let [posts, setPosts] = useState([]);
     
+    let fetchPosts = async()=>{
+        try{
+            const response = await fetch(apis.BASE_HASHNODE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': '852fc39e-3f75-4b6e-8b4e-36446bad044b'
+            },
+            body: JSON.stringify({ query }),
+            })
+            const ApiResponse = await response.json();
+            setPosts(ApiResponse.data.user.publication.posts);
+        }
+        catch(err){
+            console.log(err);
+            props.error(err.message);
+        }
+    }
 
     useEffect(()=>{
+        fetchPosts();
         window.scrollTo(0,0);
+        // eslint-disable-next-line
     },[]);
 
     return (
@@ -188,25 +225,23 @@ function Home({loader, success}) {
                             <h3>Do you have your codecard profile yet?</h3>
                             <p>If not, then <Link to="/signin">register</Link> now to kickstart your programming journey with us.</p>
                         </div> 
-                        </div>
+                    </div>
                     
-                    <div className="tweet">
-                        <div className="tweet-inner">
-                        <TwitterTweetEmbed
-                        tweetId={'1527943410954276864'}
-                        />
-                        <TwitterTweetEmbed
-                        tweetId={'1470289452568178688'}
-                        />
-                        <TwitterTweetEmbed
-                        tweetId={'1427920275404824578'}
-                        />
-                        <TwitterTweetEmbed
-                        tweetId={'1377216337999585280'}
-                        />
-                        {/* <TwitterTweetEmbed
-                        tweetId={'1401055321150222341'}
-                        /> */}
+                    <div className="blog-main">
+                        <header>Blogs</header>
+                        <div className="blog-section">
+                            {posts.length>0 && posts.map((post, index)=>(
+                                <Link key={index} 
+                                    to={{pathname: `https://codecard.hashnode.dev/${post.slug}`}} target="__blank">
+                                    <div className='blog-card'>
+                                        {post.coverImage && (
+                                            <img src={post.coverImage} alt={post.title}/>
+                                        )}
+                                        <h2>{post.title}</h2>
+                                        <p>{post.brief}</p>
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -219,9 +254,7 @@ function Home({loader, success}) {
 
 const mapStateToProps = (state) => {
     return {
-        Auth: state.Auth,
-        Loader:state.Loader,
-        Alert:state.Alert
+        Auth: state.Auth
     }
 }
 
