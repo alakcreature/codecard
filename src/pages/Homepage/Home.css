@@ -1,19 +1,14 @@
 /* Main Content */
 
 .homepage-container{
-    /* background: red; */
     width: 100%;
 }
 
 .homepage-main-content{
-    /* background-color: gold; */
     margin: 0 8%;
-    /* margin-top: 60px; */
-    /* font-family: 'Kumbh Sans', sans-serif; */
 }
 
 .home-main-content-inner{
-    /* background-color: green; */
     margin-top: 25px;
     padding: 0 12px;
     padding-bottom: 20px;
@@ -25,8 +20,6 @@
 .home-main-content{
     background-color: #f2f2f2;
     border-radius: 12px;
-    /* box-shadow: 0px 6px 6px 9px #ccc; */
-    margin-top: 10px;
 }
 
 /* Modal Section */
@@ -42,8 +35,6 @@
 }
 
 .scoreinfo-modal-main{
-    /* background-color: red; */
-    /* font-family: 'Kumbh Sans' ,sans-serif; */
     color: black;
     margin: 70px auto;
     width: 750px;
@@ -57,9 +48,6 @@
     padding: 20px 25px 20px 25px;
 }
 
-.scoreinfo-content{
-    /* background-color: chartreuse; */
-}
 
 .scoreinfo-content p{
     margin: 0;
@@ -584,17 +572,60 @@
 }
 
 .main-content-bottom a{
-    /* font-family: 'Pacifico', cursive; */
     color: #F39C13;
 }
 
 
 
-/* Feedback Section */
-.tweet-inner{
-    width: 100%;
-    margin: 10px auto;
-    padding: 0px 10px 5px 10px;
+/* Blog Section */
+.blog-main{
+    min-width: 420px;
+    max-height: 2350px;
+    overflow-y: auto;
+}
+
+.blog-main header{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-main a{
+    color: black;
+}
+
+.blog-section{
+    /* max-width: 420px; */
+}
+
+.blog-card{
+    height: auto;
+    max-width: 367px;
+    padding: 20px;
+    border: 2px solid #f2f2f2;
+    text-align: inherit;
+    margin: 0 20px 20px 20px;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px #f2f2f2;
+    border-radius: 8px;
+}
+
+.blog-card img{
+    max-width: 320px;
+    height: inherit;
+    border-radius: 5px;
+}
+
+
+.blog-card h2{
+    font-weight: 600;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.blog-card p{
+    color: #333;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 500px){
@@ -1009,8 +1040,8 @@
         font-size: 0.9rem;
     }
 
-    /* Feedback Section */
-    .tweet{
+    /* Blog Section */
+    .blog-section{
         display: none;
     }
 

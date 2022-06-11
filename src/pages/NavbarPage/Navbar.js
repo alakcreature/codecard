@@ -151,9 +151,6 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                         <li className="nav-item">
                             <Link className="nav-link" to="/about" onClick={()=>setnavbutton(!navbutton)}>About</Link>
                         </li>
-                        <li className="nav-item navbar-new-icon">
-                            <Link className="nav-link" to={{pathname: "https://blogs.codecard.in"}} target="__blank">Blogs</Link>
-                        </li>
                         <li className="nav-item feedbackbtn">
                             <Link className="nav-link" to="#" onClick={()=>setfeedbackmodal(true)}>Feedback</Link>
                         </li>
