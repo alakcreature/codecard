@@ -18,7 +18,6 @@ import GoogleLogin from 'react-google-login'
 function LoginComponent({dark,error,success,warning,info,profileloader,loader,login,setUserDetails}) {
     let location = useLocation();
     let history = useHistory();
-    // console.log(location.previousroute);
     let previousroute = location.previousroute;
     let [checkbox,setcheckbox] = useState(false);
     let [infomodal,setinfomodal] = useState(false);
@@ -74,12 +73,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             if(result.data.status===200){
                 login(result.data.token, result.data.user);
                 warning(`Welcome ${result.data.user.firstname}`);
-                console.log(previousroute)
-                if(previousroute){
-                    history.push({
-                        pathname:previousroute
-                    });
-                }
+                window.location.href=previousroute;
             }else if(result.data.status===401){
                 warning(result.data.message);
             }
@@ -115,16 +109,9 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                 password: password
             }).then((result)=>{
                 let token=result.data.token;
-                console.log(result.data);
                 if(token && token!=="null" && token!=="undefined"){
                     login(result.data.token,result.data.user);
-                    // User details in redux store.
                     warning(`Welcome ${result.data.user.firstname}`);
-                    if(previousroute){
-                        history.push({
-                            pathname:previousroute
-                        });
-                    }
                 }else{
                     error(result.data.error);
                 }
@@ -145,7 +132,6 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             }
             
             profileloader(true);
-            // console.log(image);
             const data = new FormData();
             data.append("firstname",firstname);
             data.append("lastname",lastname);

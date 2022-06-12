@@ -153,6 +153,7 @@ function Sheet(props) {
                 search: "?" + new URLSearchParams({categoryid: currenttagid}).toString() + "&" + new URLSearchParams({pos: startPosition}).toString()
             })
         }
+        // eslint-disable-next-line
     },[currenttagid]);
 
     useEffect(()=>{
@@ -160,6 +161,7 @@ function Sheet(props) {
             setstartPosition(parsed.pos);
             handlecategoryselect(parsed.categoryid);    
         }
+        // eslint-disable-next-line
     },[oldproblems]);
 
 
@@ -220,10 +222,10 @@ function Sheet(props) {
                                 (
                                    <div className="sheet-tableouter">
                                             <button className="sheetbtn" 
-                                            onClick={()=>{
+                                            onClick={()=>{                                               
                                                 history.push({
                                                     pathname:"/signin",
-                                                    previousroute: `/sheet/${sheetid}`
+                                                    previousroute: window.location.href
                                                 });
                                             }}
                                             >
