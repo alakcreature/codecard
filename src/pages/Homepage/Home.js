@@ -194,9 +194,8 @@ function Home(props) {
                         {/* Meme2 Section */}
                         <div className="meme2-main">
                             <div className="meme2-content">
-                                <p>Agar apan 1-2 mahine cp kare,</p>
-                                <p>aur contests mein participate karey,</p>
-                                <p>to pakka leaderboard pe aa jayenge.</p>
+                                <p>Bas 1-2 mahine cp aur phir contests,</p>
+                                <p>leaderboard pe phir to yun aayenge.</p>
                                 <h6>-Magician Adi</h6>
                             </div>
                             <div className="meme2-img">

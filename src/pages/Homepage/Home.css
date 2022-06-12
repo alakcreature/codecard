@@ -79,7 +79,7 @@
 
 .before_header{
     background-color: #f2f2f2;
-    height: 280px;
+    height: 201px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -181,7 +181,6 @@
 /* Meme1 Section */
 
 .meme-main{
-    /* background-color: olive; */
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
@@ -270,10 +269,6 @@
     font-size: 1rem;
 }
 
-.practice-content-inner a{
-    /* font-family: 'Pacifico', cursive; */
-    /* color: #803663; */
-}
 
 .practice-img{
     margin-right: 22px;
@@ -287,7 +282,6 @@
 /* Munna meme Section */
 
 .munnameme-main{
-    /* background-color: olive; */
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
@@ -472,7 +466,7 @@
     grid-gap: 10px;
     margin-bottom: 20px;
     padding: 0 0 0 20px;
-    min-height: 165px;
+    min-height: 113px;
 }
 
 .meme2-content{
@@ -594,9 +588,6 @@
     color: black;
 }
 
-.blog-section{
-    /* max-width: 420px; */
-}
 
 .blog-card{
     height: auto;
@@ -660,6 +651,7 @@
 
 
     .home-main-content{
+        padding: 0 15px;
         margin-top: unset;
         border-radius: unset;
     }
@@ -699,7 +691,7 @@
     /* Before Header section */
 
     .before_header{
-        height: 250px;
+        height: 173px;
     }
 
     .before_header>.content{
@@ -711,11 +703,13 @@
         font-size: 1.5rem;   
     }
 
+    /* Rating main */
     .rating-main{
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 25px 5px;
         min-height: 170px;
+        border-radius: 8px;
     }
 
     .rating-content-bubble{
@@ -751,11 +745,11 @@
     }
 
     /* Meme Section */
-
     .meme-main{
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
         min-height: 100px;
+        border-radius: 8px;
     }
 
     .meme-content{
@@ -785,12 +779,12 @@
     }
 
     /* Practice Section */
-
     .practice-main{
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 50px 5px;
         min-height: 160px;
+        border-radius: 8px;
     }
 
     .practice-content-bubble{
@@ -823,11 +817,11 @@
     }
 
     /* Munna Meme Section */
-
     .munnameme-main{
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
-        min-height: 130px;
+        min-height: 100px;
+        border-radius: 8px;
     }
 
     .munnameme-content{
@@ -853,12 +847,12 @@
     }
 
     /* Problem Search Section */
-
     .problemsearch-main{
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 12px 5px;
         min-height: 165px;
+        border-radius: 8px;
     }
 
     .problemsearch-content-bubble{
@@ -890,9 +884,9 @@
     }
 
     /* Motivate Section */
-
     .motivate{
         height: 175px;
+        border-radius: 8px;
     }
 
     .motivate-img{
@@ -916,8 +910,8 @@
     }
 
     /* Leaderboard Section */
-
     .leaderboard-main{
+        border-radius: 8px;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 60px 5px;
@@ -954,20 +948,21 @@
     }
 
     /* Meme2 Section */
-
     .meme2-main{
+        border-radius: 8px;
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
-        min-height: 182px;
+        min-height: 0;
     }
 
     .meme2-content{
         padding-top: 18px;
+        align-items: flex-end;
     }
 
     .meme2-content p{
         text-align: right;
-        font-size: 0.62rem;
+        font-size: 0.57rem;
         margin-left: unset;
     }
 
@@ -984,12 +979,12 @@
     }
 
     .meme2-img img{
-        width: 149px;
+        max-width: 120px;
     }
 
     /* Friends Section */
-
     .collegemate-main{
+        border-radius: 8px;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         height: unset;
@@ -1026,7 +1021,6 @@
     }
 
     /* Main Content Bottom */
-
     .main-content-bottom{
         padding: 13px 0px;
     }
@@ -1041,7 +1035,7 @@
     }
 
     /* Blog Section */
-    .blog-section{
+    .blog-main{
         display: none;
     }
 
