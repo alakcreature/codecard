@@ -17,15 +17,14 @@
 
 .sheetheader h3{
     width: fit-content;
-    color: #fd9d0e;
+    color: rgba(253,157,14,.8431372549019608);
     font-size: 1.6rem;
     margin-bottom: 0;
-    font-family: "Dancing Script", cursive;
+    font-weight: bold;
 }
 
 .sheetheader a{
     color: #F39C13;
-    /* font-family: 'Pacifico', sans-serif; */
     font-size: 1.15rem;
     transition: color 0.2s ease-out;
 }

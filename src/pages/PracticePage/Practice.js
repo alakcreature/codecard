@@ -261,8 +261,8 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                                 Practice from various websites and get your report from all of your competitive coding profiles.
                                 Get better, and better prepare yourself for the competitions because...
                                 </p>
-                                <h4 className="practice-box-header-quote">All you need is a little push</h4>
-                                <h6 className="practice-box-header-quote">- Joker</h6>
+                                <h4 className="practice-box-header-quote">...all you need is a little push</h4>
+                                <h4 className="practice-box-header-quote">- Joker</h4>
                                 </>
                                 }
                             </div>

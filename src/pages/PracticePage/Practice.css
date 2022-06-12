@@ -69,10 +69,10 @@
   }
   
   .practice-box-header-content header {
-    color: #fd9d0e;
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-    font-family: "Dancing Script", cursive;
+    color: #fd9d0ed7;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   
   .practice-box-header-content p {
@@ -80,13 +80,13 @@
   }
   
   .practice-box-header-content h4 {
-    letter-spacing: 1.5px;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   
   .practice-box-header-quote {
     text-align: right;
-    font-family: "Dancing Script", cursive;
+    margin-bottom: 0;
+    line-height: 25px;
   }
   
   .practice-box-header-content hr {
@@ -164,16 +164,15 @@
 }
 
 .problem-search-box {
-    /* background-color: teal; */
-    width: 380px;
+    width: 300px;
 }
 
 .problem-searchbox-btn {
     outline: none;
     text-decoration: none;
     border: none;
-    /* background-color: rgb(40, 149, 221); */
-    background: rgb(139, 212, 200);
+    background: #f6bd60;
+    font-size: 0.8rem;
     border-top-left-radius: 13px;
     border-bottom-left-radius: 13px;
     border-top-right-radius: 13px;
@@ -184,7 +183,11 @@
 }
 
 .problem-searchbox-btn:hover {
-    background: rgb(88, 192, 192);
+    background: #e9c46a;
+}
+
+.problem-searchbox-btn:focus{
+  outline: none;
 }
 
 
@@ -231,7 +234,7 @@
   
   .practice-box-bottom-header a {
     margin: 0 6px;
-    color: #fd9d0e;
+    color: #f6bd60;
   }
   
   .practice-box-bottom-img img {

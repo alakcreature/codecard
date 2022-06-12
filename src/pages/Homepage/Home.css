@@ -1,19 +1,14 @@
 /* Main Content */
 
 .homepage-container{
-    /* background: red; */
     width: 100%;
 }
 
 .homepage-main-content{
-    /* background-color: gold; */
     margin: 0 8%;
-    /* margin-top: 60px; */
-    /* font-family: 'Kumbh Sans', sans-serif; */
 }
 
 .home-main-content-inner{
-    /* background-color: green; */
     margin-top: 25px;
     padding: 0 12px;
     padding-bottom: 20px;
@@ -25,8 +20,6 @@
 .home-main-content{
     background-color: #f2f2f2;
     border-radius: 12px;
-    /* box-shadow: 0px 6px 6px 9px #ccc; */
-    margin-top: 10px;
 }
 
 /* Modal Section */
@@ -42,8 +35,6 @@
 }
 
 .scoreinfo-modal-main{
-    /* background-color: red; */
-    /* font-family: 'Kumbh Sans' ,sans-serif; */
     color: black;
     margin: 70px auto;
     width: 750px;
@@ -57,9 +48,6 @@
     padding: 20px 25px 20px 25px;
 }
 
-.scoreinfo-content{
-    /* background-color: chartreuse; */
-}
 
 .scoreinfo-content p{
     margin: 0;
@@ -91,7 +79,7 @@
 
 .before_header{
     background-color: #f2f2f2;
-    height: 280px;
+    height: 201px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -193,7 +181,6 @@
 /* Meme1 Section */
 
 .meme-main{
-    /* background-color: olive; */
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
@@ -282,10 +269,6 @@
     font-size: 1rem;
 }
 
-.practice-content-inner a{
-    /* font-family: 'Pacifico', cursive; */
-    /* color: #803663; */
-}
 
 .practice-img{
     margin-right: 22px;
@@ -299,7 +282,6 @@
 /* Munna meme Section */
 
 .munnameme-main{
-    /* background-color: olive; */
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-gap: 10px;
@@ -484,7 +466,7 @@
     grid-gap: 10px;
     margin-bottom: 20px;
     padding: 0 0 0 20px;
-    min-height: 165px;
+    min-height: 113px;
 }
 
 .meme2-content{
@@ -584,17 +566,57 @@
 }
 
 .main-content-bottom a{
-    /* font-family: 'Pacifico', cursive; */
     color: #F39C13;
 }
 
 
 
-/* Feedback Section */
-.tweet-inner{
-    width: 100%;
-    margin: 10px auto;
-    padding: 0px 10px 5px 10px;
+/* Blog Section */
+.blog-main{
+    min-width: 420px;
+    max-height: 2350px;
+    overflow-y: auto;
+}
+
+.blog-main header{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.blog-main a{
+    color: black;
+}
+
+
+.blog-card{
+    height: auto;
+    max-width: 367px;
+    padding: 20px;
+    border: 2px solid #f2f2f2;
+    text-align: inherit;
+    margin: 0 20px 20px 20px;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px #f2f2f2;
+    border-radius: 8px;
+}
+
+.blog-card img{
+    max-width: 320px;
+    height: inherit;
+    border-radius: 5px;
+}
+
+
+.blog-card h2{
+    font-weight: 600;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.blog-card p{
+    color: #333;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 500px){
@@ -629,6 +651,7 @@
 
 
     .home-main-content{
+        padding: 0 15px;
         margin-top: unset;
         border-radius: unset;
     }
@@ -668,7 +691,7 @@
     /* Before Header section */
 
     .before_header{
-        height: 250px;
+        height: 173px;
     }
 
     .before_header>.content{
@@ -680,11 +703,13 @@
         font-size: 1.5rem;   
     }
 
+    /* Rating main */
     .rating-main{
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 25px 5px;
         min-height: 170px;
+        border-radius: 8px;
     }
 
     .rating-content-bubble{
@@ -720,11 +745,11 @@
     }
 
     /* Meme Section */
-
     .meme-main{
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
         min-height: 100px;
+        border-radius: 8px;
     }
 
     .meme-content{
@@ -754,12 +779,12 @@
     }
 
     /* Practice Section */
-
     .practice-main{
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 50px 5px;
         min-height: 160px;
+        border-radius: 8px;
     }
 
     .practice-content-bubble{
@@ -792,11 +817,11 @@
     }
 
     /* Munna Meme Section */
-
     .munnameme-main{
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
-        min-height: 130px;
+        min-height: 100px;
+        border-radius: 8px;
     }
 
     .munnameme-content{
@@ -822,12 +847,12 @@
     }
 
     /* Problem Search Section */
-
     .problemsearch-main{
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 12px 5px;
         min-height: 165px;
+        border-radius: 8px;
     }
 
     .problemsearch-content-bubble{
@@ -859,9 +884,9 @@
     }
 
     /* Motivate Section */
-
     .motivate{
         height: 175px;
+        border-radius: 8px;
     }
 
     .motivate-img{
@@ -885,8 +910,8 @@
     }
 
     /* Leaderboard Section */
-
     .leaderboard-main{
+        border-radius: 8px;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         padding: 20px 5px 60px 5px;
@@ -923,20 +948,21 @@
     }
 
     /* Meme2 Section */
-
     .meme2-main{
+        border-radius: 8px;
         grid-template-columns: 1fr 1fr;
         padding: 10px 0 10px 10px;
-        min-height: 182px;
+        min-height: 0;
     }
 
     .meme2-content{
         padding-top: 18px;
+        align-items: flex-end;
     }
 
     .meme2-content p{
         text-align: right;
-        font-size: 0.62rem;
+        font-size: 0.57rem;
         margin-left: unset;
     }
 
@@ -953,12 +979,12 @@
     }
 
     .meme2-img img{
-        width: 149px;
+        max-width: 120px;
     }
 
     /* Friends Section */
-
     .collegemate-main{
+        border-radius: 8px;
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         height: unset;
@@ -995,7 +1021,6 @@
     }
 
     /* Main Content Bottom */
-
     .main-content-bottom{
         padding: 13px 0px;
     }
@@ -1009,8 +1034,8 @@
         font-size: 0.9rem;
     }
 
-    /* Feedback Section */
-    .tweet{
+    /* Blog Section */
+    .blog-main{
         display: none;
     }
 

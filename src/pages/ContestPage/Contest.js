@@ -69,8 +69,6 @@ function Contest({dark,error,success,warning,info,loader, profileloader}) {
                         <header>Upcoming Contests</header>
                         <hr />
                         <p>Participate in various contests and hop-in the train of your competitive programming journey. What do you think about me, am I beautiful?</p>
-                        {/* <h4>All you need is a little push</h4>  */}
-                        <h6>- Mr. Bean</h6>
                     </div>
                     }
                     <div className="contest-box-header-img">
