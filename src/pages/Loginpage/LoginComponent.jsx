@@ -69,11 +69,12 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             let result = await http.post(apis.GOOGLEAUTHENTICATION,{
                 idToken: response.tokenId
             })
-            // console.log(result);
             if(result.data.status===200){
                 login(result.data.token, result.data.user);
                 warning(`Welcome ${result.data.user.firstname}`);
-                window.location.href=previousroute;
+                if(previousroute){
+                    window.location.href=previousroute;
+                }
             }else if(result.data.status===401){
                 warning(result.data.message);
             }
@@ -112,6 +113,9 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                 if(token && token!=="null" && token!=="undefined"){
                     login(result.data.token,result.data.user);
                     warning(`Welcome ${result.data.user.firstname}`);
+                    if(previousroute){
+                        window.location.href=previousroute;
+                    }
                 }else{
                     error(result.data.error);
                 }
