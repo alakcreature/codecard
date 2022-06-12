@@ -1,5 +1,4 @@
 .guarded-loader{
-    /* background: orange; */
     background: white;
     position: fixed;
     top: 0;
@@ -13,12 +12,43 @@
     align-items: center;
 }
 
-.guard-loader-inner{
-    /* background-color: blueviolet; */
+
+
+.guard-loader-inner svg {
+    overflow: visible;
+    width: 100px;
+    height: 150px;
+}
+
+
+.guard-loader-inner svg g {
+    animation: slide 2s linear infinite;
+}
+
+
+.guard-loader-inner svg g:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+
+.guard-loader-inner svg g:nth-child(2) path {
+    animation-delay: 0.5s;
+    stroke-dasharray: 0px 158px;
+    stroke-dashoffset: 1px;
+}
+
+
+.guard-loader-inner svg path {
+    stroke: url(#gradient);
+    stroke-width: 20px;
+    stroke-linecap: round;
+    fill: none;
+    stroke-dasharray: 0 157px;
+    stroke-dashoffset: 0;
+    animation: escalade 2s cubic-bezier(0.8, 0, 0.2, 1) infinite;
 }
 
 .guard-loader-content{
-    /* background: palevioletred; */
     font-family: 'Balsamiq Sans', cursive;
     font-size: 1.2rem;
     animation-name: loadercontent;
@@ -38,31 +68,7 @@
     100% {opacity: 1}
 }
 
-svg {
-    overflow: visible;
-    width: 100px;
-    height: 150px;
-}
-svg g {
-animation: slide 2s linear infinite;
-}
-svg g:nth-child(2) {
-animation-delay: 0.5s;
-}
-svg g:nth-child(2) path {
-animation-delay: 0.5s;
-stroke-dasharray: 0px 158px;
-stroke-dashoffset: 1px;
-}
-svg path {
-stroke: url(#gradient);
-stroke-width: 20px;
-stroke-linecap: round;
-fill: none;
-stroke-dasharray: 0 157px;
-stroke-dashoffset: 0;
-animation: escalade 2s cubic-bezier(0.8, 0, 0.2, 1) infinite;
-}
+
 @keyframes slide {
 0% {
     transform: translateY(-50px);

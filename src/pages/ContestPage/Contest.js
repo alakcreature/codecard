@@ -10,6 +10,8 @@ import staticimages from "../staticImagesLink";
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from '../../actions/profileLoaderAction';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 function Contest({dark,error,success,warning,info,loader, profileloader}) {
@@ -105,27 +107,6 @@ function Contest({dark,error,success,warning,info,loader, profileloader}) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {/* <tr>
-                                    <th scope="row">1</th>
-                                    <td>DSA Learning Series</td>
-                                    <td className="website-logo">
-                                    <Link to="#" tabIndex="0"
-                                        className="btn"
-                                        role="button"
-                                        data-toggle="popover" 
-                                        data-placement="top" 
-                                        data-trigger="hover"
-                                        data-content="Online">
-                                        <i className="fa fa-circle fa-xs" aria-hidden="true"></i>
-                                    </Link>
-                                    <Link to="#" target="_blank">
-                                        <img src={Codechef} alt="cc" />
-                                    </Link>
-                                    </td>
-                                    <td>30 Mar 2020  00:00:00</td>
-                                    <td>30 Mar 2021  00:00:00</td>
-                                </tr> */}
-
                                 {contestdata && contestdata.map((contest,index)=>(
                                     <tr key={index}>
                                         <th scope="row">{index+1}</th>
@@ -136,7 +117,7 @@ function Contest({dark,error,success,warning,info,loader, profileloader}) {
                                         </td>
                                         <td className={`website-logo ${contest.active?"":"offline"}`}>
                                             <Link to="#" data-tip="React-tooltip" data-for={contest.active?"online":"offline"}>
-                                                    <i className="fa fa-circle fa-xs" aria-hidden="true"></i>
+                                                    <FontAwesomeIcon icon="circle"/>
                                             </Link>
                                             {contest.active?(
                                                 <ReactTooltip id="online" place="top" type="dark" effect="solid">
@@ -147,8 +128,6 @@ function Contest({dark,error,success,warning,info,loader, profileloader}) {
                                                     <span>Offline</span>
                                                 </ReactTooltip>
                                             )}
-                                            {/* <ReactTooltip place="top" type="dark" effect="solid">
-                                            </ReactTooltip> */}
 
                                             {(contest.website==="codechef" && (
                                                 <Link to={{pathname: contest.contest_link_registration_days_left}} target="_blank">

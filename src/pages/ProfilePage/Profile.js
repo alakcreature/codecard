@@ -16,6 +16,8 @@ import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from "../../actions/profileLoaderAction";
 import { useRef } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 
@@ -495,7 +497,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                 <div className="profile-main-content-inner">
                     <div className="profile-info">
                         <div className="edit-btn">
-                            <i className="fas fa-pen" onClick={()=>{setshoweditoptions(!showeditoptions)}}></i>
+                            <FontAwesomeIcon 
+                                icon="pen"
+                                onClick={()=>{setshoweditoptions(!showeditoptions)}}
+                            />
                         </div>
                         <div className="profile-img" >
                             <input type="file" className="profile-image-input" 
@@ -504,7 +509,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                             <label htmlFor="image">
                             <div className="profile-overlay">
                                 <div className="profilepic-overlay-inner">
-                                    <i className="far fa-camera-retro fa-2x"></i>
+                                    <FontAwesomeIcon icon="camera-retro" size="2x"/>
                                 </div>
                             </div>
                             </label>
@@ -543,7 +548,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                     <>
                                     <h4>{userdetails && userdetails.firstname} {userdetails && userdetails.lastname}</h4>
                                     {showeditoptions &&
-                                        <i className="fas fa-pen" onClick={()=>setupdatename(!updatename)}></i>
+                                        <FontAwesomeIcon 
+                                            icon="pen"
+                                            onClick={()=>setupdatename(!updatename)}
+                                        />
                                     }
                                     </>
                                 }
@@ -579,7 +587,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                 id="lastname" onClick={handleedit}>
                                     Update
                                 </button>
-                                <i className="fas fa-pen" onClick={()=>setupdatename(!updatename)}></i>
+                                <FontAwesomeIcon 
+                                    icon="pen"
+                                    onClick={()=>setupdatename(!updatename)}
+                                />
                             </div>
                             }
 
@@ -600,7 +611,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                     <>
                                     <h3>{userdetails && (userdetails.college===undefined || userdetails.college==="undefined" || userdetails.college==="") ? "Please update your college name": userdetails.college}</h3>
                                     {showeditoptions &&
-                                    <i className="fas fa-pen" onClick={()=>setupdatecollege(!updatecollege)}></i>
+                                        <FontAwesomeIcon 
+                                            icon="pen"
+                                            onClick={()=>setupdatecollege(!updatecollege)}
+                                        />
                                     }
                                     </>
                                 }
@@ -620,7 +634,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                 id="name" onClick={handleedit}>
                                     Update
                                 </button>
-                                <i className="fas fa-pen" onClick={()=>setupdatecollege(!updatecollege)}></i>
+                                <FontAwesomeIcon
+                                    icon="pen"
+                                    onClick={()=>setupdatecollege(!updatecollege)}
+                                />
                             </div>
                             }
                         </div>
@@ -715,7 +732,10 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         <header>
                             <div className="about-div">
                                 <h3>About</h3>
-                                <i className="fas fa-pen" onClick={()=>setupdateabout(true)}></i>
+                                <FontAwesomeIcon 
+                                    icon="pen" 
+                                    onClick={()=>setupdateabout(true)}
+                                />
                             </div>
 
                         </header>
@@ -784,7 +804,7 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         <header>
                             <div className="rating-heading">
                                 <h3>Progress Card</h3>
-                                <i className="fas fa-pen" onClick={()=>setusernamemodal(true)}></i>
+                                <FontAwesomeIcon icon="pen" onClick={()=>setusernamemodal(true)} />
                             </div>
                         </header>
                         
@@ -867,6 +887,8 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                         <ReactTooltip place="top" id="score-info" type="warning" effect="solid">
                                 <span>Click here to know more about it.</span>
                         </ReactTooltip>
+                        <h5>
+                            <FontAwesomeIcon icon={`angle-${userdetails && userdetails.last_perday_change>0?"up":"down"}`} />
                             {Object.keys(userdetails).length===0
                             ?
                             <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
@@ -875,13 +897,14 @@ function Profile({dark,error,success,warning,info,loader, profileloader,logout,s
                                 </p>
                             </SkeletonTheme>
                             :
-                            <h5>{userdetails.overall_rating}</h5>
+                                userdetails.overall_rating
                             }
+                            </h5>
                         </div>
                         <div className={`per-day ${userdetails && userdetails.last_perday_change<0?"i-negative":""}`}>
                             <h4>Per Day Change</h4>
                             <h5>
-                                <i className={`fa fa-angle-${userdetails && userdetails.last_perday_change>0?"up":"down"}`}></i>
+                                <FontAwesomeIcon icon={`angle-${userdetails && userdetails.last_perday_change>0?"up":"down"}`} />                                
                                 {Object.keys(userdetails).length===0
                                 ?
                                 <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">

@@ -2,6 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 // Change the facebook page link
 function About() {
@@ -43,22 +45,22 @@ function About() {
                         <ul>
                             <li>
                                 <Link to={{pathname: "https://t.me/codecard"}} target="_blank">
-                                    <i className="fab fa-telegram" aria-hidden="true"></i>
+                                    <FontAwesomeIcon icon={["fab","telegram"]}/>
                                 </Link>
                             </li>
                             <li>
                                 <Link to={{pathname: "https://www.youtube.com/channel/UCoWPZGojQB9elA9kXHbtJFw"}} target="_blank">
-                                    <i className="fab fa-youtube" aria-hidden="true"></i>
+                                    <FontAwesomeIcon icon={["fab","youtube"]}/>
                                 </Link>
                             </li>
                             <li>
                                 <Link to={{pathname: "https://www.linkedin.com/company/codecard"}} target="_blank">
-                                    <i className="fab fa-linkedin" aria-hidden="true"></i>
+                                <FontAwesomeIcon icon={["fab","linkedin"]}/>
                                 </Link>
                             </li> 
                             <li>
                                 <Link to={{pathname: "https://twitter.com/codecardoffcl"}} target="_blank">
-                                    <i className="fab fa-twitter" aria-hidden="true"></i>
+                                <FontAwesomeIcon icon={["fab","twitter"]}/>
                                 </Link>
                             </li>                        
                         </ul>

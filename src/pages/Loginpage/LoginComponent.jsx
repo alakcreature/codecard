@@ -10,7 +10,9 @@ import {profileloader} from "../../actions/profileLoaderAction";
 import './LoginComponent.css';
 import staticimages from "../staticImagesLink";
 import { useEffect } from 'react';
-import GoogleLogin from 'react-google-login'
+import GoogleLogin from 'react-google-login';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 
@@ -254,7 +256,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                     <div className="signin-form">
                         <div className="social-login-container">
                             <div className="github-social-login">
-                                <i className="fab fa-github fa-2x"></i>
+                                <FontAwesomeIcon icon={["fab","github"]} size="2x"/>
                                 <Link to={{pathname: "https://github.com/login/oauth/authorize?client_id=169c61c0314ec3999ba4"}}  target="__blank">Sign in with Github</Link>
                             </div>
                             <div className="google-social-login">
@@ -262,7 +264,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                                     clientId="4729798451-b16lrq05nd92f4tl2pvf9emntrue85ld.apps.googleusercontent.com"
                                     render={renderProps => (
                                         <button className="google-social-btn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                            <i className="fab fa-google fa-2x"></i>
+                                            <FontAwesomeIcon icon={["fab","google"]}/>
                                             Sign in using Google
                                         </button>
                                     )
@@ -376,12 +378,10 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                             <div className="row password-div">
                                 <div className="col input-group mb-3">
                                     <input type="password" onChange={(e)=>setpassword(e.target.value)} value={password} className="form-control form-control-sm password-field" placeholder="Password*" aria-label="Password" aria-describedby="password" required/>
-                                    {/* <i className="fa fa-eye" aria-hidden="true"></i> */}
                                     <button className="btn btn-outline-warning btn-sm" onClick={generatePassword} type="button" id="password">Generate for me</button>
                                 </div>
                                 <div className="col input-group mb-3">
                                     <input type="password" onChange={(e)=>setconfirmpassword(e.target.value)} value={confirmpassword} className="form-control form-control-sm password-field" placeholder="Confirm Password*" aria-label="Confirm" aria-describedby="password" required/>
-                                    {/* <i className="fa fa-eye" aria-hidden="true"></i> */}
                                     <button className="btn btn-outline-warning btn-sm" onClick={togglepassword} type="button" id="password2">Show Password</button>
                                 </div>
                             </div>
@@ -1735,7 +1735,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                                     </label>
                                 </div>
                                 <div className="info-icon" onClick={()=>{setinfomodal(!infomodal)}}>
-                                    <i className="fas fa-info"></i>
+                                    <FontAwesomeIcon icon="info"/>
                                 </div>
                             </div>
                             <div className="signup-btn">

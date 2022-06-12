@@ -18,7 +18,7 @@ function Terms() {
 
                     <p>
                         These terms and conditions outline the rules and regulations for the use of CodeCard's Website, 
-                        located at <Link to="#">www.codecard.co.in</Link>.
+                        located at <Link to="#">www.codecard.in</Link>.
                     </p>
 
                     <p>

@@ -77,17 +77,21 @@
     color: rgb(87, 85, 2);
 }
 
-.website-logo i{
+.website-log a{
+    margin-right: 5px;
+}
+
+.website-logo svg{
+    font-size: 0.63rem;
     color: green;
 }
 
-.offline i{
+.offline svg{
     color: red !important;
 }
 
 .website-logo a{
     padding: 0;
-    /* padding-right: 40px; */
 }
 
 .website-logo img{

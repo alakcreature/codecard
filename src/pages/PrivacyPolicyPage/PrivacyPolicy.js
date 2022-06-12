@@ -15,7 +15,7 @@ function PrivacyPolicy() {
                         <h2><strong>Privacy Policy for CodeCard</strong></h2>
                         
                         <p>
-                            At CodeCard, accessible from <Link to="#">www.codecard.co.in</Link>, one of our main priorities is the privacy of
+                            At CodeCard, accessible from <Link to="#">www.codecard.in</Link>, one of our main priorities is the privacy of
                             our visitors. This Privacy Policy document contains types of information that is collected and
                             recorded by CodeCard and how we use it.
                         </p>

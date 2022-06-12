@@ -10,6 +10,7 @@ import './Navbar.css';
 import { useEffect } from 'react';
 import http from '../../services/httpCall';
 import apis from '../../services/apis';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) {
     // if(Auth.isLoggedIn){console.log("logged in")}
@@ -163,12 +164,13 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                             </form>
                             <ul className="navbar-icons">
                                 <li className="update-li">
-                                    <i 
-                                        className="fas fa-bell update-icon"
+                                    <FontAwesomeIcon 
+                                        icon="bell" 
+                                        className="update-icon"
                                         onClick={()=>setshowupdatebox(!showupdatebox)}
                                     >
                                         {/* <div></div> */}
-                                    </i>
+                                    </FontAwesomeIcon>
 
                                     {showupdatebox && (
                                         <div className="update-box">
@@ -227,7 +229,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                     <>
                                         <li>
                                             <Link to="/profile" onClick={()=>setnavbutton(!navbutton)}>
-                                                <i className="fas fa-user"></i>
+                                                <FontAwesomeIcon icon="user" />
                                             </Link>
                                         </li>
 
@@ -236,7 +238,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                                     setnavbutton(!navbutton);
                                                     handlesignout();
                                                 }}>
-                                                <i className="fas fa-sign-out"></i>
+                                                <FontAwesomeIcon icon="arrow-right-from-bracket"/>
                                             </Link>
                                         </li>
                                     </>
@@ -245,7 +247,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                         <Link to="/signin" onClick={()=>{
                                                 setnavbutton(!navbutton);
                                             }}>
-                                                <i className="fas fa-user"></i>
+                                                <FontAwesomeIcon icon="user" />
                                         </Link>
                                     </li>
                                 }

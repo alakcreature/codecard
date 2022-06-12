@@ -8,6 +8,8 @@ import {connect} from 'react-redux';
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from "../../actions/profileLoaderAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 // import staticimages from "../staticImagesLink";
 
@@ -118,7 +120,7 @@ function Sheets({dark,error,success,warning,info,loader, profileloader, Auth}) {
                                         <div className="sharebtns">
                                             <div className="youtube">
                                                 <Link to={{pathname: (sheet.channellink)}} target="__blank">
-                                                    <i className="fab fa-youtube fa-2x"></i>
+                                                    <FontAwesomeIcon icon={["fab","youtube"]} size="2x"/>
                                                 </Link>
                                             </div>
                                         </div>

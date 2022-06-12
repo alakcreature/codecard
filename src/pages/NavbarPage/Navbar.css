@@ -79,11 +79,11 @@
 }
 
 
-.navbar-icons li i{
+.navbar-icons li svg{
     cursor: pointer;
 }
 
-.navbar-icons li i:hover{
+.navbar-icons li svg:hover{
     color: lightslategrey;
 }
 
@@ -168,7 +168,7 @@
     color: grey;
 }
 
-.update-content i{
+.update-content svg{
     margin-left: 0.5rem;
 }
 

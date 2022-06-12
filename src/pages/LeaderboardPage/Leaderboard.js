@@ -14,6 +14,8 @@ import {logout} from "../../actions/authAction";
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from '../../actions/profileLoaderAction';
 import {dark,error,success,warning,info} from '../../actions/alertAction';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 // Handle when country will different from India
@@ -184,7 +186,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                     
                     {/* Scroll Up */}
                     <div className="scrollup">
-                        <i className="fas fa-angle-double-down"></i>
+                        <FontAwesomeIcon icon="angle-double-down"/>
                         <p>Scroll down the list buddy</p>
                     </div>
                     {/* Leaderboard Table */}
@@ -229,7 +231,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                                 <td className="country-td-tag"><img src={India} alt="India" /></td>
                                                 <td>{board_el.profiledata.overall_rating}</td>
                                                 <td className={`td-perdaychange ${board_el.profiledata.last_perday_change>0?"":board_el.profiledata.last_perday_change===0?"neutral":"offline"}`}>
-                                                    <i className={`fa fa-arrow-${board_el.profiledata.last_perday_change>=0?"up":"down"}`}  aria-hidden="true"></i> 
+                                                    <FontAwesomeIcon icon={`arrow-${board_el.profiledata.last_perday_change>=0?"up":"down"}`}/>
                                                     <span>{board_el.profiledata.last_perday_change}</span>
                                                 </td>
                                             </tr>
@@ -253,7 +255,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                                 <td className="country-td-tag"><img src={India} alt="India" /></td>
                                                 <td>{board_el.profiledata.overall_rating}</td>
                                                 <td className={`td-perdaychange ${board_el.profiledata.last_perday_change>0?"":board_el.profiledata.last_perday_change===0?"neutral":"offline"}`}>
-                                                    <i className={`fa fa-arrow-${board_el.profiledata.last_perday_change>=0?"up":"down"}`}  aria-hidden="true"></i> 
+                                                    <FontAwesomeIcon icon={`arrow-${board_el.profiledata.last_perday_change>=0?"up":"down"}`}/>
                                                     <span>{board_el.profiledata.last_perday_change}</span>
                                                 </td>
                                             </tr>
@@ -266,7 +268,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
 
                     {/* Scroll Up */}
                     <div className="scrollup">
-                        <i className="fas fa-angle-double-down"></i>
+                        <FontAwesomeIcon icon="angle-double-down"/>
                         <p>Scroll down the list buddy</p>
                     </div>
 

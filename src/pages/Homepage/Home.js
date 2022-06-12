@@ -6,6 +6,7 @@ import './Home.css';
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import staticimages from "../staticImagesLink";
 import apis from '../../services/apis';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const query = `
@@ -100,7 +101,8 @@ function Home(props) {
                                 <div className="rating-content-inner">
                                     <p>
                                         Monitor your coding performance with our codec score
-                                        <i className="fas fa-info fa-xs" onClick={()=>setshowscoremodal(true)}></i>
+                                        <FontAwesomeIcon icon="info" size='xs' 
+                                        onClick={()=>setshowscoremodal(true)}/>
                                     </p>
                                 </div>
                             </div>

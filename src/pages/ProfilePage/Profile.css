@@ -213,17 +213,17 @@ input[type="file"]{
     font-size: 0.9rem;
 }
 
-.username-div i, .edit-btn i{
+.username-div svg, .edit-btn svg{
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
 }
-.username-div i:hover, .edit-btn i:hover{
+.username-div svg:hover, .edit-btn svg:hover{
     background-color: rgb(165, 155, 144);
 }
 
-.usernamechange-div i{
+.usernamechange-div svg{
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
@@ -247,23 +247,23 @@ input[type="file"]{
     font-size: 0.99rem;
 }
 
-.collegename-div i{
+.collegename-div svg{
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
 }
-.collegename-div i:hover{
+.collegename-div svg:hover{
     background-color: rgb(165, 155, 144);
 }
 
-.collegechange-div i{
+.collegechange-div svg{
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
     transition: all 0.3s ease-in-out;
 }
-.collegechange-div i:hover{
+.collegechange-div svg:hover{
     background-color: rgb(165, 155, 144);
 }
 
@@ -300,14 +300,14 @@ input[type="file"]{
     font-size: 1.3rem;
 }
 
-.about-div i{
+.about-div svg{
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
 
-.about-div i:hover{
+.about-div svg:hover{
     background-color: rgb(165, 155, 144);
 }
 
@@ -493,14 +493,14 @@ input[type="file"]{
     font-size: 1.3rem;
 }
 
-.ratings i{
+.ratings svg{
     cursor: pointer;
     padding: 10px;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
 
-.ratings i:hover{
+.ratings svg:hover{
     background-color: rgb(165, 155, 144);
 }
 
@@ -610,6 +610,10 @@ input[type="file"]{
     cursor: pointer;
 }
 
+.overall-contest-rating h5 svg{
+    margin-right: 10px;
+}
+
 .per-day{
     /* background-color: brown; */
     display: flex;
@@ -618,17 +622,16 @@ input[type="file"]{
 }
 
 .per-day h5{
-    /* margin-left: 10px; */
     text-align: center;
 }
 
-.per-day h5 i{
+.per-day h5 svg{
     color: rgb(16, 219, 16);
     margin-right: 10px;
     font-size: 1.29rem;
 }
 
-.i-negative h5 i{
+.i-negative h5 svg{
     color: red;
 }
 

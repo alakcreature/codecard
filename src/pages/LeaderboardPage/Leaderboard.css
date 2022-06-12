@@ -146,16 +146,20 @@
     color: black !important;
 }
 
-.offline i{
+.offline svg{
     color: "red";
 }
 
-.neutral i{
+.neutral svg{
     color: blue !important;
 }
 
-.td-perdaychange i{
+.td-perdaychange svg{
     color: green;
+}
+
+.scrollup svg{
+    margin-right: 10px;
 }
 
 .pagination{

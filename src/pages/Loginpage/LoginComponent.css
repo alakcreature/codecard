@@ -259,28 +259,21 @@
     margin-left: 6px;
 }
 
-.info-icon i{
+.info-icon svg{
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
+    font-size: 0.8rem;
 }
 
-.info-icon:hover i{
+.info-icon:hover svg{
     background-color: rgb(121, 108, 95);
     border-radius: 50%;
 }
 
-/* .checkbox-div label i{
-    background-color:rgb(129, 123, 116);
-    padding:6px 11px;
-    cursor: pointer;
-    margin-left:10px;
-    border-radius:50%;
-} */
 
 .sidecharacter-box{
-    /* background: blue; */
     display: flex;
     flex-direction: column;
     justify-content: center;

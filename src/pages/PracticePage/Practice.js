@@ -14,6 +14,8 @@ import apis from '../../services/apis';
 import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {loader} from "../../actions/loaderAction";
 import {profileloader} from "../../actions/profileLoaderAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 function useQuery() {
@@ -129,7 +131,6 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                 response = await http.post(apis.SORTED_PROBLEM+`?page=${pagenumber}`,body); 
             }
             if(response.data.status===200){
-                // console.log(response);
                 if(response.data.totalcount===0){
                     if(currenttag){
                         setcurrenttag();   
@@ -138,7 +139,6 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                         setlevel("Level");
                     }
                     if(problemenquiry){
-                        // console.log(problemenquiry)
                         setproblemenquiry(undefined);
                     }
 
@@ -152,15 +152,11 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                     return [...prevproblemlist,...response.data.problemlist];
                 })
 
-                // settags(response.data.tagelements);
-                // settotalpages(Math.ceil(response.data.totalcount/20));
                 if(response.data.totalcount===problemlist.length){
                     sethasmore(false);
                 }
             }else if(response.data.status===206){
                 setproblemlist(response.data.problemlist);
-                // settags(response.data.tagelements);
-                // settotalpages(Math.ceil(response.data.totalcount/20));
                 info("sorry, we couldn't find your query, try another one");
             }
             else{
@@ -184,15 +180,12 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
 
     const handlesearch = (e)=>{
         e.preventDefault();
-        // set the searchbox to the input onChange and in this function set problemenquiry
-        // and set useeffect for the change of problemenquiry, level & tags.
         setproblemenquiry(searchbox);
     }
 
     const observer = useRef();
     
     const lastproblemfetched = useCallback(node => {
-        // console.log(fetching)
         if(fetching)return;
         if(observer.current) observer.current.disconnect();
         observer.current = new IntersectionObserver(entries=>{
@@ -229,8 +222,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                         {/* Practice Header Section */}
                         <div className="practice-box-header">
                             <div className="practice-box-header-img">
-                                {/* {problemlist.length!==0 */}
-                                {false
+                                {problemlist.length===0
                                 ?
                                 <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
                                     <p>
@@ -242,8 +234,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                                 }
                             </div>
                             <div className="practice-box-header-content">
-                                {/* {problemlist.length===0 */}
-                                {false
+                                {problemlist.length===0
                                 ?
                                 <div className="practice-box-header-skeleton">
                                     <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
@@ -351,7 +342,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
 
                         {/* Scroll Up */}
                         <div className="scrollup">
-                            <i className="fas fa-angle-double-down"></i>
+                            <FontAwesomeIcon icon="angle-double-down" />
                             <p>Scroll down the list buddy</p>
                         </div>
 
@@ -364,7 +355,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
 
                         {/* Scroll Up */}
                         <div className="scrollup">
-                            <i className="fas fa-angle-double-down"></i>
+                            <FontAwesomeIcon icon="angle-double-down" />
                             <p>Scroll down the list buddy</p>
                         </div>
 
@@ -372,8 +363,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                         {/* Bottom Section */}
                         <div className="practice-box-bottom">
                             <div className="practice-box-bottom-header">
-                                {/* {problemlist.length===0 */}
-                                {false
+                                {problemlist.length===0
                                 ?
                                 <div className="practice-box-bottom-header">
                                     <div className="practice-box-bottom-header-skeleton">
@@ -391,8 +381,7 @@ function Practice({error, info, warning, dark, success, loader, profileloader,Au
                                 }
                             </div>
                             <div className="practice-box-bottom-img">
-                                {/* {problemlist.length===0 */}
-                                {false
+                                {problemlist.length===0
                                 ?
                                 <div className="practice-box-bottom-skeleton">
                                     <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">

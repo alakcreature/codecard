@@ -9,6 +9,8 @@ import {dark,error,success,warning,info} from '../../actions/alertAction';
 import {profileloader} from "../../actions/profileLoaderAction";
 import http from '../../services/httpCall';
 import apis from '../../services/apis';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 // Change api end point in fetch details funtion.
@@ -141,12 +143,8 @@ function User({dark,error,success,warning,info, profileloader}) {
                                                 </SkeletonTheme>
                                             </div>
                                             :
-                                            <>
-                                            
-                                            <h6>{userdetails && (userdetails.college===undefined || userdetails.college==="undefined" || userdetails.college==="") ? "-": userdetails.college}</h6>
-                                            {/* {showeditoptions &&
-                                            <i className="fas fa-pen" onClick={()=>setupdatecollege(!updatecollege)}></i>
-                                            } */}
+                                            <>                                            
+                                                <h6>{userdetails && (userdetails.college===undefined || userdetails.college==="undefined" || userdetails.college==="") ? "-": userdetails.college}</h6>
                                             </>
                                         }
                                     </div>
@@ -159,9 +157,6 @@ function User({dark,error,success,warning,info, profileloader}) {
                                 <header>
                                     <div className="about-div">
                                         <h3>About</h3>
-                                        {/* {showeditoptions &&
-                                        <i className="fas fa-pen" onClick={()=>setupdateabout(true)}></i>
-                                        } */}
                                     </div>
 
                                 </header>
@@ -312,12 +307,14 @@ function User({dark,error,success,warning,info, profileloader}) {
                             {/* Overall Progress */}
                             <div className="overall-progress">
                                 <div className="overall-contest-rating">
-                                <h4 data-tip="React-tooltip" data-for="score-info" onClick={()=>{setshowscoremodal(true)}}>
-                                    Codec Score
-                                </h4>
-                                <ReactTooltip place="top" id="score-info" type="warning" effect="solid">
-                                        <span>Click here to know more about it.</span>
-                                </ReactTooltip>
+                                    <h4 data-tip="React-tooltip" data-for="score-info" onClick={()=>{setshowscoremodal(true)}}>
+                                        Codec Score
+                                    </h4>
+                                    <ReactTooltip place="top" id="score-info" type="warning" effect="solid">
+                                            <span>Click here to know more about it.</span>
+                                    </ReactTooltip>
+                                    <h5>
+                                    <FontAwesomeIcon icon={`angle-${userdetails && userdetails.last_perday_change>0?"up":"down"}`}/>
                                     {Object.keys(userdetails).length===0
                                     ?
                                     <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
@@ -326,13 +323,14 @@ function User({dark,error,success,warning,info, profileloader}) {
                                         </p>
                                     </SkeletonTheme>
                                     :
-                                    <h5>{userdetails.overall_rating}</h5>
+                                    userdetails.overall_rating
                                     }
+                                    </h5>
                                 </div>
                                 <div className={`per-day ${userdetails && userdetails.last_perday_change<0?"i-negative":""}`}>
                                     <h4>Per Day Change</h4>
                                     <h5>
-                                        <i className={`fa fa-angle-${userdetails && userdetails.last_perday_change>0?"up":"down"}`}></i>
+                                        <FontAwesomeIcon icon={`angle-${userdetails && userdetails.last_perday_change>0?"up":"down"}`}/>
                                         {Object.keys(userdetails).length===0
                                         ?
                                         <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">

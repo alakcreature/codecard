@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import {Redirect, useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
-import './ProfileWrapper.css';
 import http from "../../services/httpCall";
 import apis from "../../services/apis";
 import {dark,error,success,warning,info} from '../../actions/alertAction';

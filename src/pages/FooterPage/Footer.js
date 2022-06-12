@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import India from "../static/india.png"
 import staticimages from "../staticImagesLink";
 import './Footer.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Footer() {
     return (
@@ -24,12 +24,12 @@ function Footer() {
                 <div className="footer-middle">
                     <p>Made by Alak 
                     <Link to={{pathname: "https://www.linkedin.com/in/subham-kumar-88593814a/"}} target="_blank">
-                                    <i className="fab fa-linkedin" aria-hidden="true"></i>
+                        <FontAwesomeIcon icon={["fab","linkedin"]}/>
                     </Link>
                     </p>
                 </div>
                 <div className="footer-right-side">
-                    With <i className='fa fa-heart' style={{color: 'red'}}></i> from
+                    With <FontAwesomeIcon icon="heart" style={{color:'red'}}/> from
                     <img src={staticimages.India} alt="India" />
                 </div>
             </div>
