@@ -6,7 +6,7 @@ import {dark,warning} from './actions/alertAction';
 
 
 function PrivateRoute({ children,Auth, path, dark, warning, ...rest }) {
-
+    
     useEffect(()=>{
         if(!Auth.isLoggedIn){
             warning("Please sign in first.")
