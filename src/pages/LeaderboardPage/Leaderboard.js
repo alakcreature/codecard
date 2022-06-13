@@ -217,10 +217,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                             <tr key={index} ref={lastuserfetched}>
                                                 <td>{index+1}</td>
                                                 <td>
-                                                    {/* <Link to={`/user/${board_el._id}`} className="td-name" data-tip="React-tooltip" data-for={`ccusername ${board_el.codecard_username}`}>
-                                                        {board_el.firstname}
-                                                    </Link > */}
-                                                    <Link to={Auth.userdetails && Auth.userdetails._id===board_el._id ?"/profile":`/profile/${board_el.codecard_username}`} className="td-name" data-tip="React-tooltip" data-for={`ccusername ${board_el.codecard_username}`} target="_blank">
+                                                    <Link to={Auth.userdetails && Auth.userdetails._id===board_el._id ?"/profile":`/${board_el.codecard_username}`} className="td-name" data-tip="React-tooltip" data-for={`ccusername ${board_el.codecard_username}`} target="_blank">
                                                         {board_el.firstname}
                                                     </Link >
                                                     <ReactTooltip place="top" id={`ccusername ${board_el.codecard_username}`} type="dark" effect="float">
@@ -241,10 +238,7 @@ function Leaderboard({dark,error,success,warning,info,loader,profileloader,Auth}
                                             <tr key={index}>
                                                 <td>{index+1}</td>
                                                 <td>
-                                                    {/* <Link to={`/user/${board_el._id}`} className="td-name" data-tip="React-tooltip" data-for={`ccusername ${board_el.codecard_username}`}>
-                                                        {board_el.firstname}
-                                                    </Link > */}
-                                                    <Link to={Auth.userdetails && Auth.userdetails._id===board_el._id ?"/profile":`/profile/${board_el.codecard_username}`} className="td-name" data-tip="React-tooltip" data-for={`ccusername ${board_el.codecard_username}`} target="_blank">
+                                                    <Link to={Auth.userdetails && Auth.userdetails._id===board_el._id ?"/profile":`/${board_el.codecard_username}`} className="td-name" data-tip="React-tooltip" data-for={`ccusername ${board_el.codecard_username}`} target="_blank">
                                                         {board_el.firstname}
                                                     </Link >
                                                     <ReactTooltip place="top" id={`ccusername ${board_el.codecard_username}`} type="dark" effect="float">

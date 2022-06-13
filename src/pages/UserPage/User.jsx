@@ -22,13 +22,13 @@ function User({dark,error,success,warning,info, profileloader}) {
     let [solved, setsolved]= useState([]);
     let [showscoremodal, setshowscoremodal] = useState(false);
     let {username} = useParams();
+    
 
     let fetchUserDetails = async()=>{
         try{
             profileloader(true);
             let response = await http.get(`${apis.GET_OTHER_USER_INFO}/${username}`);
-            console.log(response.data.data);
-
+            
             if(response.data.status===200){
                 setsolved(response.data.data.problemsolved);
                 setuserdetails(response.data.data);
@@ -38,7 +38,6 @@ function User({dark,error,success,warning,info, profileloader}) {
                     })
                 }
             }else if(response.data.status===409){
-                // console.log(result.data.error);
                 dark("profile not found");
                 history.push("/networkerror");
             }

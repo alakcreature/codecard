@@ -50,7 +50,7 @@ function AuthGuard(props) {
                     <ProfileWrapper />
                 </PrivateRoute>
                 <Route exact path="/addusername" component={AddUsername} />
-                <Route exact path="/profile/:username" component={User}/>
+                {/* <Route exact path="/profile/:username" component={User}/> */}
                 <Route exact path="/" component={Home}/>
                 <Route path="/sheets" component={Sheets}/>
                 <Route exact path="/sheet/:sheetid" component={Sheet}/>
@@ -64,6 +64,7 @@ function AuthGuard(props) {
                 <Route exact path="/emailconfirmation/:token" component={EmailConfirmationComponent}/>
                 <Route exact path="/changepassword/:resetToken" component={ChangePasswordComponent}/>
                 <Route exact path="/forgotpassword" component={ForgotPassword}/>
+                <Route exact path="/:username" component={User}/>
                 <Route exact path="/networkerror" component={ErrorPage} />
                 <Route component={ErrorPage}/>
                 </Switch>
