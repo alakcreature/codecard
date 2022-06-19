@@ -185,9 +185,7 @@ function Navbar({ Auth,logout,dark,error,success,warning,info, profileloader }) 
                                                     <p>
                                                         <Link to="/sheet/627551d9a0859b16e87c800b">
                                                             DSA 450 sheet has been added. Check it out now.
-                                                            <i
-                                                                className="fas fa-link"
-                                                            ></i>
+                                                            <FontAwesomeIcon icon="link"/>
                                                         </Link>
                                                     </p>
                                                 </div>

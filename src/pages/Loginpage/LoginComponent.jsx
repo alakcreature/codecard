@@ -255,26 +255,27 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
                 <div className="signin-main-content-inner">
                     <div className="signin-form">
                         <div className="social-login-container">
-                            <div className="github-social-login">
-                                <FontAwesomeIcon icon={["fab","github"]} size="2x"/>
-                                <Link to={{pathname: "https://github.com/login/oauth/authorize?client_id=169c61c0314ec3999ba4"}}  target="__blank">Sign in with Github</Link>
-                            </div>
-                            <div className="google-social-login">
-                                <GoogleLogin
-                                    clientId="4729798451-b16lrq05nd92f4tl2pvf9emntrue85ld.apps.googleusercontent.com"
-                                    render={renderProps => (
-                                        <button className="google-social-btn" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                            <FontAwesomeIcon icon={["fab","google"]}/>
-                                            Sign in using Google
-                                        </button>
-                                    )
-                                    }
-                                    buttonText="Login"
-                                    onSuccess={responseSuccessGoogle}
-                                    onFailure={responseErrorGoogle}
-                                    cookiePolicy={'single_host_origin'}
-                                />
-                            </div>
+                            <Link 
+                                to={{pathname: "https://github.com/login/oauth/authorize?client_id=169c61c0314ec3999ba4"}}
+                                target="__blank"
+                                className='github-social'    
+                            >
+                                    <FontAwesomeIcon icon={["fab","github"]} size="2x"/>
+                            </Link>
+                            
+                            <GoogleLogin
+                                clientId="4729798451-b16lrq05nd92f4tl2pvf9emntrue85ld.apps.googleusercontent.com"
+                                render={renderProps => (
+                                    <Link to="#" className="google-social" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                                     <FontAwesomeIcon icon={["fab","google"]}/>
+                                    </Link>
+                                )
+                                }
+                                buttonText="Login"
+                                onSuccess={responseSuccessGoogle}
+                                onFailure={responseErrorGoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
                         </div>
                         <div className="or">
                             <p>or</p>

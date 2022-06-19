@@ -87,52 +87,39 @@
 
 
 .social-login-container{
-    /* background: red; */
     display: flex;
     justify-content: center;
     align-items: center;
     
 }
 
-.github-social-login{
-    background: rgb(92, 88, 88);
-    padding: 7px 10px;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    margin-right: 20px;
+.github-social{
+    background: transparent;
+    color: black;
+    margin-right: 100px;
 }
 
-.github-social-login a{
-    /* background: rgb(36, 35, 35); */
-    color: white;
-    font-size: 1.1rem;
-    padding: 3px 18px;
+.github-social:hover{
+    color: black;
 }
 
 
-.google-social-login{
-    background: #4285f4;
+
+.google-social{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 7px 10px;
-    border-radius: 6px;
-    color: white;
-    
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 4px;
 }
 
-.google-social-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border: none;
-    background: unset;
-    font-size: 1.11rem;
-    padding: 3px 18px;
+.google-social .fa-google{
+    margin: 0;
+}
+
+.google-social-btn:hover{
+    color: black;
 }
 
 .fa-google{
@@ -348,10 +335,6 @@
         margin-top: 25px;
     }
 
-
-    .github-social-login a{
-        font-size: 0.9rem;
-    }
 
     .google-social-btn{
         font-size: 0.9rem;
