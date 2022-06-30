@@ -48,6 +48,23 @@ function Sheet(props) {
             });
         })
     }
+
+    const shuffle = (arr)=>{
+        for (let i = arr.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        return arr;
+    }
+    
+
+    const handleshuffle = ()=>{
+        const x=[...oldproblems];
+        let newproblems = shuffle(x);
+        setproblems(newproblems);
+    }
     
 
     const handleproblemcheck = async(problemid)=>{
@@ -166,6 +183,7 @@ function Sheet(props) {
 
 
 
+
     return (
         
         <div className="container">    
@@ -188,7 +206,7 @@ function Sheet(props) {
                     </div>
 
                     {/* Sheet Carousel */}
-                    <div className="maincarousel">
+                    <div>
                         <div className="carousel-inner">
                             
                             <OwlCarousel
@@ -212,6 +230,15 @@ function Sheet(props) {
                                 ))}
                             </OwlCarousel>
                         </div>
+                    </div>
+
+                    {/* Shuffle section */}
+                    <div className="shuffle"
+                        onClick={()=>{
+                            handleshuffle();
+                        }}
+                    >
+                        <label id="shuffle" htmlFor="shuffle">Shuffle</label>
                     </div>
 
                     {/* Table */}
@@ -245,11 +272,13 @@ function Sheet(props) {
                                     </div>
                             )}
 
-                        <Table 
-                            problemlist={problems}
-                            problemcheckwrapper={problemcheckwrapper} 
-                            lastelement={lastproblemfetched}
+                        {problems && 
+                            <Table 
+                                problemlist={problems}
+                                problemcheckwrapper={problemcheckwrapper} 
+                                lastelement={lastproblemfetched}
                             />
+                        }
                     </div>
                     
                 </div>

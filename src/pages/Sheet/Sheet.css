@@ -2,6 +2,24 @@
     padding-top: 40px;
 }
 
+.mainsheet-inner #shuffle{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-family: "Dancing Script", cursive;
+    transition: transform 0.2s ease-out;
+    animation-name: scale;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scale{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.4);}
+    100% {transform: scale(1);}
+}
+
 .sheetheader{
     background-color: #f2f2f2;
     margin-bottom: 10px;
