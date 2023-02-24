@@ -92,6 +92,7 @@ function User({dark,error,success,warning,info, profileloader}) {
                     {/* Main Content */}
                     <div className="container-fluid main-content ">
                         <div className="profile-main-content-inner">
+                            {/* Personal Info */}
                             <div className="profile-info">
                                 <div className="profile-img" >
                                     {Object.keys(userdetails).length===0
@@ -149,80 +150,6 @@ function User({dark,error,success,warning,info, profileloader}) {
                                     </div>
                                     
                                 </div>
-                            </div>
-
-                            {/* About Section */}
-                            <div className={`about ${showfullabout?"a-tag-expand":""}`}>
-                                <header>
-                                    <div className="about-div">
-                                        <h3>About</h3>
-                                    </div>
-
-                                </header>
-                                {Object.keys(userdetails).length===0
-                                ?
-                                <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
-                                    <p>
-                                        <Skeleton count={3}/>
-                                    </p>
-                                </SkeletonTheme>
-                                :
-                                <p className="about-p">
-                                    {userdetails.about}
-                                </p>
-                                
-                                }
-
-                                {Object.keys(userdetails).length===0
-                                ?
-                                <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
-                                    <p>
-                                        <Skeleton count={1}/>
-                                    </p>
-                                </SkeletonTheme>
-                                :
-                                <span className={`about-span-tag ${hidespan?"hide":""}`}>
-                                    ...
-                                    <Link to="#" className="about-a-tag"
-                                        onClick={()=>{
-                                            sethidespan(true);
-                                            setshowfullabout(true);
-                                        }}
-                                    >
-                                        see more
-                                    </Link>
-                                </span>
-                                }
-                            </div>
-
-                            {/* Problems Solved Section */}
-                            <div className="problemsolvedmain">
-                                <header>
-                                    <div className="problemsolvedinner">
-                                        <h3>Problems Solved (<span>{solved && solved.length}</span>)</h3>
-                                    </div>
-
-                                </header>
-
-                                <div className="solvedproblemslist">
-                                    {/* <ul>
-                                    {solved  && solved.length!==0 && solved.map((problem,index)=>(
-                                        <li key={index}><Link to={{pathname: (problem.link)}}>{problem.name}</Link></li>
-                                    ))
-                                    }
-                                    </ul> */}
-                                    {solved  && solved.length!==0 ?
-                                    <ul>
-                                    {solved.map((problem,index)=>(
-                                        <li key={index}><Link to={{pathname: (problem.link)}} target="_blank">{problem.name}</Link></li>
-                                    ))
-                                    }
-                                    </ul>
-                                    :
-                                    <p>Hold on for a moment, this ship is yet to sail.</p>
-                                    }
-                                </div>
-
                             </div>
 
                             {/* Profile Ratings */}
@@ -300,8 +227,82 @@ function User({dark,error,success,warning,info, profileloader}) {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* About Section */}
+                            <div className={`about ${showfullabout?"a-tag-expand":""}`}>
+                                <header>
+                                    <div className="about-div">
+                                        <h3>About</h3>
+                                    </div>
+
+                                </header>
+                                {Object.keys(userdetails).length===0
+                                ?
+                                <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
+                                    <p>
+                                        <Skeleton count={3}/>
+                                    </p>
+                                </SkeletonTheme>
+                                :
+                                <p className="about-p">
+                                    {userdetails.about}
+                                </p>
+                                
+                                }
+
+                                {Object.keys(userdetails).length===0
+                                ?
+                                <SkeletonTheme color="#bbb7b0" highlightColor="rgb(194, 188, 174)">
+                                    <p>
+                                        <Skeleton count={1}/>
+                                    </p>
+                                </SkeletonTheme>
+                                :
+                                <span className={`about-span-tag ${hidespan?"hide":""}`}>
+                                    ...
+                                    <Link to="#" className="about-a-tag"
+                                        onClick={()=>{
+                                            sethidespan(true);
+                                            setshowfullabout(true);
+                                        }}
+                                    >
+                                        see more
+                                    </Link>
+                                </span>
+                                }
+                            </div>
+
+                            {/* Problems Solved Section */}
+                            <div className="problemsolvedmain">
+                                <header>
+                                    <div className="problemsolvedinner">
+                                        <h3>Problems Solved (<span>{solved && solved.length}</span>)</h3>
+                                    </div>
+
+                                </header>
+
+                                <div className="solvedproblemslist">
+                                    {/* <ul>
+                                    {solved  && solved.length!==0 && solved.map((problem,index)=>(
+                                        <li key={index}><Link to={{pathname: (problem.link)}}>{problem.name}</Link></li>
+                                    ))
+                                    }
+                                    </ul> */}
+                                    {solved  && solved.length!==0 ?
+                                    <ul>
+                                    {solved.map((problem,index)=>(
+                                        <li key={index}><Link to={{pathname: (problem.link)}} target="_blank">{problem.name}</Link></li>
+                                    ))
+                                    }
+                                    </ul>
+                                    :
+                                    <p>Hold on for a moment, this ship is yet to sail.</p>
+                                    }
+                                </div>
 
                             </div>
+
 
                             {/* Overall Progress */}
                             <div className="overall-progress">
