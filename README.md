@@ -177,7 +177,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Shubham - [@alakcreature](https://twitter.com/alakcreature) - contactus@codecard.co.in
+Shubham - [@alak](https://www.linkedin.com/in/subham-kumar-88593814a/) - contactus@codecard.co.in
 
 Project Link: [https://github.com/alakcreature/codecard](https://github.com/alakcreature/codecard)
 
