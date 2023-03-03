@@ -204,7 +204,7 @@ function User({ dark, error, success, warning, info, profileloader }) {
                   <div className="share-profile">
                     <span>Share this profile:</span>
                       <LinkedinShareButton
-                        url="https://codecard.in/alak"
+                        url={`https://codecard.in/${userdetails?.codecard_username}`}
                         className="social-share-icon"
                         title={`${userdetails?.firstname} - CodeCard Profile`}
                         
@@ -212,7 +212,7 @@ function User({ dark, error, success, warning, info, profileloader }) {
                         <LinkedinIcon size={35} round={true} />
                       </LinkedinShareButton>
                       <TwitterShareButton
-                        url="https://codecard.in/alak"
+                        url={`https://codecard.in/${userdetails?.codecard_username}`}
                         className="social-share-icon"
                         title={`${userdetails?.firstname} - CodeCard Profile`}
                         hashtags={["codecard", "interview"]}
@@ -220,14 +220,14 @@ function User({ dark, error, success, warning, info, profileloader }) {
                         <TwitterIcon size={35} round={true} />
                       </TwitterShareButton>
                       <RedditShareButton
-                        url="https://codecard.in/alak"
+                        url={`https://codecard.in/${userdetails?.codecard_username}`}
                         className="social-share-icon"
                         title={`${userdetails?.firstname} - CodeCard Profile`}
                       >
                         <RedditIcon size={35} round={true} />
                       </RedditShareButton>
                       <WhatsappShareButton
-                        url="https://codecard.in/alak"
+                        url={`https://codecard.in/${userdetails?.codecard_username}`}
                         className="social-share-icon"
                         title={`${userdetails?.firstname} - CodeCard Profile`}
                       >
