@@ -1,15 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import store from "./store";
-import "./index.css";
-import App from "./App";
-import { hydrate, render } from "react-dom";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import {
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import store from './store';
+import './index.css';
+import App from './App';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { 
   faUser,
-  faBell,
+  faBell, 
   faInfo,
   faPen,
   faLink,
@@ -22,17 +21,18 @@ import {
   faCameraRetro,
   faAngleDoubleDown,
   faArrowRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
-import * as serviceWorker from "./serviceWorker";
+} from '@fortawesome/free-solid-svg-icons'
+import * as serviceWorker from './serviceWorker';
 
-library.add(
-  fab,
-  faUser,
+
+library.add( 
+  fab, 
+  faUser, 
   faBell,
   faInfo,
   faPen,
   faLink,
-  faHeart,
+  faHeart, 
   faCircle,
   faArrowUp,
   faAngleUp,
@@ -43,30 +43,13 @@ library.add(
   faArrowRightFromBracket
 );
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <App />
-//   </Provider>
-//   ,
-//   document.getElementById('root')
-// );
-
-const rootElement = document.getElementById("root");
-if (rootElement.hasChildNodes()) {
-  hydrate(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    rootElement
-  );
-} else {
-  render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    rootElement
-  );
-}
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+  ,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
