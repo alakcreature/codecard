@@ -105,12 +105,12 @@ function PrivacyPolicy() {
                             on visitors' browser type and/or other information.
                         </p>
 
-                        <p>
+                        {/* <p>
                             For more general information on cookies, please read 
                             <Link to="https://www.cookieconsent.com/what-are-cookies/">
                                  "What Are Cookies" from Cookie Consent
                             </Link>.
-                        </p>
+                        </p> */}
 
                     </div>
                     <hr/>
@@ -122,10 +122,10 @@ function PrivacyPolicy() {
                             Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to 
                             serve ads to our site visitors based upon their visit to www.website.com and other sites on the 
                             internet. However, visitors may choose to decline the use of DART cookies by visiting the Google 
-                            ad and content network Privacy Policy at the following URL – 
+                            {/* ad and content network Privacy Policy at the following URL – 
                             <Link to="https://policies.google.com/technologies/ads">
                                 Google DART Policies 
-                            </Link>
+                            </Link> */}
                         </p>
                     </div>
                     <hr/>
