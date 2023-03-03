@@ -42,6 +42,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
     let [college,setcollege] = useState();
 
     const togglepassword = ()=>{
+        // TODO: use useRef instead of document
         let pel = window.document.querySelectorAll(".password-field");
         pel.forEach((sel)=>{
             if(sel.type==="password"){
@@ -143,7 +144,7 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             data.append("lastname",lastname);
             data.append("email",email);
             data.append("password",password);
-            data.append("codecard_username",codecard_username);
+            data.append("codecard_username",codecard_username.toLowerCase());
             if(image){
                 data.append("image",image);
             }
@@ -197,7 +198,6 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
     }
 
     useEffect(()=>{
-        console.log("Login component renders")
         window.scrollTo(0,0);
         window.onclick = (e)=>{
             let modalContent = document.querySelector("#infomodal");
@@ -206,14 +206,6 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             }
         }
     },[]);
-
-    useEffect(()=>{
-        // console.log(college);
-    },[checkbox, college]);
-
-    useEffect(()=>{
-        console.log(location);
-    },[location]);
 
     return (
         <>
