@@ -109,8 +109,8 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
 
             profileloader(true);
             http.post(apis.LOGIN,{
-                username: username,
-                password: password
+                username: username.trim(),
+                password: password.trim()
             }).then((result)=>{
                 let token=result.data.token;
                 if(token && token!=="null" && token!=="undefined"){
@@ -142,9 +142,9 @@ function LoginComponent({dark,error,success,warning,info,profileloader,loader,lo
             const data = new FormData();
             data.append("firstname",firstname);
             data.append("lastname",lastname);
-            data.append("email",email);
-            data.append("password",password);
-            data.append("codecard_username",codecard_username.toLowerCase());
+            data.append("email",email.trim());
+            data.append("password",password.trim());
+            data.append("codecard_username",codecard_username.trim().toLowerCase());
             if(image){
                 data.append("image",image);
             }
