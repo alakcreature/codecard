@@ -199,6 +199,20 @@ input[type="file"]{
     transform: translate(2px,-34px);
 }
 
+
+.social-share-icon {
+    outline: none !important;
+    margin: 0px 5px;
+}
+
+.social-share-icon:focus {
+    transform: scale(1.1);
+}
+
+.social-share-icon:first-of-type {
+    margin-left: 10px;
+}
+
 .username-div{
     display: flex;
     justify-content: space-between;
