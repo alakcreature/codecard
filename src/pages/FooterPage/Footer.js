@@ -31,7 +31,7 @@ function Footer() {
         </div>
         <div className="footer-middle">
           <p>
-            Made by Alak
+            Made by Shubham
             <Link
               to={{
                 pathname: "https://www.linkedin.com/in/subham-kumar-88593814a/",
